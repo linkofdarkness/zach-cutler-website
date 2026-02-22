@@ -15,7 +15,6 @@ const config: Config = {
   baseUrl: '/',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -137,8 +136,8 @@ const config: Config = {
         {
           title: 'Subscribe',
           items: [
-            {label: 'RSS Feed', to: '/blog/rss.xml'},
-            {label: 'Atom Feed', to: '/blog/atom.xml'},
+            {label: 'RSS Feed', href: 'https://zachcutler.dev/blog/rss.xml'},
+            {label: 'Atom Feed', href: 'https://zachcutler.dev/blog/atom.xml'},
           ],
         },
       ],

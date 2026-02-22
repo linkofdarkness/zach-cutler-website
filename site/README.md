@@ -1,41 +1,83 @@
-# Website
+# zachcutler.dev
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Personal portfolio and tech blog built with [Docusaurus](https://docusaurus.io/).
 
-## Installation
-
-```bash
-yarn
-```
-
-## Local Development
+## Quick Start
 
 ```bash
-yarn start
+cd site
+npm install
+npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+The site will be available at `http://localhost:3000`.
 
-## Build
+## Writing a Blog Post
+
+Create a new Markdown file in the `blog/` directory. The filename should follow the format `YYYY-MM-DD-slug.md`.
+
+### Minimal post template
+
+```markdown
+---
+slug: my-post-slug
+title: "Post Title Here"
+authors: [zach]
+tags: [dotnet, tips]
+description: "A short description for SEO and social sharing."
+keywords: [relevant, search, terms]
+---
+
+Intro paragraph shown on the blog listing page.
+
+<!-- truncate -->
+
+Rest of the post content goes here. Use standard Markdown.
+```
+
+### Front matter fields
+
+| Field         | Required | Purpose                                    |
+| ------------- | -------- | ------------------------------------------ |
+| `slug`        | Yes      | URL path for the post (`/blog/{slug}`)     |
+| `title`       | Yes      | Post title                                 |
+| `authors`     | Yes      | Author key(s) from `blog/authors.yml`      |
+| `tags`        | Yes      | Tag key(s) from `blog/tags.yml`            |
+| `description` | Yes      | SEO meta description / social card summary |
+| `keywords`    | No       | Additional SEO keywords                    |
+| `image`       | No       | Social sharing image (og:image)            |
+| `draft`       | No       | Set to `true` to hide from production      |
+
+### Adding new tags
+
+Add entries to `blog/tags.yml`:
+
+```yaml
+newtag:
+  label: New Tag
+  permalink: /newtag
+  description: Description for this tag.
+```
+
+## Building for Production
 
 ```bash
-yarn build
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Static output goes to `build/`. Serve it with any static file host.
 
-## Deployment
+## Project Structure
 
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
 ```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
+site/
+├── blog/              # Blog posts (Markdown)
+│   ├── authors.yml    # Author definitions
+│   └── tags.yml       # Tag definitions
+├── src/
+│   ├── components/    # React components
+│   ├── css/           # Global styles
+│   └── pages/         # Static pages (home, about)
+├── static/            # Static assets (images, favicon)
+└── docusaurus.config.ts
 ```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
