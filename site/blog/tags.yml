@@ -1,0 +1,69 @@
+dotnet:
+  label: .NET
+  permalink: /dotnet
+  description: Posts about .NET, ASP.NET Core, C#, and the .NET ecosystem.
+
+aspnet:
+  label: ASP.NET
+  permalink: /aspnet
+  description: Posts about ASP.NET and ASP.NET Core web development.
+
+angular:
+  label: Angular
+  permalink: /angular
+  description: Posts about the Angular framework and TypeScript.
+
+react:
+  label: React
+  permalink: /react
+  description: Posts about React, hooks, and the React ecosystem.
+
+blazor:
+  label: Blazor
+  permalink: /blazor
+  description: Posts about Blazor Server and Blazor WebAssembly.
+
+csharp:
+  label: C#
+  permalink: /csharp
+  description: Posts about the C# programming language.
+
+typescript:
+  label: TypeScript
+  permalink: /typescript
+  description: Posts about TypeScript development.
+
+sql:
+  label: SQL
+  permalink: /sql
+  description: Posts about T-SQL, SQL Server, and database development.
+
+mobile:
+  label: Mobile
+  permalink: /mobile
+  description: Posts about iOS, Xamarin, and .NET MAUI development.
+
+devops:
+  label: DevOps
+  permalink: /devops
+  description: Posts about CI/CD, deployment, and developer tooling.
+
+tips:
+  label: Tips & Tricks
+  permalink: /tips
+  description: Quick tips, gotchas, and PSAs for developers.
+
+discovery:
+  label: Discovery
+  permalink: /discovery
+  description: New tools, libraries, and techniques worth knowing about.
+
+project:
+  label: Project
+  permalink: /project
+  description: Walkthroughs and retrospectives on recent projects.
+
+psa:
+  label: PSA
+  permalink: /psa
+  description: Public service announcements for fellow developers.
