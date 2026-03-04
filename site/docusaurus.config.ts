@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://zachcutler.dev',
+  url: 'https://zachcutler.me',
   baseUrl: '/',
 
   onBrokenLinks: 'throw',
@@ -27,7 +27,7 @@ const config: Config = {
       attributes: {
         name: 'keywords',
         content:
-          'Zach Cutler, software developer, web development, ASP.NET, Angular, React, Blazor, .NET, C#, tech blog',
+          'Zach Cutler, software engineer, app developer, web development, ASP.NET, Angular, React, Blazor, .NET, C#, SQL, tech blog',
       },
     },
     {
@@ -99,12 +99,12 @@ const config: Config = {
         {to: '/blog', label: 'Blog', position: 'left'},
         {to: '/about', label: 'About', position: 'left'},
         {
-          href: 'https://github.com/zachcutler',
+          href: 'https://github.com/linkofdarkness',
           label: 'GitHub',
           position: 'right',
         },
         {
-          href: 'https://linkedin.com/in/zachcutler',
+          href: 'https://linkedin.com/in/zacharytcutler',
           label: 'LinkedIn',
           position: 'right',
         },
@@ -136,8 +136,8 @@ const config: Config = {
         {
           title: 'Subscribe',
           items: [
-            {label: 'RSS Feed', href: 'https://zachcutler.dev/blog/rss.xml'},
-            {label: 'Atom Feed', href: 'https://zachcutler.dev/blog/atom.xml'},
+            {label: 'RSS Feed', href: 'https://zachcutler.me/blog/rss.xml'},
+            {label: 'Atom Feed', href: 'https://zachcutler.me/blog/atom.xml'},
           ],
         },
       ],
@@ -146,7 +146,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['csharp', 'sql', 'bash', 'json', 'swift', 'xml-doc'],
+      additionalLanguages: ['csharp', 'sql', 'javascript', 'html', 'bash', 'json', 'swift', 'xml-doc'],
     },
   } satisfies Preset.ThemeConfig,
 };
