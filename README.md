@@ -1,5 +1,13 @@
-# DotNet Vibe Coding Template Repository
+# zachcutler.dev
 
-A vibe coding template repository containing AI instruction files and folder organization.
+Personal portfolio website and tech blog for Zach Cutler, built with [Docusaurus](https://docusaurus.io/).
 
-This file should be replaced by a detailed README relating to the imlementing project.
+## Getting Started
+
+```bash
+cd site
+npm install
+npm start
+```
+
+See [site/README.md](site/README.md) for full documentation on writing posts and building the site.

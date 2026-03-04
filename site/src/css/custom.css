@@ -1,0 +1,122 @@
+:root {
+  --ifm-color-primary: #3b82f6;
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93bbfd;
+  --ifm-color-primary-lightest: #bfdbfe;
+  --ifm-code-font-size: 95%;
+  --ifm-heading-font-weight: 700;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1d4ed8;
+  --ifm-color-primary-light: #93bbfd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.hero--primary {
+  --ifm-hero-background-color: var(--ifm-color-primary-darkest);
+  --ifm-hero-text-color: #fff;
+}
+
+[data-theme='dark'] .hero--primary {
+  --ifm-hero-background-color: #0f172a;
+}
+
+.hero__subtitle {
+  font-size: 1.4rem;
+  opacity: 0.9;
+}
+
+/* Skills section */
+.skills-section {
+  padding: 3rem 0;
+}
+
+.skill-card {
+  background: var(--ifm-card-background-color, #fff);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.skill-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme='dark'] .skill-card {
+  background: var(--ifm-card-background-color, #1e293b);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .skill-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tech-tag {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+[data-theme='dark'] .tech-tag {
+  background: rgba(96, 165, 250, 0.15);
+  color: var(--ifm-color-primary-light);
+}
+
+/* Blog post cards */
+article.margin-bottom--xl {
+  border-radius: 8px;
+}
+
+/* About page */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.about-content h2 {
+  border-bottom: 2px solid var(--ifm-color-primary);
+  padding-bottom: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+/* CTA section */
+.cta-section {
+  text-align: center;
+  padding: 3rem 0;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+[data-theme='dark'] .cta-section {
+  background: var(--ifm-color-emphasis-100);
+}
