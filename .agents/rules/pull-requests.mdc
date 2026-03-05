@@ -8,6 +8,17 @@ alwaysApply: true
 
 - Adhere to defined coding guidelines.
 
+## Public Visibility And Safety Checks
+
+- This repository is public. Treat every file, commit, branch, PR comment, and screenshot as world-readable.
+- Check for unintentionally shared content before approving or merging:
+  - Secrets and credentials (API keys, tokens, passwords, private certificates).
+  - Private infrastructure details (internal URLs, hostnames, IPs, account IDs, tenant IDs).
+  - Personal or sensitive data (PII, customer data, internal contacts, private notes).
+  - Accidental metadata or artifacts (`.env` files, local config dumps, debug exports, screenshots with sensitive info).
+- If anything looks potentially sensitive but ambiguous, request a friendly confirmation from the contributor that the content is intentional and safe to publish.
+- Prefer conservative handling: remove questionable content first, then re-add only after explicit confirmation.
+
 ## Review Style
 
 - Maintain a strict but constructive tone.
