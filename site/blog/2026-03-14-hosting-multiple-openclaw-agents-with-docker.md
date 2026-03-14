@@ -7,7 +7,7 @@ description: "How I set up multiple isolated OpenClaw instances on a single Ubun
 keywords: [OpenClaw, Docker, nginx, certbot, Ubuntu, VPS, DigitalOcean, reverse proxy, AI agents]
 ---
 
-![OpenClaw hero](openclaw-hero.png)
+![OpenClaw hero](/img/openclaw-hero.png)
 
 [OpenClaw](https://openclaw.ai/) is the hot new thing in the world of AI and tech. It's a fairly open ended tool that allows you to run a personalized AI agent on your own hardware. It can run command line tools, perform web searches, write code, run desktop apps, and perform scheduled tasks, making it an excellent personal aid. All of that is paired with its extensive communication integrations, which allow you to chat with and control it through almost any messaging app.
 
@@ -608,7 +608,7 @@ sudo docker restart claw-name
 ```
 You should now be able to access the dashboard via a web browser using your configured (sub)domain.
 
-![OpenClaw dashboard](openclaw-gateway-connect.png)
+![OpenClaw dashboard](/img/openclaw-gateway-connect.png)
 
 Open the "Overview" page and enter the gateway token `OPENCLAW_GATEWAY_TOKEN` you configured in your `/opt/claws/claw-name/.env` file and press "Connect".
 
