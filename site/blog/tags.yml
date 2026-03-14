@@ -67,3 +67,48 @@ psa:
   label: PSA
   permalink: /psa
   description: Public service announcements for fellow developers.
+
+open-claw:
+  label: OpenClaw
+  permalink: /open-claw
+  description: Posts about OpenClaw setup and usage.
+
+docker:
+  label: Docker
+  permalink: /docker
+  description: Posts about Docker, containers, and container orchestration.
+
+ai:
+  label: AI
+  permalink: /ai
+  description: Posts about AI tools, models, and workflows.
+
+agentic-ai:
+  label: Agentic AI
+  permalink: /agentic-ai
+  description: Posts about autonomous and agent-based AI systems.
+
+nginx:
+  label: nginx
+  permalink: /nginx
+  description: Posts about nginx and reverse proxy configuration.
+
+compose:
+  label: Docker Compose
+  permalink: /compose
+  description: Posts about Docker Compose setup and patterns.
+
+ubuntu:
+  label: Ubuntu
+  permalink: /ubuntu
+  description: Posts about Ubuntu configuration and administration.
+
+vps:
+  label: VPS
+  permalink: /vps
+  description: Posts about virtual private servers and self-hosting.
+
+digital-ocean:
+  label: DigitalOcean
+  permalink: /digital-ocean
+  description: Posts about DigitalOcean infrastructure and setup.
