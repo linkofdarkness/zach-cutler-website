@@ -274,18 +274,6 @@ server {
 }
 ```
 
-### nginx production hardening (recommended)
-For production deployments, add baseline TLS and proxy settings for long-lived websocket traffic:
-
-```nginx
-ssl_protocols TLSv1.2 TLSv1.3;
-ssl_prefer_server_ciphers on;
-add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-
-proxy_read_timeout 3600s;
-proxy_send_timeout 3600s;
-```
-
 Validate configs before reloads:
 ```bash
 sudo docker exec nginx-edge nginx -t
@@ -546,7 +534,16 @@ server {
 
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $connection_upgrade;
+
+        # Optional hardening for long-lived websocket sessions
+        proxy_read_timeout 3600s;
+        proxy_send_timeout 3600s;
     }
+
+    # Optional hardening (production)
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 }
 
 server {
