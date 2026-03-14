@@ -92,7 +92,7 @@ sudo passwd -l root
 ### Network Security
 
 #### Secure SSH
-Modify the SSH config to disable root login and require both public key + password authentication. This is a deliberate tradeoff: stronger than password-only auth, but still broader attack surface than key-only auth. The file is large but look for these values, ensure they are uncommented and set to the correct values.
+Modify the SSH config to disable root login and require both public key + password authention. The file is large but look for these values, ensure they are uncommented and set to the correct values.
 ```bash
 sudo vim /etc/ssh/sshd_config
 
@@ -465,7 +465,7 @@ services:
       - claw-name
 
   claw-name:
-    image: ${OPENCLAW_IMAGE}
+    image: ghcr.io/openclaw/openclaw:main
     container_name: claw-name
     restart: unless-stopped
     env_file:

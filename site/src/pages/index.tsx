@@ -13,11 +13,18 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
+        <div className={styles.profileImageShell}>
+          <img
+            src="/img/profile-image.png"
+            alt="Portrait of Zach Cutler"
+            className={styles.profileImage}
+          />
+        </div>
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <p style={{fontSize: '1.1rem', maxWidth: 600, margin: '0 auto 1.5rem'}}>
+        <p className={clsx('hero__subtitle', styles.heroSubtitle)}>{siteConfig.tagline}</p>
+        <p className={styles.introText}>
           Building modern web, mobile, and data-driven applications for over a
           decade. Welcome to my corner of the internet where I share what
           I&apos;m learning and building.
@@ -45,7 +52,7 @@ function LatestPostsCTA(): ReactNode {
     <div className="cta-section">
       <div className="container">
         <Heading as="h2">From the Blog</Heading>
-        <p style={{fontSize: '1.1rem', marginBottom: '1.5rem'}}>
+        <p className={styles.blogCtaText}>
           Discoveries, recent projects, and knowledge I think is worth sharing.
         </p>
         <Link className="button button--primary button--lg" to="/blog">
