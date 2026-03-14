@@ -467,29 +467,12 @@ services:
       - no-new-privileges:true
     mem_limit: 1g
     cpus: 1.0
+    # Optional: add extra protections like cap_drop/read_only/pids_limit and seccomp/AppArmor profiles as needed.
 
 networks:
   claw-name-net:
     external: true
 ```
-
-### Container hardening (recommended)
-OpenClaw can run commands and tools, so apply tighter container restrictions when possible:
-
-```yaml
-  claw-name:
-    user: "1000:1000"
-    read_only: true
-    cap_drop:
-      - ALL
-    security_opt:
-      - no-new-privileges:true
-    pids_limit: 256
-    tmpfs:
-      - /tmp
-```
-
-Also consider adding seccomp/AppArmor profiles and only re-enabling the minimum capabilities your workload truly requires.
 
 
 ### Add to nginx
