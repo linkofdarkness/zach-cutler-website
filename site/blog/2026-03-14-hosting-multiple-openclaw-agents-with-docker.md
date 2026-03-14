@@ -13,7 +13,7 @@ keywords: [OpenClaw, Docker, nginx, certbot, Ubuntu, VPS, DigitalOcean, reverse 
 
 OpenClaw is designed to be more than another AI agent. The fact that it can run your desktop empowers both you and it to do more than a standard cloud-based AI tool. As you'd expect, however, that comes with huge security implications.
 
-I've opted not to run OpenClaw on any of my personal hardware. Instead, I'm trying to use it by giving it isolated virtual workspaces that it can own and operate within. This persistent workspace, along with the flexibility in tools I'll give it, makes it more useful for asynchronous tasks than current cloud offerings.
+I've opted not to run OpenClaw on any of my personal hardware. Instead, I'm trying to use it by giving it segmented virtual workspaces that it can own and operate within. This persistent workspace, along with the flexibility in tools I'll give it, makes it more useful for asynchronous tasks than current cloud offerings.
 
 <!-- truncate -->
 
@@ -46,7 +46,7 @@ flowchart TD
 ```
 
 ## Before We Begin
-There's a lot of ways to setup OpenClaw and how I'm doing it is not considered the normal pattern. This is also not a guide in how to configure OpenClaw, just how to get it running. I'd recommend anyone reading this to have familiarized themselves with what OpenClaw is capable of and the various ways it can be created and configured. They have [easy to follow setup guides](https://docs.openclaw.ai/start/getting-started) on their website.
+There's a lot of ways to setup OpenClaw and how I'm doing it is not considered the normal pattern. It focuses on segmentation, not strict isolation. This is also not a guide in how to configure OpenClaw, just how to get it running. I'd recommend anyone reading this to have familiarized themselves with what OpenClaw is capable of and the various ways it can be created and configured. They have [easy to follow setup guides](https://docs.openclaw.ai/start/getting-started) on their website.
 
 ### Don't Sue
 I'm writing this guide as I work through and learn this myself, and I am no expert here. Follow at your own risk and be mindful of what you're running. This guide is likely to become out-of-date pretty quickly. OpenClaw and AI are evolving at breakneck speeds and this document could be irrelevant next week.
@@ -55,7 +55,7 @@ I'm writing this guide as I work through and learn this myself, and I am no expe
 I'm configuring this on a [DigitalOcean 2GB/2vCPU droplet](https://www.digitalocean.com/pricing/droplets) running [Ubuntu](https://ubuntu.com) 24 LTS; which I plan on hosting multiple isolated OpenClaw instances on via [Docker](https://www.docker.com).
 
 ### Terms to Know
-I may accidentally reference my own file paths, usernames, etc. as I document this. Know that `zach`, `lod`, `lodsoftworks`, and `lod-softworks` reflect my person and organization.
+I've tried to keep this guide abstract but at times I may reference my own file paths, usernames, etc. as I document this. Know that `zach`, `lod`, `lodsoftworks`, `lod-softworks`, and `zachcutler.me` reflect my person and organization and should be replaced with your own information.
 
 ## Ubuntu Setup
 I'm starting with a fresh droplet so we'll need to do some basic OS management. If you've already got a host setup you can skip to the next section.
@@ -92,7 +92,7 @@ sudo passwd -l root
 ### Network Security
 
 #### Secure SSH
-Modify the SSH config to disable password & root login. The file is large but look for these values, ensure they are uncommented and set to the correct values.
+Modify the SSH config to disable root login and require both public key + password authention. The file is large but look for these values, ensure they are uncommented and set to the correct values.
 ```bash
 sudo vim /etc/ssh/sshd_config
 
@@ -274,6 +274,11 @@ server {
 }
 ```
 
+Validate configs before reloads:
+```bash
+sudo docker exec nginx-edge nginx -t
+```
+
 Finally we'll create our Docker compose file which will eventually contain all of our nginx and OpenClaw containers.
 ```bash
 sudo vim /opt/claws/nginx/compose.yml
@@ -338,7 +343,11 @@ sudo mkdir -p /opt/claws/openclaw/claw-name/{config,workspace}
 
 # Generate a unique security token for this instance's gateway (copy this).
 openssl rand -hex 32
+```
 
+## Create Docker Environment
+Now we'll create an environment file which Docker will use when building the container. The values in this file will be available as environment variables within the container. We'll add a few things here but know this is a place where you can add data being pushed into the OpenClaw environment.
+```bash
 # Create an environment file for the instance
 sudo vim /opt/claws/openclaw/claw-name/.env
 ```
@@ -350,6 +359,9 @@ OPENCLAW_GATEWAY_PORT=18789
 
 OPENCLAW_CONFIG_DIR=/home/node/.openclaw
 OPENCLAW_WORKSPACE_DIR=/home/node/.openclaw/workspace
+
+# If you start seeing JS meomory faults when running OpenClaw you can adjust NodeJS options by injecting NODE_OPTIONS into the environment.
+#NODE_OPTIONS=--max-old-space-size=1024
 ```
 ```bash
 # Restrict permissions on the environment file
@@ -357,7 +369,7 @@ sudo chmod 600 /opt/claws/openclaw/claw-name/.env
 ```
 
 ### DNS
-Add DNS records for the agent. This will be used to generate the TLS/SSL certificate and to access the gateway UI later.
+Add DNS records for the agent. This will be used to generate the TLS/SSL certificate and to access the gateway UI later. The values below are examples only, replace them with your own public DNS/IP values.
 
 | Type | Name | Value / Target | TTL | Priority |
 |---|---|---|---|---|
@@ -462,6 +474,7 @@ services:
       - no-new-privileges:true
     mem_limit: 1g
     cpus: 1.0
+    # Optional: add extra protections like cap_drop/read_only/pids_limit and seccomp/AppArmor profiles as needed.
 
 networks:
   claw-name-net:
@@ -510,7 +523,16 @@ server {
 
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $connection_upgrade;
+
+        # Optional hardening for long-lived websocket sessions
+        proxy_read_timeout 3600s;
+        proxy_send_timeout 3600s;
     }
+
+    # Optional hardening (production)
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 }
 
 server {
@@ -580,6 +602,7 @@ sudo vim /opt/claws/openclaw/claw-name/config/openclaw.json
 We're really wanting to focus on the `gateway` node right now, getting this configured should allow nginx to serve the OpenClaw gateway dashboard which will give us a user interface to further configure and even chat with OpenClaw.
 
 Restart the OpenClaw instance and give it 30-60 seconds to spin back up.
+⚠️ Don't panic if you see a 502 Bad Gateway error fron nginx when you first restart the container. I noticed that it frequently took close to a minute for OpenClaw to fully initialize and start serving the dashboard.
 ```bash
 sudo docker restart claw-name
 ```
@@ -594,4 +617,28 @@ This should give you a "pairing required" warning. You'll approve the pairing re
 # Approve the most recent pairing request
 sudo docker exec -it claw-name openclaw devices approve
 ```
+
+## Closing Thoughts
+You should have a functioning OpenClaw container with a functional chat and configuration interface hosted at your custom domain name. There's still more work to do to get OpenClaw working for you but that really depends on how you want to use and interface with it so I'll end the guide here.
+
+### Memory
+I found myself running into memory issues prety frequently during the build. I'm starting with a 2GB VPS which isn't much for something designed to host multiple containers. OpenClaw would crash due to memory limits from the NodeJS runtime during certain operations (like upgrades, configuring Discord, etc) and I had to increase both the container and NodeJS memory limits. I'll likely upgrade the VPS as I move this into more of a production state.
+
+### Helpful Commands
+Here's a few of the most helpful commands I found while doing this setup.
+```bash
+# Check docker container status - Look at the "Status" column and make sure your services have been running, if you see <10 seconds your container is likely crashing and restarting.
+sudo docker ps
+
+# Tear down and rebuild your containers - While initially setting this up sometimes it's just easier to tear it all down and bring it back up as you make config changes, troubleshoot networks, add environment variables, or upgrade image versions.
+sudo docker compse -f /opt/claws/nginx/compose.yml down
+sudo docker compse -f /opt/claws/nginx/compose.yml up -d
+
+# Check the container logs, this is where you'll find crash logs or faults from OpenClaw
+sudo docker logs --tail 200 claw-name
+
+# Sometimes you just need to give yourself a pep talk
+echo "You’re making real progress — keep going."
+```
+
 Once the pair request is accepted you should be able to refresh the dashboard and be able to do configuration, setup communication channels, and even chat directly with the LLM.
