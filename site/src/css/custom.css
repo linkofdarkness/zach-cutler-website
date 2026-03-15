@@ -95,6 +95,12 @@ article.margin-bottom--xl {
   border-radius: 8px;
 }
 
+/* Blog content images */
+.theme-blog-markdown img {
+  display: block;
+  margin: 1.5rem auto;
+}
+
 /* About page */
 .about-content {
   max-width: 800px;
