@@ -33,11 +33,6 @@ typescript:
   permalink: /typescript
   description: Posts about TypeScript development.
 
-sql:
-  label: SQL
-  permalink: /sql
-  description: Posts about T-SQL, SQL Server, and database development.
-
 mobile:
   label: Mobile
   permalink: /mobile
