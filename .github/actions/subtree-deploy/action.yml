@@ -1,0 +1,46 @@
+name: Subtree Deploy
+
+description: Restore and publish the Hearthly auth host project for subtree deployment.
+
+inputs:
+  project-path:
+    description: Path to the csproj file to restore and publish.
+    required: false
+    default: src/hearthly-auth-server/src/Hearthly.Auth.Host/Hearthly.Auth.Host.csproj
+  framework:
+    description: Target framework passed to dotnet publish.
+    required: false
+    default: net10.0
+  configuration:
+    description: Build configuration.
+    required: false
+    default: Release
+  output-path:
+    description: Publish output directory.
+    required: false
+    default: out
+
+runs:
+  using: composite
+  steps:
+    - name: Setup .NET runtime (LTS)
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          10.0.x
+
+    - name: Cache NuGet packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+
+    - name: Restore
+      shell: bash
+      run: dotnet restore "${{ inputs.project-path }}"
+
+    - name: Publish
+      shell: bash
+      run: dotnet publish "${{ inputs.project-path }}" --configuration "${{ inputs.configuration }}" --output "${{ inputs.output-path }}" --framework "${{ inputs.framework }}" --no-restore
