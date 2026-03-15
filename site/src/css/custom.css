@@ -96,7 +96,7 @@ article.margin-bottom--xl {
 }
 
 /* Blog content images */
-.theme-blog-markdown img {
+.theme-blog-markdown :is(img, picture > img) {
   display: block;
   margin: 1.5rem auto;
 }

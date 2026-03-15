@@ -1,5 +1,5 @@
 ---
-title: About Zach Cutler
+title: About Me
 description: Software developer with 10+ years of experience specializing in web development, mobile apps, and database systems.
 ---
 

@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Zach Cutler',
+  title: "Zach Cutler's Tech Blog",
   tagline: 'Software Developer | Web, Mobile & Data',
   favicon: 'img/favicon.ico',
 
