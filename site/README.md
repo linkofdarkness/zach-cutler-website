@@ -22,6 +22,8 @@ Create a new Markdown file in the `blog/` directory. The filename should follow 
 ---
 slug: my-post-slug
 title: "Post Title Here"
+authors:
+  - name: Zach Cutler
 tags: [dotnet, tips]
 description: "A short description for SEO and social sharing."
 keywords: [relevant, search, terms]
@@ -40,6 +42,7 @@ Rest of the post content goes here. Use standard Markdown.
 | ------------- | -------- | ------------------------------------------ |
 | `slug`        | Yes      | URL path for the post (`/blog/{slug}`)     |
 | `title`       | Yes      | Post title                                 |
+| `authors`     | Yes      | Inline author metadata for SEO tags        |
 | `tags`        | Yes      | Tag key(s) from `blog/tags.yml`            |
 | `description` | Yes      | SEO meta description / social card summary |
 | `keywords`    | No       | Additional SEO keywords                    |

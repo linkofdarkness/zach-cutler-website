@@ -1,6 +1,8 @@
 ---
 slug: 2026-hosting-multiple-openclaw-agents-with-docker
 title: "Hosting Multiple OpenClaw Agents with Docker"
+authors:
+  - name: Zach Cutler
 tags: [open-claw, docker, ai, agentic-ai, nginx, compose, ubuntu, vps, digital-ocean]
 description: "How I set up multiple isolated OpenClaw instances on a single Ubuntu VPS using Docker, nginx, and certbot."
 keywords: [OpenClaw, Docker, nginx, certbot, Ubuntu, VPS, DigitalOcean, reverse proxy, AI agents]
