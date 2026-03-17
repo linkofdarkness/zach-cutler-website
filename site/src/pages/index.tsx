@@ -66,7 +66,6 @@ function LatestPostsCTA(): ReactNode {
 export default function Home(): ReactNode {
   return (
     <Layout
-      title="Software Developer | Web, Mobile & Data"
       description="Zach Cutler — Software developer with 10+ years of experience in ASP.NET, Angular, React, Blazor, iOS, and more. Tech blog and portfolio.">
       <HomepageHeader />
       <main>
