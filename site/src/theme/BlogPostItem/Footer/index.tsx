@@ -16,8 +16,9 @@ export default function BlogPostItemFooter(props: Props): JSX.Element {
           </p>
           <h3 className="author-disclaimer-footer__subtitle">Disclaimer</h3>
           <p>
-            This is a personal, for-fun blog. Content is based on my current
-            experience and may become outdated as tools and platforms evolve.
+            This is a personal, for-fun blog. I don&apos;t claim expertise on
+            every topic covered here, and while I strive for accuracy, some
+            details may be incomplete, incorrect, or become outdated over time.
             Please verify details against official documentation before applying
             them in production.
           </p>
