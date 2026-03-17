@@ -46,7 +46,6 @@ const config: Config = {
         docs: false,
         blog: {
           routeBasePath: 'blog',
-          authorsMapPath: false,
           showReadingTime: true,
           blogTitle: "Zach Cutler's Tech Blog",
           blogDescription:
