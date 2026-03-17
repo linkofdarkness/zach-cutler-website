@@ -1,7 +1,6 @@
 ---
 slug: welcome
 title: "Welcome to My Blog"
-authors: [zach]
 tags: [discovery]
 description: "Introducing my new tech blog — what to expect and why I'm writing."
 keywords: [tech blog, software development, web development, introduction]

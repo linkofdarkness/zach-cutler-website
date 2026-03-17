@@ -1,7 +1,6 @@
 ---
 slug: 2026-hosting-multiple-openclaw-agents-with-docker
 title: "Hosting Multiple OpenClaw Agents with Docker"
-authors: [zach]
 tags: [open-claw, docker, ai, agentic-ai, nginx, compose, ubuntu, vps, digital-ocean]
 description: "How I set up multiple isolated OpenClaw instances on a single Ubuntu VPS using Docker, nginx, and certbot."
 keywords: [OpenClaw, Docker, nginx, certbot, Ubuntu, VPS, DigitalOcean, reverse proxy, AI agents]
@@ -47,9 +46,6 @@ flowchart TD
 
 ## Before We Begin
 There's a lot of ways to setup OpenClaw and how I'm doing it is not considered the normal pattern. It focuses on segmentation, not strict isolation. This is also not a guide in how to configure OpenClaw, just how to get it running. I'd recommend anyone reading this to have familiarized themselves with what OpenClaw is capable of and the various ways it can be created and configured. They have [easy to follow setup guides](https://docs.openclaw.ai/start/getting-started) on their website.
-
-### Don't Sue
-I'm writing this guide as I work through and learn this myself, and I am no expert here. Follow at your own risk and be mindful of what you're running. This guide is likely to become out-of-date pretty quickly. OpenClaw and AI are evolving at breakneck speeds and this document could be irrelevant next week.
 
 ### Infrastructure
 I'm configuring this on a [DigitalOcean 2GB/2vCPU droplet](https://www.digitalocean.com/pricing/droplets) running [Ubuntu](https://ubuntu.com) 24 LTS; which I plan on hosting multiple isolated OpenClaw instances on via [Docker](https://www.docker.com).
