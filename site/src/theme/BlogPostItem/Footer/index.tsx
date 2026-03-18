@@ -1,12 +1,14 @@
 import React from 'react';
 import OriginalBlogPostItemFooter from '@theme-original/BlogPostItem/Footer';
-import type {Props} from '@theme/BlogPostItem/Footer';
+import {useBlogPost} from '@docusaurus/plugin-content-blog/client';
 
-export default function BlogPostItemFooter(props: Props): JSX.Element {
+export default function BlogPostItemFooter(): JSX.Element {
+  const {isBlogPostPage} = useBlogPost();
+
   return (
     <>
-      <OriginalBlogPostItemFooter {...props} />
-      {props.isBlogPostPage ? (
+      <OriginalBlogPostItemFooter />
+      {isBlogPostPage ? (
         <section className="author-disclaimer-footer">
           <h2 className="author-disclaimer-footer__title">About the Author</h2>
           <p>
