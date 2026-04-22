@@ -1,7 +1,3 @@
----
-description: Scope of Work
-alwaysApply: true
----
 # Scope of Work
 
 When performing tasks, making code changes, or designing a solution, make sure to stay focused and on task.
