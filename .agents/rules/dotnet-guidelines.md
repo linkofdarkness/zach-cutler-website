@@ -1,7 +1,3 @@
----
-description: C#/DotNet Programming Guidelines
-alwaysApply: true
----
 # C#/DotNet Programming Guidelines
 
 ## Repository Structure
@@ -16,7 +12,7 @@ alwaysApply: true
     - Use file scoped namespaces
     - Add global `using` directives for frequently used namespaces via the .csproj `<Using Include=.. />` item.
     - Declare variable types instead of using `var`, prefer `new()` instead of `new Type()`.
-    - Delcare data models, database entities, and other POCOs as records (`record class`).
+    - Declare data models, database entities, and other POCOs as records (`record class`).
 - Use the latest stable LTS version of dotnet.
 - Use EntityFrameworkCore for database operations.
     - Use annotations (i.e. [Table("MyTable")]) rather than the model builder pattern (`OnModelCreating(ModelBuilder modelBuilder)`).
