@@ -72,7 +72,7 @@ Before configuring specific scenarios, you must register the base App on GitHub:
 
 ---
 
-## 1. Scenario 1: VPS / Server Configuration Sync
+## Scenario 1: VPS / Server Configuration Sync
 
 **Goal:** Allow a remote VPS or home server to pull and push configuration or state files (e.g., Docker, Nginx, backups) to a private repository.
 
@@ -217,7 +217,7 @@ chmod +x git/get-github-token.sh git/git-pull.sh
 
 ---
 
-## 2. Scenario 2: OpenClaw AI Agents
+## Scenario 2: OpenClaw AI Agents
 
 **Goal:** Give an isolated OpenClaw instance a secure identity to write code, open PRs, and manage issues within scoped repositories.
 
@@ -250,7 +250,7 @@ OpenClaw will automatically sign JWTs and request installation access tokens in 
 
 ---
 
-## 3. Scenario 3: GitHub Actions & Cross-Repo Pipelines
+## Scenario 3: GitHub Actions & Cross-Repo Pipelines
 
 **Goal:** Bypass the default `GITHUB_TOKEN` limitation where actions performed by a workflow runner cannot trigger secondary workflows (e.g., pushing code won't trigger automated test suites).
 
@@ -307,7 +307,7 @@ jobs:
 
 ---
 
-## 4. Finding the Installation ID
+## Finding the Installation ID
 
 The **Installation ID** is required to generate access tokens but is not listed on the main Developer Settings page. Here is how to find it:
 
@@ -320,7 +320,7 @@ The **Installation ID** is required to generate access tokens but is not listed 
 
 ---
 
-## 5. Security Best Practices
+## Security Best Practices
 
 To maintain a secure automation environment, adhere to the following principles:
 
