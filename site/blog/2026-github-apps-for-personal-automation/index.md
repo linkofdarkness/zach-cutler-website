@@ -18,6 +18,8 @@ Fortunately, GitHub provides a modern, robust, and highly secure alternative: **
 
 Unlike PATs, GitHub Apps act as standalone identities. They can be installed on specific accounts or organizations and restricted to *only* the specific repositories they need to access. Furthermore, they do not use static tokens; instead, they authenticate via short-lived installation access tokens that rotate automatically.
 
+One major audit benefit of this architecture is **clear identity separation in your Git history**. When you commit code using a Personal Access Token, the commit is attributed directly to your personal developer account. If you run multiple automated scripts, it becomes impossible to distinguish a manual commit you wrote from an automated change a script made. With a GitHub App, commits and API actions are explicitly labeled under the App's own bot identity (e.g., `your-app-name[bot]`). This makes it immediately obvious in pull requests, commit histories, and audit logs which actions were performed by a human and which were executed by your automation.
+
 In this guide, we will explore the core architecture of GitHub Apps and walk through how to configure and deploy them across three common personal automation scenarios:
 1. **VPS/Server Syncing**: Syncing configuration repositories (Docker Compose, Nginx, etc.) to a remote host.
 2. **OpenClaw Agents**: Giving an AI agent its own isolated identity to perform coding and repository management tasks.
