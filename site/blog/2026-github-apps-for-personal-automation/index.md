@@ -18,7 +18,7 @@ Fortunately, GitHub provides a modern, robust, and highly secure alternative: **
 
 Unlike PATs, GitHub Apps act as standalone identities. They can be installed on specific accounts or organizations and restricted to *only* the specific repositories they need to access. Furthermore, they do not use static tokens; instead, they authenticate via short-lived installation access tokens that rotate automatically.
 
-One major audit benefit of this architecture is **clear identity separation in your Git history**. When you commit code using a Personal Access Token, the commit is attributed directly to your personal developer account. If you run multiple automated scripts, it becomes impossible to distinguish a manual commit you wrote from an automated change a script made. With a GitHub App, commits and API actions are explicitly labeled under the App's own bot identity (e.g., `your-app-name[bot]`). This makes it immediately obvious in pull requests, commit histories, and audit logs which actions were performed by a human and which were executed by your automation.
+One major audit benefit of this architecture is **clear identity separation in your Git history**. When you commit code using a Personal Access Token, the commit is attributed directly to your personal developer account. If you run multiple automated scripts, it becomes impossible to distinguish a manual commit you wrote from automated changes a script made. With a GitHub App, commits and API actions are explicitly labeled under the App's own bot identity (e.g., `your-app-name[bot]`). This makes it immediately obvious in pull requests, commit histories, and audit logs which actions were performed by a human and which were executed by your automation.
 
 In this guide, we will explore the core architecture of GitHub Apps and walk through how to configure and deploy them across three common personal automation scenarios:
 1. **VPS/Server Syncing**: Syncing configuration repositories (Docker Compose, Nginx, etc.) to a remote host.
@@ -102,9 +102,8 @@ set -euo pipefail
 APP_ID="YOUR_APP_ID"
 INSTALLATION_ID="YOUR_INSTALLATION_ID"
 
-# Determine script directory to locate the PEM key relatively
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PEM_PATH="${SCRIPT_DIR}/github-app.private-key.pem"
+# Locate the PEM key relative to the directory containing this script
+PEM_PATH="$(dirname "$0")/github-app.private-key.pem"
 
 if [ ! -f "$PEM_PATH" ]; then
     echo "Error: Private key not found at $PEM_PATH" >&2
@@ -149,8 +148,8 @@ echo "$TOKEN"
 Once the token is fetched, you can run Git commands over HTTPS by passing the token as the authentication credential:
 
 ```bash
-# Get a fresh token
-TOKEN=$(/opt/sync/get-github-token.sh)
+# Get a fresh token (assuming get-github-token.sh is in your path or current directory)
+TOKEN=$(./get-github-token.sh)
 
 # Option A: Clone/Pull using the token in the URL
 git clone https://x-access-token:${TOKEN}@github.com/your-username/my-configs.git /opt/configs
@@ -160,59 +159,63 @@ git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }
 ```
 
 ### Complete Directory & Automation Example
-For a clean infrastructure deployment, you should organize your configurations so that private credential key files are colocated locally on the host, but explicitly excluded from Git history.
+For a clean infrastructure deployment, you should organize your configurations so that private credential key files are colocated locally on the host, but explicitly excluded from Git history using a single root-level `.gitignore` file.
 
 Below is a recommended folder structure for your server configuration repository:
 
 ```text
 / (repository root)
-├── .gitignore                  # Global git exclusions
+├── .gitignore                  # Global git exclusions (ignores secrets across the repo)
 ├── compose.yml                 # Main Docker Compose configuration
 ├── nginx/
 │   ├── nginx.conf              # Master Nginx configurations
 │   └── available-websites/     # Site-specific server blocks
 └── git/
-    ├── .gitignore              # Ignores local private credentials
-    ├── github-app.private-key.pem # Local private key file (ignored)
+    ├── github-app.private-key.pem # Local private key file (ignored by root .gitignore)
     ├── get-github-token.sh     # Executable token exchange script
-    └── git-pull.sh             # Sync trigger wrapper script
+    ├── git-pull.sh             # Sync trigger pull script
+    └── git-push.sh             # Sync trigger push script
 ```
 
 #### 1. `.gitignore` (Root)
-Keep credentials and server environment configurations local to the server:
+Keep credentials and server environment configurations local to the server and out of Git history. This single rule covers the `.pem` file located under `git/`:
 ```text
-# Exclude server secrets and overrides
+# Exclude server secrets and private keys anywhere in the repository
 *.pem
 *.env
 ```
 
-#### 2. `git/.gitignore`
-To prevent the private key from ever being staged or committed:
-```text
-# Exclude the private key
-github-app.private-key.pem
-```
-
-#### 3. `git/git-pull.sh`
-Create a wrapper script that automatically requests a new token, performs the git pull, and exits without leaving credentials saved on the filesystem:
+#### 2. `git/git-pull.sh`
+Create a wrapper script that automatically requests a new token from the companion script in the same directory, performs the git pull, and exits without leaving credentials saved on the filesystem:
 ```bash
 #!/usr/bin/env bash
 # git/git-pull.sh: Securely pull configuration changes using GitHub App credentials
 set -euo pipefail
 
-# Determine script directory to locate get-github-token.sh relatively
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# Retrieve a temporary access token (valid for 1 hour)
-TOKEN=$("${SCRIPT_DIR}/get-github-token.sh")
+# Retrieve a temporary access token (valid for 1 hour) from the companion script in the same directory
+TOKEN=$("$(dirname "$0")/get-github-token.sh")
 
 # Run git pull with single-quoted credentials helper to prevent bash history expansion errors
 git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' pull
 ```
 
+#### 3. `git/git-push.sh`
+Create a corresponding wrapper script that automatically requests a new token, performs the git push (forwarding any branch/tag arguments), and exits cleanly:
+```bash
+#!/usr/bin/env bash
+# git/git-push.sh: Securely push local configuration changes using GitHub App credentials
+set -euo pipefail
+
+# Retrieve a temporary access token (valid for 1 hour) from the companion script in the same directory
+TOKEN=$("$(dirname "$0")/get-github-token.sh")
+
+# Run git push forwarding all script arguments (e.g. git-push.sh origin main)
+git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' push "$@"
+```
+
 Make the sync scripts executable on the host server:
 ```bash
-chmod +x git/get-github-token.sh git/git-pull.sh
+chmod +x git/get-github-token.sh git/git-pull.sh git/git-push.sh
 ```
 
 ---
