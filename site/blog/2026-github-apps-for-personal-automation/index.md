@@ -18,6 +18,8 @@ Fortunately, GitHub provides a modern, robust, and highly secure alternative: **
 
 Unlike PATs, GitHub Apps act as standalone identities. They can be installed on specific accounts or organizations and restricted to *only* the specific repositories they need to access. Furthermore, they do not use static tokens; instead, they authenticate via short-lived installation access tokens that rotate automatically.
 
+One major audit benefit of this architecture is **clear identity separation in your Git history**. When you commit code using a Personal Access Token, the commit is attributed directly to your personal developer account. If you run multiple automated scripts, it becomes impossible to distinguish a manual commit you wrote from automated changes a script made. With a GitHub App, commits and API actions are explicitly labeled under the App's own bot identity (e.g., `your-app-name[bot]`). This makes it immediately obvious in pull requests, commit histories, and audit logs which actions were performed by a human and which were executed by your automation.
+
 In this guide, we will explore the core architecture of GitHub Apps and walk through how to configure and deploy them across three common personal automation scenarios:
 1. **VPS/Server Syncing**: Syncing configuration repositories (Docker Compose, Nginx, etc.) to a remote host.
 2. **OpenClaw Agents**: Giving an AI agent its own isolated identity to perform coding and repository management tasks.
@@ -54,24 +56,23 @@ sequenceDiagram
 
 ---
 
-## 1. General Registration Setup
+## Create a GitHub Application
 
 Before configuring specific scenarios, you must register the base App on GitHub:
 
 1. Navigate to your GitHub profile settings, scroll down to **Developer Settings**, and click **GitHub Apps**. Click **New GitHub App**.
-2. **App Name**: Choose a unique, descriptive name (e.g., `lod-vps-sync` or `claw1-github-agent`).
+2. **App Name**: Choose a unique, descriptive name (e.g., `lod-vps-sync` or `claw1-github-agent`). This is the name that will represent your app in commit listings and logs (e.g., `lod-vps-sync[bot]`).
 3. **Homepage URL**: Set this to your personal blog, company page, or point it to `https://github.com`.
 4. **Webhook**: Uncheck **Active** under the Webhook section. Unless you are building an interactive integration that processes real-time events (like PR creations), webhooks are unnecessary and add overhead.
 5. **Where can this GitHub App be installed?**: 
-    * Select **Only on this account** for personal use. 
-    * *Note:* If you intend to install the App on repositories belonging to organizations you do not own, you will need to set it to **Any account**.
+    * If you will only be working with repositories within your own account or organization, select **Only on this account**. Otherwise, you will need to set it to **Any account** to make it public.
 6. Click **Create GitHub App**.
 7. Note down the **App ID** and **Client ID** displayed on the App information page.
 8. Scroll to the bottom to **Private keys** and click **Generate a private key**. Securely save the downloaded `.pem` file.
 
 ---
 
-## 2. Scenario 1: VPS / Server Configuration Sync
+## 1. Scenario 1: VPS / Server Configuration Sync
 
 **Goal:** Allow a remote VPS or home server to pull and push configuration or state files (e.g., Docker, Nginx, backups) to a private repository.
 
@@ -87,10 +88,10 @@ Go to your App settings under **Permissions & events** and configure:
 Install the App on your personal account, select **Only select repositories**, and check your specific configuration repository.
 
 ### Exchanging Key for Git Access
-Because Git cannot authenticate directly using a `.pem` private key file, you must exchange it for a temporary installation access token. 
+Since Git cannot authenticate directly using a `.pem` private key file, exchange it for a temporary installation access token. 
 
 #### The Exchange Script (`get-github-token.sh`)
-This script uses standard command-line tools (`openssl`, `curl`, `jq`) to construct a signed JWT and exchange it for a token:
+This script uses standard command-line tools (`openssl`, `curl`, `grep`, `sed`) to construct a signed JWT and exchange it for a token, meaning it has zero third-party dependencies (like `jq` or Python):
 
 ```bash
 #!/usr/bin/env bash
@@ -100,7 +101,10 @@ set -euo pipefail
 # Configuration - Replace with your values
 APP_ID="YOUR_APP_ID"
 INSTALLATION_ID="YOUR_INSTALLATION_ID"
-PEM_PATH="/opt/sync/secrets/github-app.private-key.pem"
+
+# Determine script directory to locate the PEM key relatively
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PEM_PATH="${SCRIPT_DIR}/github-app.private-key.pem"
 
 if [ ! -f "$PEM_PATH" ]; then
     echo "Error: Private key not found at $PEM_PATH" >&2
@@ -129,8 +133,8 @@ RESPONSE=$(curl -s -X POST \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   "https://api.github.com/app/installations/${INSTALLATION_ID}/access_tokens")
 
-# 3. Extract the token
-TOKEN=$(echo "$RESPONSE" | jq -r '.token')
+# 3. Extract the token using grep and sed (no external JSON parser required)
+TOKEN=$(echo "$RESPONSE" | grep -o '"token": *"[^"]*"' | sed 's/"token": *"\([^"]*\)"/\1/')
 
 if [ "$TOKEN" == "null" ] || [ -z "$TOKEN" ]; then
     echo "Error: Failed to obtain token. API Response:" >&2
@@ -152,12 +156,68 @@ TOKEN=$(/opt/sync/get-github-token.sh)
 git clone https://x-access-token:${TOKEN}@github.com/your-username/my-configs.git /opt/configs
 
 # Option B: Run a pull command without caching credentials permanently
-git -c credential.helper= -c "credential.helper=!f() { echo password=$TOKEN; }; f" pull
+git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' pull
+```
+
+### Complete Directory & Automation Example
+For a clean infrastructure deployment, you should organize your configurations so that private credential key files are colocated locally on the host, but explicitly excluded from Git history.
+
+Below is a recommended folder structure for your server configuration repository:
+
+```text
+/ (repository root)
+├── .gitignore                  # Global git exclusions
+├── compose.yml                 # Main Docker Compose configuration
+├── nginx/
+│   ├── nginx.conf              # Master Nginx configurations
+│   └── available-websites/     # Site-specific server blocks
+└── git/
+    ├── .gitignore              # Ignores local private credentials
+    ├── github-app.private-key.pem # Local private key file (ignored)
+    ├── get-github-token.sh     # Executable token exchange script
+    └── git-pull.sh             # Sync trigger wrapper script
+```
+
+#### 1. `.gitignore` (Root)
+Keep credentials and server environment configurations local to the server:
+```text
+# Exclude server secrets and overrides
+*.pem
+*.env
+```
+
+#### 2. `git/.gitignore`
+To prevent the private key from ever being staged or committed:
+```text
+# Exclude the private key
+github-app.private-key.pem
+```
+
+#### 3. `git/git-pull.sh`
+Create a wrapper script that automatically requests a new token, performs the git pull, and exits without leaving credentials saved on the filesystem:
+```bash
+#!/usr/bin/env bash
+# git/git-pull.sh: Securely pull configuration changes using GitHub App credentials
+set -euo pipefail
+
+# Determine script directory to locate get-github-token.sh relatively
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Retrieve a temporary access token (valid for 1 hour)
+TOKEN=$("${SCRIPT_DIR}/get-github-token.sh")
+
+# Run git pull with single-quoted credentials helper to prevent bash history expansion errors
+git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' pull
+```
+
+Make the sync scripts executable on the host server:
+```bash
+chmod +x git/get-github-token.sh git/git-pull.sh
 ```
 
 ---
 
-## 3. Scenario 2: OpenClaw AI Agents
+## 2. Scenario 2: OpenClaw AI Agents
 
 **Goal:** Give an isolated OpenClaw instance a secure identity to write code, open PRs, and manage issues within scoped repositories.
 
@@ -190,7 +250,7 @@ OpenClaw will automatically sign JWTs and request installation access tokens in 
 
 ---
 
-## 4. Scenario 3: GitHub Actions & Cross-Repo Pipelines
+## 3. Scenario 3: GitHub Actions & Cross-Repo Pipelines
 
 **Goal:** Bypass the default `GITHUB_TOKEN` limitation where actions performed by a workflow runner cannot trigger secondary workflows (e.g., pushing code won't trigger automated test suites).
 
@@ -247,7 +307,7 @@ jobs:
 
 ---
 
-## 5. Finding the Installation ID
+## 4. Finding the Installation ID
 
 The **Installation ID** is required to generate access tokens but is not listed on the main Developer Settings page. Here is how to find it:
 
@@ -260,7 +320,7 @@ The **Installation ID** is required to generate access tokens but is not listed 
 
 ---
 
-## 6. Security Best Practices
+## 5. Security Best Practices
 
 To maintain a secure automation environment, adhere to the following principles:
 
