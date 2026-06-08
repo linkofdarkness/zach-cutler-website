@@ -7,7 +7,10 @@
 
 ## Style
 
-- Commit messages should follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) format of `feat/fix/chore/docs(scope/module/category): commit description` with a detailed commit body detailing the change after an empty line.
+- Commit messages must follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) format:
+  - **For Blog Post Changes**: Always use the format `docs(3-15 char page topic): description` (e.g. `docs(git-auth): added article about github apps`, `docs(git-auth): fixed typo in article`, `docs(git-auth): added relevant links`). The scope must be a 3-15 character page topic summary.
+  - **For Infrastructure, Package Updates, etc.**: Continue to use standard conventional commit messages and scopes (e.g. `chore(deps): ...`, `ci(github): ...`).
+- Provide a detailed commit body detailing the change after an empty line.
   - Example:
     ```text
     feat(orders): added line item to checkout UI
