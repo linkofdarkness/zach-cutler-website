@@ -1,5 +1,9 @@
 # Pull Requests
 
+## Workflow Guidelines
+
+- **Always Create a Pull Request**: Never push changes directly to the `main` branch. All work must be performed on a dedicated branch, pushed to the remote repository, and a Pull Request opened for user review.
+
 ## Code Guidelines
 
 - Adhere to defined coding guidelines.
