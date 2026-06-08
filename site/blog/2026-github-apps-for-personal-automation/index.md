@@ -154,7 +154,7 @@ TOKEN=$(/opt/sync/get-github-token.sh)
 git clone https://x-access-token:${TOKEN}@github.com/your-username/my-configs.git /opt/configs
 
 # Option B: Run a pull command without caching credentials permanently
-git -c credential.helper= -c "credential.helper=!f() { echo password=$TOKEN; }; f" pull
+git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' pull
 ```
 
 ---
