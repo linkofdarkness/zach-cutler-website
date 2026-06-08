@@ -90,7 +90,7 @@ Install the App on your personal account, select **Only select repositories**, a
 Because Git cannot authenticate directly using a `.pem` private key file, you must exchange it for a temporary installation access token. 
 
 #### The Exchange Script (`get-github-token.sh`)
-This script uses standard command-line tools (`openssl`, `curl`, `jq`) to construct a signed JWT and exchange it for a token:
+This script uses standard command-line tools (`openssl`, `curl`, `grep`, `sed`) to construct a signed JWT and exchange it for a token, meaning it has zero third-party dependencies (like `jq` or Python):
 
 ```bash
 #!/usr/bin/env bash
@@ -129,8 +129,8 @@ RESPONSE=$(curl -s -X POST \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   "https://api.github.com/app/installations/${INSTALLATION_ID}/access_tokens")
 
-# 3. Extract the token
-TOKEN=$(echo "$RESPONSE" | jq -r '.token')
+# 3. Extract the token using grep and sed (no external JSON parser required)
+TOKEN=$(echo "$RESPONSE" | grep -o '"token": *"[^"]*"' | sed 's/"token": *"\([^"]*\)"/\1/')
 
 if [ "$TOKEN" == "null" ] || [ -z "$TOKEN" ]; then
     echo "Error: Failed to obtain token. API Response:" >&2
