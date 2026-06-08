@@ -175,7 +175,8 @@ Below is a recommended folder structure for your server configuration repository
     ├── .gitignore              # Ignores local private credentials
     ├── github-app.private-key.pem # Local private key file (ignored)
     ├── get-github-token.sh     # Executable token exchange script
-    └── git-pull.sh             # Sync trigger wrapper script
+    ├── git-pull.sh             # Sync trigger pull script
+    └── git-push.sh             # Sync trigger push script
 ```
 
 #### 1. `.gitignore` (Root)
@@ -210,9 +211,26 @@ TOKEN=$("${SCRIPT_DIR}/get-github-token.sh")
 git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' pull
 ```
 
+#### 4. `git/git-push.sh`
+Create a corresponding wrapper script that automatically requests a new token, performs the git push (forwarding any branch/tag arguments), and exits cleanly:
+```bash
+#!/usr/bin/env bash
+# git/git-push.sh: Securely push local configuration changes using GitHub App credentials
+set -euo pipefail
+
+# Determine script directory to locate get-github-token.sh relatively
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Retrieve a temporary access token (valid for 1 hour)
+TOKEN=$("${SCRIPT_DIR}/get-github-token.sh")
+
+# Run git push forwarding all script arguments (e.g. git-push.sh origin main)
+git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' push "$@"
+```
+
 Make the sync scripts executable on the host server:
 ```bash
-chmod +x git/get-github-token.sh git/git-pull.sh
+chmod +x git/get-github-token.sh git/git-pull.sh git/git-push.sh
 ```
 
 ---
