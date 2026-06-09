@@ -1,6 +1,6 @@
-# zachcutler.dev
+# ZachCutler.me
 
-Welcome to the public repository for **zachcutler.dev**, the personal portfolio website and technical blog of Zach Cutler.
+Welcome to the public repository for **zachcutler.me**, the personal portfolio website and technical blog of Zach Cutler.
 
 ## About Zach Cutler
 
@@ -11,7 +11,7 @@ Over my career, I've specialized in:
 * **Mobile Engineering**: Shipping native iOS apps (Swift & Objective-C) and cross-platform solutions utilizing Xamarin and .NET MAUI.
 * **Database & Data Architecture**: Designing high-performance data layers, complex T-SQL queries, and Entity Framework integrations on SQL Server.
 
-For more details, check out my [About Me](/about) page on the live site.
+For more details, check out my [About Me](https://zachcutler.me/about) page on the live site.
 
 ## About The Blog & Projects
 
