@@ -90,7 +90,7 @@ Install the App on your personal account, select **Only select repositories**, a
 ### Exchanging Key for Git Access
 Since Git cannot authenticate directly using a `.pem` private key file, exchange it for a temporary installation access token. 
 
-#### The Exchange Script (`get-github-token.sh`)
+#### The Exchange Script (`git-auth.sh`)
 This script uses standard command-line tools (`openssl`, `curl`, `grep`, `sed`) to construct a signed JWT and exchange it for a token, meaning it has zero third-party dependencies (like `jq` or Python):
 
 ```bash
@@ -102,8 +102,8 @@ set -euo pipefail
 APP_ID="YOUR_APP_ID"
 INSTALLATION_ID="YOUR_INSTALLATION_ID"
 
-# Locate the PEM key relative to the directory containing this script
-PEM_PATH="$(dirname "$0")/github-app.private-key.pem"
+# Hardcoded path to the PEM private key file
+PEM_PATH="/opt/git/github-app.private-key.pem"
 
 if [ ! -f "$PEM_PATH" ]; then
     echo "Error: Private key not found at $PEM_PATH" >&2
@@ -148,14 +148,14 @@ echo "$TOKEN"
 Once the token is fetched, you can run Git commands over HTTPS by passing the token as the authentication credential:
 
 ```bash
-# Get a fresh token (assuming get-github-token.sh is in your path or current directory)
-TOKEN=$(./get-github-token.sh)
+# Get a fresh token (assuming git-auth.sh is installed at /opt/git/)
+TOKEN=$(/opt/git/git-auth.sh)
 
 # Option A: Clone/Pull using the token in the URL
 git clone https://x-access-token:${TOKEN}@github.com/your-username/my-configs.git /opt/configs
 
 # Option B: Run a pull command without caching credentials permanently
-git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' pull
+git -c credential.helper= -c 'credential.helper=!f() { echo username='lod-vps-1'; echo password='$TOKEN'; }; f' pull
 ```
 
 ### Complete Directory & Automation Example
@@ -172,7 +172,7 @@ Below is a recommended folder structure for your server configuration repository
 │   └── available-websites/     # Site-specific server blocks
 └── git/
     ├── github-app.private-key.pem # Local private key file (ignored by root .gitignore)
-    ├── get-github-token.sh     # Executable token exchange script
+    ├── git-auth.sh             # Executable token exchange script
     ├── git-pull.sh             # Sync trigger pull script
     └── git-push.sh             # Sync trigger push script
 ```
@@ -193,10 +193,10 @@ Create a wrapper script that automatically requests a new token from the compani
 set -euo pipefail
 
 # Retrieve a temporary access token (valid for 1 hour) from the companion script in the same directory
-TOKEN=$("$(dirname "$0")/get-github-token.sh")
+TOKEN=$("/opt/git/git-auth.sh")
 
 # Run git pull with single-quoted credentials helper to prevent bash history expansion errors
-git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' pull
+git -c credential.helper= -c 'credential.helper=!f() { echo username='lod-vps-1'; echo password='$TOKEN'; }; f' pull
 ```
 
 #### 3. `git/git-push.sh`
@@ -206,16 +206,16 @@ Create a corresponding wrapper script that automatically requests a new token, p
 # git/git-push.sh: Securely push local configuration changes using GitHub App credentials
 set -euo pipefail
 
-# Retrieve a temporary access token (valid for 1 hour) from the companion script in the same directory
-TOKEN=$("$(dirname "$0")/get-github-token.sh")
+# Retrieve a temporary access token (valid for 1 hour) from the companion script
+TOKEN=$("/opt/git/git-auth.sh")
 
 # Run git push forwarding all script arguments (e.g. git-push.sh origin main)
-git -c credential.helper= -c 'credential.helper=!f() { echo password='$TOKEN'; }; f' push "$@"
+git -c credential.helper= -c 'credential.helper=!f() { echo username='lod-vps-1'; echo password='$TOKEN'; }; f' push "$@"
 ```
 
 Make the sync scripts executable on the host server:
 ```bash
-chmod +x git/get-github-token.sh git/git-pull.sh git/git-push.sh
+chmod +x git/git-auth.sh git/git-pull.sh git/git-push.sh
 ```
 
 ---
