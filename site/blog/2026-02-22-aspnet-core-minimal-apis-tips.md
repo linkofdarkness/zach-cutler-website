@@ -1,7 +1,8 @@
 ---
 slug: aspnet-core-minimal-apis-tips
 title: "5 Things I Wish I Knew Sooner About ASP.NET Core Minimal APIs"
-authors: [zach]
+authors:
+  - name: Zach Cutler
 tags: [aspnet, dotnet, csharp, tips]
 description: "Practical tips for working with ASP.NET Core Minimal APIs — from endpoint filters to validation patterns."
 keywords: [ASP.NET Core, Minimal APIs, C#, .NET, web API, tips]

@@ -62,7 +62,7 @@ const config: Config = {
             copyright: `Copyright © ${new Date().getFullYear()} Zach Cutler`,
           },
           onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
+          onInlineAuthors: 'ignore',
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
