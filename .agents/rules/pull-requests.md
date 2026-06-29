@@ -1,8 +1,11 @@
+---
+name: pull-requests
+description: >-
+  Pull request titles, review tone, and feedback format. Read before opening
+  pull requests or performing PR and code reviews.
+---
+
 # Pull Requests
-
-## Workflow Guidelines
-
-- **Always Create a Pull Request**: Never push changes directly to the `main` branch. All work must be performed on a dedicated branch, pushed to the remote repository, and a Pull Request opened for user review.
 
 ## Code Guidelines
 
@@ -13,7 +16,12 @@
 - Maintain a strict but constructive tone.
 - Use bullet points to list issues.
 - Provide alternatives and improved code suggestions.
-- Pull request titles must follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) format:
-  - **For Blog Post Changes**: Always use the format `docs(3-15 char page topic): description` (e.g. `docs(git-auth): added article about github apps`, `docs(git-auth): fixed typo in article`, `docs(git-auth): added relevant links`). The scope must be a 3-15 character page topic summary.
-  - **For Infrastructure, Package/Dependency Updates, etc.**: Continue to use standard conventional commit messages/scopes.
 
+
+## Naming Conventions
+
+- Pull request titles/names should follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) format of `feat/fix/chore/docs(scope/module/category): work summary` with a short summary of the changes
+  - Example:
+    ```text
+    feat(checkout): show per-item pricing on checkout page
+    ```
