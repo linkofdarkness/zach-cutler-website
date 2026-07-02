@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON Formatter &amp; Viewer</title>
+<style>
+/* ── Reset & Variables ──── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #21262d;
+  --surface: #1c2128;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --text3: #6e7681;
+  --accent: #58a6ff;
+  --accent2: #1f6feb;
+  --green: #3fb950;
+  --red: #f85149;
+  --orange: #d29922;
+  --purple: #bc8cff;
+  --cyan: #39d2c0;
+  --radius: 8px;
+  --shadow: 0 8px 32px rgba(0,0,0,.4);
+  --font: 'SF Mono','Cascadia Code','Fira Code','Consolas',monospace;
+  --font-ui: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;
+  --transition: .2s ease;
+}
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg2: #f6f8fa;
+  --bg3: #eaeef2;
+  --surface: #f0f2f5;
+  --border: #d0d7de;
+  --text: #1f2328;
+  --text2: #656d76;
+  --text3: #8c959f;
+  --accent: #0969da;
+  --accent2: #0550ae;
+  --green: #1a7f37;
+  --red: #cf222e;
+  --orange: #9a6700;
+  --purple: #8250df;
+  --cyan: #1b7c83;
+  --shadow: 0 8px 32px rgba(0,0,0,.1);
+}
+
+html{font-size:14px;scroll-behavior:smooth}
+body{
+  font-family:var(--font-ui);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── Layout ──── */
+.app-header{
+  padding:1rem 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--bg2);
+  border-bottom:1px solid var(--border);
+  flex-wrap:wrap;gap:.75rem;
+}
+.app-header h1{
+  font-size:1.15rem;font-weight:600;
+  display:flex;align-items:center;gap:.5rem;
+}
+.app-header h1 .logo{color:var(--accent)}
+.badge{
+  font-size:.65rem;padding:2px 8px;border-radius:99px;
+  background:var(--accent2);color:#fff;font-weight:500;
+}
+.controls{
+  display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.4rem .75rem;border-radius:6px;
+  font-size:.8rem;font-weight:500;cursor:pointer;
+  border:1px solid var(--border);
+  background:var(--surface);color:var(--text);
+  transition:all var(--transition);user-select:none;
+  font-family:var(--font-ui);
+  white-space:nowrap;
+}
+.btn:hover{background:var(--bg3);border-color:var(--text3)}
+.btn:active{transform:scale(.97)}
+.btn-primary{
+  background:var(--accent2);color:#fff;border-color:var(--accent2);
+}
+.btn-primary:hover{filter:brightness(1.15);background:var(--accent2)}
+.btn-success{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-success:hover{filter:brightness(1.15)}
+.btn-danger{background:var(--red);color:#fff;border-color:var(--red)}
+.btn-danger:hover{filter:brightness(1.15)}
+.btn-sm{padding:.25rem .5rem;font-size:.7rem}
+.btn-icon{width:32px;height:32px;padding:0;justify-content:center}
+
+.main-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  flex:1;
+  min-height:0;
+}
+@media(max-width:860px){
+  .main-layout{grid-template-columns:1fr}
+}
+
+.panel{
+  display:flex;flex-direction:column;
+  min-height:0;overflow:hidden;
+}
+.panel-header{
+  padding:.5rem .75rem;
+  background:var(--bg2);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:.75rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.04em;color:var(--text2);
+  gap:.5rem;flex-wrap:wrap;
+}
+.panel-body{
+  flex:1;overflow:auto;position:relative;
+  padding:0;min-height:200px;
+}
+.panel+.panel{border-left:1px solid var(--border)}
+@media(max-width:860px){
+  .panel+.panel{border-left:none;border-top:1px solid var(--border)}
+}
+
+/* ── Input Textarea ──── */
+#input-area{
+  width:100%;height:100%;
+  min-height:300px;
+  padding:1rem;
+  font-family:var(--font);
+  font-size:.85rem;line-height:1.5;
+  background:transparent;color:var(--text);
+  border:none;outline:none;resize:none;
+  tab-size:2;
+}
+#input-area::placeholder{color:var(--text3)}
+
+/* ── Output ──── */
+#output-area{
+  padding:1rem;
+  font-family:var(--font);
+  font-size:.85rem;line-height:1.5;
+  white-space:pre-wrap;word-break:break-word;
+  overflow-wrap:break-word;
+  position:relative;
+}
+#output-area .placeholder{
+  color:var(--text3);font-family:var(--font-ui);
+  text-align:center;padding:2rem 1rem;
+  font-style:italic;
+}
+.line-nums{
+  position:absolute;left:0;top:0;padding:.5rem 0;
+  color:var(--text3);text-align:right;
+  user-select:none;pointer-events:none;
+  min-width:2.5rem;
+  font-size:.85rem;line-height:1.5;
+  border-right:1px solid var(--border);
+}
+
+/* ── Tabs ──── */
+.tabs{
+  display:flex;gap:0;
+  background:var(--bg2);
+  border-bottom:1px solid var(--border);
+}
+.tab{
+  padding:.4rem .85rem;font-size:.75rem;font-weight:500;
+  cursor:pointer;border-bottom:2px solid transparent;
+  color:var(--text2);transition:all var(--transition);
+  user-select:none;font-family:var(--font-ui);
+}
+.tab:hover{color:var(--text);background:var(--bg3)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-content{display:none;flex:1;overflow:auto}
+.tab-content.active{display:block}
+
+/* ── Tree View ──── */
+.tree-view{padding:.75rem;font-family:var(--font);font-size:.82rem;line-height:1.6}
+.tree-node{cursor:default;padding-left:1.2em}
+.tree-node.collapsible > .tree-key{cursor:pointer;user-select:none}
+.tree-node.collapsible > .tree-key::before{
+  content:'▾';display:inline-block;width:1em;
+  margin-left:-1em;color:var(--text3);transition:transform .15s;
+}
+.tree-node.collapsed > .tree-key::before{content:'▸'}
+.tree-node.collapsed > .tree-children{display:none}
+.tree-key{color:var(--accent)}
+.tree-string{color:var(--green)}
+.tree-number{color:var(--orange)}
+.tree-bool{color:var(--purple)}
+.tree-null{color:var(--text3);font-style:italic}
+.tree-punc{color:var(--text2)}
+.tree-collapse-btn{
+  display:inline-block;margin-left:.4rem;
+  font-size:.7rem;padding:0 .3rem;
+  color:var(--text3);cursor:pointer;border-radius:3px;
+}
+.tree-collapse-btn:hover{color:var(--text);background:var(--bg3)}
+
+/* ── Diff ──── */
+.diff-panel{display:grid;grid-template-columns:1fr 1fr;gap:0;height:100%}
+@media(max-width:600px){.diff-panel{grid-template-columns:1fr}}
+.diff-side{overflow:auto;padding:.75rem;font-family:var(--font);font-size:.8rem;line-height:1.5}
+.diff-side+.diff-side{border-left:1px solid var(--border)}
+.diff-side pre{margin:0;white-space:pre-wrap}
+.diff-added{background:rgba(63,185,80,.12)}
+.diff-removed{background:rgba(248,81,73,.12)}
+.diff-line-num{color:var(--text3);display:inline-block;width:2.5em;text-align:right;margin-right:.5em;user-select:none}
+
+/* ── Schema ──── */
+.schema-output{
+  padding:1rem;font-family:var(--font);font-size:.82rem;line-height:1.6;
+}
+.schema-hint{
+  padding:.5rem .75rem;margin:.25rem 0;
+  border-radius:6px;font-size:.78rem;
+  border-left:3px solid var(--accent);
+  background:rgba(88,166,255,.08);
+}
+.schema-hint.warn{border-left-color:var(--orange);background:rgba(210,153,34,.08)}
+.schema-hint.err{border-left-color:var(--red);background:rgba(248,81,73,.08)}
+.schema-hint.ok{border-left-color:var(--green);background:rgba(63,185,80,.08)}
+.schema-type{font-weight:600;color:var(--purple)}
+.schema-path{color:var(--text2);font-size:.72rem}
+
+/* ── Drop Zone ──── */
+.drop-zone{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(13,17,23,.85);
+  backdrop-filter:blur(4px);
+  z-index:100;opacity:0;pointer-events:none;
+  transition:opacity .25s;
+  border:2px dashed var(--border);
+  border-radius:6px;
+}
+.drop-zone.show{opacity:1;pointer-events:all}
+.drop-zone.drag-over{border-color:var(--accent);background:rgba(88,166,255,.1)}
+.drop-zone-inner{
+  text-align:center;padding:2rem;
+}
+.drop-zone-icon{
+  font-size:3rem;margin-bottom:.5rem;color:var(--accent);
+}
+.drop-zone-text{font-size:1rem;font-weight:500;margin-bottom:.25rem}
+.drop-zone-sub{font-size:.8rem;color:var(--text2)}
+
+/* ── Status Bar ──── */
+.status-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.3rem .75rem;
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  font-size:.7rem;color:var(--text2);
+  gap:.5rem;flex-wrap:wrap;
+}
+.status-bar .status-left{display:flex;align-items:center;gap:.5rem}
+.status-dot{width:6px;height:6px;border-radius:50%;display:inline-block}
+.status-dot.ok{background:var(--green);box-shadow:0 0 6px var(--green)}
+.status-dot.err{background:var(--red);box-shadow:0 0 6px var(--red)}
+.status-dot.idle{background:var(--text3)}
+
+/* ── Toast ──── */
+.toast-container{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;
+  display:flex;flex-direction:column;gap:.5rem;pointer-events:none;
+}
+.toast{
+  padding:.6rem 1rem;border-radius:6px;
+  font-size:.8rem;font-weight:500;
+  box-shadow:var(--shadow);
+  animation:slideUp .3s ease, fadeIn .3s ease;
+  pointer-events:all;
+  max-width:360px;
+}
+.toast-success{background:var(--green);color:#fff}
+.toast-error{background:var(--red);color:#fff}
+.toast-info{background:var(--accent2);color:#fff}
+
+@keyframes slideUp{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── Spinner ──── */
+.spinner{
+  display:inline-block;width:16px;height:16px;
+  border:2px solid var(--text3);border-top-color:var(--accent);
+  border-radius:50%;animation:spin .6s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── Scrollbar ──── */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--text3)}
+
+/* ── Syntax highlighting in output ──── */
+.syn-k{color:var(--accent)}   /* key */
+.syn-s{color:var(--green)}    /* string */
+.syn-n{color:var(--orange)}   /* number */
+.syn-b{color:var(--purple)}   /* bool */
+.syn-l{color:var(--text3);font-style:italic} /* null */
+.syn-p{color:var(--text2)}    /* punctuation */
+</style>
+</head>
+<body>
+
+<!-- ════ HEADER ════ -->
+<header class="app-header">
+  <h1><span class="logo">⧩</span> JSON Formatter &amp; Viewer <span class="badge">v1.0</span></h1>
+  <div class="controls">
+    <button class="btn btn-sm" id="btn-format" title="Format (Ctrl+Enter)">↻ Format</button>
+    <button class="btn btn-sm" id="btn-minify" title="Minify">⇉ Minify</button>
+    <button class="btn btn-sm" id="btn-validate" title="Validate JSON">✓ Validate</button>
+    <button class="btn btn-sm" id="btn-copy" title="Copy output">📋 Copy</button>
+    <button class="btn btn-sm" id="btn-download" title="Download as .json">⬇ Download</button>
+    <button class="btn btn-sm" id="btn-sample" title="Load sample JSON">📄 Sample</button>
+    <button class="btn btn-icon btn-sm" id="btn-theme" title="Toggle theme">🌙</button>
+  </div>
+</header>
+
+<!-- ════ MAIN LAYOUT ════ -->
+<div class="main-layout">
+
+  <!-- ── Left Panel: Input ── -->
+  <div class="panel">
+    <div class="panel-header">
+      <span>📥 Input</span>
+      <div style="display:flex;gap:4px">
+        <button class="btn btn-sm" id="btn-paste">📋 Paste</button>
+        <button class="btn btn-sm" id="btn-clear">✕ Clear</button>
+        <label class="btn btn-sm" for="file-input" style="cursor:pointer">📁 Open</label>
+        <input type="file" id="file-input" accept=".json,application/json" style="display:none">
+      </div>
+    </div>
+    <div class="panel-body" style="position:relative">
+      <textarea id="input-area" spellcheck="false" placeholder='Paste JSON here, drag &amp; drop a .json file, or click "Sample" to start…&#10;&#10;Examples:&#10;{ "name": "Hello World", "count": 42 }&#10;or paste an array, nested object, anything valid JSON.'></textarea>
+      <div class="drop-zone" id="drop-zone">
+        <div class="drop-zone-inner">
+          <div class="drop-zone-icon">📂</div>
+          <div class="drop-zone-text">Drop JSON file here</div>
+          <div class="drop-zone-sub">.json files supported</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Right Panel: Output ── -->
+  <div class="panel">
+    <div class="panel-header">
+      <span style="display:flex;align-items:center;gap:6px">
+        📤 Output
+        <span id="output-status" style="font-weight:400;text-transform:none;letter-spacing:0;font-size:.7rem;color:var(--text3)"></span>
+      </span>
+      <div style="display:flex;gap:4px">
+        <button class="btn btn-sm" id="btn-wordwrap" title="Toggle word wrap">⟳ Wrap</button>
+        <button class="btn btn-sm" id="btn-linenums" title="Toggle line numbers"># Ln</button>
+      </div>
+    </div>
+    <div class="tabs" id="output-tabs">
+      <div class="tab active" data-tab="formatted">Formatted</div>
+      <div class="tab" data-tab="tree">Tree</div>
+      <div class="tab" data-tab="diff">Diff</div>
+      <div class="tab" data-tab="schema">Schema</div>
+    </div>
+    <div id="tab-formatted" class="tab-content active">
+      <div class="panel-body">
+        <div id="output-area"><div class="placeholder">Formatted JSON will appear here →</div></div>
+      </div>
+    </div>
+    <div id="tab-tree" class="tab-content">
+      <div class="panel-body">
+        <div id="tree-view" class="tree-view"><div class="placeholder" style="color:var(--text3);text-align:center;padding:2rem">Tree view…</div></div>
+      </div>
+    </div>
+    <div id="tab-diff" class="tab-content">
+      <div class="panel-body" style="display:flex;flex-direction:column">
+        <div style="padding:.5rem .75rem;display:flex;gap:.5rem;align-items:center;background:var(--bg2);border-bottom:1px solid var(--border);flex-wrap:wrap">
+          <span style="font-size:.72rem;color:var(--text2)">Compare with:</span>
+          <textarea id="diff-input" rows="3" style="flex:1;min-width:120px;font-family:var(--font);font-size:.78rem;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.35rem .5rem;resize:vertical" placeholder='Paste second JSON for diff…'></textarea>
+          <button class="btn btn-sm" id="btn-diff-run">⇄ Diff</button>
+          <button class="btn btn-sm" id="btn-diff-swap" title="Swap A↔B">⇅</button>
+        </div>
+        <div id="diff-output" class="diff-panel" style="flex:1;overflow:auto">
+          <div class="diff-side"><pre style="color:var(--text3);text-align:center;padding:1rem">← Left (input)</pre></div>
+          <div class="diff-side"><pre style="color:var(--text3);text-align:center;padding:1rem">→ Right (diff target)</pre></div>
+        </div>
+      </div>
+    </div>
+    <div id="tab-schema" class="tab-content">
+      <div class="panel-body">
+        <div id="schema-output" class="schema-output"><div class="placeholder" style="color:var(--text3);text-align:center;padding:2rem">Schema hints will appear here…</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ STATUS BAR ════ -->
+<div class="status-bar">
+  <div class="status-left">
+    <span class="status-dot idle" id="status-dot"></span>
+    <span id="status-msg">Ready</span>
+  </div>
+  <span id="status-meta"></span>
+</div>
+
+<!-- ════ TOAST CONTAINER ════ -->
+<div class="toast-container" id="toast-container"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════
+   JSON Formatter & Viewer — Full Application Logic
+   ═══════════════════════════════════════════════════════════════════════ */
+
+(function(){
+  'use strict';
+
+  // ── DOM refs ──
+  const $ = id => document.getElementById(id);
+  const inputArea     = $('input-area');
+  const outputArea    = $('output-area');
+  const treeView      = $('tree-view');
+  const diffInput     = $('diff-input');
+  const diffOutput    = $('diff-output');
+  const schemaOutput  = $('schema-output');
+  const statusMsg     = $('status-msg');
+  const statusDot     = $('status-dot');
+  const statusMeta    = $('status-meta');
+  const dropZone      = $('drop-zone');
+  const fileInput     = $('file-input');
+  const toastCtn      = $('toast-container');
+  const diffBtn       = $('btn-diff-run');
+  const diffSwapBtn   = $('btn-diff-swap');
+
+  let currentJson = null;
+  let currentError = null;
+  let showLineNums = false;
+  let wordWrap = true;
+
+  // ── Theme ──
+  function getTheme(){return document.documentElement.getAttribute('data-theme')}
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme',t);
+    $('btn-theme').textContent = t==='dark'?'🌙':'☀️';
+    localStorage.setItem('jfv-theme',t);
+  }
+  $('btn-theme').addEventListener('click',()=>{
+    setTheme(getTheme()==='dark'?'light':'dark');
+  });
+  // restore
+  const savedTheme = localStorage.getItem('jfv-theme');
+  if(savedTheme) setTheme(savedTheme);
+
+  // ── Toast ──
+  function toast(msg, type='info', duration=3000){
+    const el = document.createElement('div');
+    el.className = `toast toast-${type}`;
+    el.textContent = msg;
+    toastCtn.appendChild(el);
+    setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),300)}, duration);
+  }
+
+  // ── Status ──
+  function setStatus(msg, type='idle', meta=''){
+    statusMsg.textContent = msg;
+    statusDot.className = `status-dot ${type}`;
+    statusMeta.textContent = meta;
+  }
+
+  // ── Parse JSON ──
+  function parseInput(text){
+    text = text.trim();
+    if(!text){ currentJson=null; currentError=null; return null; }
+    try{
+      currentJson = JSON.parse(text);
+      currentError = null;
+      return currentJson;
+    }catch(e){
+      currentJson = null;
+      currentError = e.message;
+      return null;
+    }
+  }
+
+  // ── Syntax-highlighted JSON ──
+  function highlightJSON(obj, indent=0){
+    const sp = '  '.repeat(indent);
+    if(obj===null) return `<span class="syn-l">null</span>`;
+    if(typeof obj==='boolean') return `<span class="syn-b">${obj}</span>`;
+    if(typeof obj==='number') return `<span class="syn-n">${obj}</span>`;
+    if(typeof obj==='string'){
+      const esc = obj.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+                     .replace(/"/g,'\\"').replace(/\n/g,'\\n');
+      return `<span class="syn-s">"${esc}"</span>`;
+    }
+    if(Array.isArray(obj)){
+      if(obj.length===0) return `<span class="syn-p">[ ]</span>`;
+      let parts = obj.map((v,i)=>{
+        const comma = i<obj.length-1 ? `<span class="syn-p">,</span>` : '';
+        return `\n${sp}  ${highlightJSON(v,indent+1)}${comma}`;
+      }).join('');
+      return `<span class="syn-p">[</span>${parts}\n${sp}<span class="syn-p">]</span>`;
+    }
+    if(typeof obj==='object'){
+      const keys = Object.keys(obj);
+      if(keys.length===0) return `<span class="syn-p">{ }</span>`;
+      let parts = keys.map((k,i)=>{
+        const escKey = k.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const comma = i<keys.length-1 ? `<span class="syn-p">,</span>` : '';
+        return `\n${sp}  <span class="syn-k">"${escKey}"</span><span class="syn-p">:</span> ${highlightJSON(obj[k],indent+1)}${comma}`;
+      }).join('');
+      return `<span class="syn-p">{</span>${parts}\n${sp}<span class="syn-p">}</span>`;
+    }
+    return String(obj);
+  }
+
+  // ── Format Output ──
+  function updateOutput(){
+    const text = inputArea.value;
+    const parsed = parseInput(text);
+
+    if(!text.trim()){
+      outputArea.innerHTML = '<div class="placeholder">Enter JSON to see formatted output →</div>';
+      setStatus('Ready','idle','');
+      updateMeta();
+      renderTree(null);
+      renderSchema(null);
+      return;
+    }
+
+    if(currentError){
+      const errHtml = `<div style="color:var(--red);padding:1rem">
+        <strong>✗ Parse Error</strong><br><br>
+        <span style="font-size:.9rem">${escapeHtml(currentError)}</span>
+        <br><br><button class="btn btn-sm btn-primary" onclick="document.getElementById('input-area').focus()">Fix JSON</button>
+      </div>`;
+      outputArea.innerHTML = errHtml;
+      setStatus('Invalid JSON','err','');
+      updateMeta();
+      renderTree(null);
+      renderSchema(null);
+      return;
+    }
+
+    const pretty = JSON.stringify(parsed, null, 2);
+    const html = highlightJSON(parsed);
+    outputArea.innerHTML = html;
+    setStatus('Valid JSON','ok',`${getSize(pretty)}`);
+    updateMeta();
+    renderTree(parsed);
+    renderSchema(parsed);
+  }
+
+  function escapeHtml(s){
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function getSize(str){
+    const bytes = new TextEncoder().encode(str).length;
+    if(bytes<1024) return bytes+' B';
+    if(bytes<1048576) return (bytes/1024).toFixed(1)+' KB';
+    return (bytes/1048576).toFixed(2)+' MB';
+  }
+
+  function getLineCount(str){return (str.match(/\n/g)||'').length+1}
+
+  function updateMeta(){
+    const text = inputArea.value.trim();
+    if(!text){ statusMeta.textContent=''; return; }
+    const lines = getLineCount(text);
+    const charCount = text.length;
+    statusMeta.textContent = `${lines} lines | ${charCount} chars` + (currentJson ? ` | ${Object.keys(currentJson).length} keys (root)` : '');
+  }
+
+  // ── Tree View ──
+  function renderTree(obj){
+    if(!obj){
+      treeView.innerHTML = '<div class="placeholder" style="color:var(--text3);text-align:center;padding:2rem">Tree view…</div>';
+      return;
+    }
+    treeView.innerHTML = buildTreeHTML(obj, '', true);
+    // Add collapse/expand all buttons
+    const header = document.createElement('div');
+    header.style.cssText = 'padding:0 0 .5rem 0;font-size:.72rem;display:flex;gap:.5rem';
+    header.innerHTML = '<button class="btn btn-sm" id="tree-expand-all">+ All</button><button class="btn btn-sm" id="tree-collapse-all">− All</button>';
+    treeView.insertBefore(header, treeView.firstChild);
+
+    document.getElementById('tree-expand-all').addEventListener('click',()=>{
+      treeView.querySelectorAll('.tree-node.collapsed').forEach(n=>n.classList.remove('collapsed'));
+    });
+    document.getElementById('tree-collapse-all').addEventListener('click',()=>{
+      treeView.querySelectorAll('.tree-node.collapsible').forEach(n=>n.classList.add('collapsed'));
+    });
+  }
+
+  function buildTreeHTML(obj, path, isRoot){
+    if(obj===null){
+      return `<span class="tree-null">null</span>`;
+    }
+    if(typeof obj==='boolean'){
+      return `<span class="tree-bool">${obj}</span>`;
+    }
+    if(typeof obj==='number'){
+      return `<span class="tree-num">${obj}</span>`;
+    }
+    if(typeof obj==='string'){
+      const esc = obj.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      return `<span class="tree-string">"${esc}"</span>`;
+    }
+    if(Array.isArray(obj)){
+      if(obj.length===0) return `<span class="tree-punc">[ ]</span>`;
+      const isSimple = obj.every(v=>v===null||typeof v!=='object');
+      if(isSimple){
+        const items = obj.map(v=>buildTreeHTML(v,path+'[]',false)).join('<span class="tree-punc">, </span>');
+        return `<span class="tree-punc">[</span> ${items} <span class="tree-punc">]</span>`;
+      }
+      let html = `<span class="tree-punc">[</span><span class="tree-collapse-btn" onclick="this.parentElement.classList.toggle('collapsed');event.stopPropagation()">−</span>`;
+      html += `<div class="tree-children">`;
+      obj.forEach((v,i)=>{
+        const comma = i<obj.length-1 ? ` <span class="tree-punc">,</span>` : '';
+        html += `<div class="tree-node ${typeof v==='object'&&v!==null?'collapsible':''}">
+          <span class="tree-key" onclick="this.parentElement.classList.toggle('collapsed')">${i}<span class="tree-punc">:</span></span> ${buildTreeHTML(v,`${path}[${i}]`,false)}${comma}</div>`;
+      });
+      html += `</div><span class="tree-punc">]</span>`;
+      return html;
+    }
+    if(typeof obj==='object'){
+      const keys = Object.keys(obj);
+      if(keys.length===0) return `<span class="tree-punc">{ }</span>`;
+      let html;
+      if(isRoot){
+        html = `<div class="tree-children">`;
+      } else {
+        html = `<span class="tree-punc">{</span><span class="tree-collapse-btn" onclick="this.parentElement.classList.toggle('collapsed');event.stopPropagation()">−</span>
+        <div class="tree-children">`;
+      }
+      keys.forEach((k,i)=>{
+        const v = obj[k];
+        const escKey = k.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const comma = i<keys.length-1 ? ` <span class="tree-punc">,</span>` : '';
+        const collapsible = typeof v==='object'&&v!==null ? ' collapsible' : '';
+        html += `<div class="tree-node${collapsible}">
+          <span class="tree-key" onclick="this.parentElement.classList.toggle('collapsed')">"${escKey}"<span class="tree-punc">:</span></span> ${buildTreeHTML(v,`${path}.${k}`,false)}${comma}</div>`;
+      });
+      html += `</div>`;
+      if(!isRoot) html += `<span class="tree-punc">}</span>`;
+      return html;
+    }
+    return String(obj);
+  }
+
+  // ── Schema Inference ──
+  function renderSchema(obj){
+    if(!obj || typeof obj !== 'object'){
+      schemaOutput.innerHTML = '<div class="placeholder" style="color:var(--text3);text-align:center;padding:2rem">Schema hints: parse a valid JSON object or array first.</div>';
+      return;
+    }
+    const hints = inferSchema(obj);
+    if(hints.length===0){
+      schemaOutput.innerHTML = '<div class="schema-hint ok">✓ Root is a valid JSON value. No nested object keys to describe.</div>';
+      return;
+    }
+    let html = `<div style="font-size:.72rem;color:var(--text2);margin-bottom:.5rem">📋 Inferred schema — ${hints.length} field${hints.length!==1?'s':''} (root level shown; expandable for nested)</div>`;
+    hints.forEach(h=>{
+      const cls = h.err ? 'err' : h.warn ? 'warn' : h.ok ? 'ok' : '';
+      html += `<div class="schema-hint ${cls}">
+        <div><span class="sch
