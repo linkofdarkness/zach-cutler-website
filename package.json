@@ -1,0 +1,28 @@
+{
+  "name": "zach-cutler-website",
+  "version": "1.0.0",
+  "description": "Personal portfolio website and tech blog for Zach Cutler, built with [Docusaurus](https://docusaurus.io/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linkofdarkness/zach-cutler-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github/linkofdarkness/zach-cutler-website/issues"
+  },
+  "homepage": "https://github.com/linkofdarkness/zach-cutler-website#readme",
+  "dependencies": {
+    "jsdom": "^24.0.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.43.0",
+    "puppeteer-core": "^24.43.0"
+  }
+}

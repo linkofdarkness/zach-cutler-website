@@ -1,0 +1,9 @@
+{
+  "name": "jsdom-test",
+  "version": "1.0.0",
+  "description": "Test package for jsdom",
+  "main": "index.js",
+  "dependencies": {
+    "jsdom": "^24.0.0"
+  }
+}

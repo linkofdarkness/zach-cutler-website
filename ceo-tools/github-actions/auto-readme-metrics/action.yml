@@ -1,0 +1,109 @@
+name: 'Auto-Update README Metrics'
+
+description: 'Automatically updates your README with repo stats: stars, forks, contributors, last commit, and more. Updates daily via cron.'
+
+inputs:
+  github_token:
+    description: 'GitHub PAT with repo scope'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Fetch repo metrics
+      id: metrics
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+        REPO: ${{ github.repository }}
+      run: |
+        # Fetch repo stats via GitHub API
+        STATS=$(curl -sSL -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          "https://api.github.com/repos/$REPO")
+        
+        STARS=$(echo "$STATS" | grep -o '"stargazers_count": *[0-9]*' | grep -o '[0-9]*')
+        FORKS=$(echo "$STATS" | grep -o '"forks_count": *[0-9]*' | grep -o '[0-9]*')
+        OPEN_ISSUES=$(echo "$STATS" | grep -o '"open_issues_count": *[0-9]*' | grep -o '[0-9]*')
+        LAST_COMMIT=$(curl -sSL -H "Authorization: token $GITHUB_TOKEN" \
+          "https://api.github.com/repos/$REPO/commits?per_page=1" | grep -o '"date": *"[^"]*"' | head -1 | cut -d'"' -f4)
+        
+        # Fetch contributors count
+        CONTRIBS=$(curl -sSL -H "Authorization: token $GITHUB_TOKEN" \
+          "https://api.github.com/repos/$REPO/contributors?per_page=100" | grep -c '"login"')
+        
+        # Fetch license
+        LICENSE=$(echo "$STATS" | grep -o '"license": *{[^}]*}' | grep -o '"spdx_id": *"[^"]*"' | head -1 | cut -d'"' -f4)
+        
+        # Fetch language
+        LANGUAGE=$(echo "$STATS" | grep -o '"language": *"[^"]*"' | head -1 | cut -d'"' -f4)
+        
+        # Fetch latest tag
+        LATEST_TAG=$(curl -sSL -H "Authorization: token $GITHUB_TOKEN" \
+          "https://api.github.com/repos/$REPO/tags?per_page=1" | grep -o '"name": *"[^"]*"' | head -1 | cut -d'"' -f4)
+        
+        # Write metrics to temp file
+        cat > /tmp/metrics.md << METRICS
+| Metric | Value |
+|--------|-------|
+| ⭐ Stars | $STARS |
+| 🍴 Forks | $FORKS |
+| 🐛 Issues | $OPEN_ISSUES |
+| 👥 Contributors | $CONTRIBS |
+| 📅 Last Commit | $LAST_COMMIT |
+| 📄 License | $LICENSE |
+| 💻 Language | $LANGUAGE |
+| 🏷️ Latest Tag | $LATEST_TAG |
+METRICS
+        
+        echo "metrics_file=/tmp/metrics.md" >> $GITHUB_OUTPUT
+        echo "stars=$STARS" >> $GITHUB_OUTPUT
+        echo "forks=$FORKS" >> $GITHUB_OUTPUT
+        echo "issues=$OPEN_ISSUES" >> $GITHUB_OUTPUT
+        echo "contribs=$CONTRIBS" >> $GITHUB_OUTPUT
+        echo "last_commit=$LAST_COMMIT" >> $GITHUB_OUTPUT
+
+    - name: Update README
+      id: update
+      shell: bash
+      run: |
+        METRICS_FILE="${{ steps.metrics.outputs.metrics_file }}"
+        README_FILE="README.md"
+        
+        # Check if metrics section exists
+        if ! grep -q '<!-- metrics-start -->' "$README_FILE" 2>/dev/null; then
+          echo "No metrics placeholder found. Adding one."
+          # Add placeholder if not exists
+          echo "" >> "$README_FILE"
+          echo "<!-- metrics-start -->" >> "$README_FILE"
+          echo "<!-- metrics-end -->" >> "$README_FILE"
+        fi
+        
+        # Replace metrics section
+        awk '
+          /<!-- metrics-start -->/ { found=1; while(getline line < "'"$METRICS_FILE"'") print line; next }
+          /<!-- metrics-end -->/ { found=0; next }
+          !found { print }
+          found && /<!-- metrics-end -->/ { found=0 }
+        ' "$README_FILE" > /tmp/README.new
+        
+        mv /tmp/README.new "$README_FILE"
+        
+        # Check if there are changes
+        if git diff --quiet "$README_FILE"; then
+          echo "No changes detected. Skipping commit."
+          echo "changed=false" >> $GITHUB_OUTPUT
+        else
+          echo "README metrics updated!"
+          echo "changed=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push
+      if: steps.update.outputs.changed == 'true'
+      shell: bash
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add README.md
+        git commit -m "📊 Auto-update README metrics [skip ci]" || echo "No changes to commit"
+        git push
