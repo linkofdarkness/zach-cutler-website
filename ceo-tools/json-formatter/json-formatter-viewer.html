@@ -499,6 +499,23 @@ a:hover{text-decoration:underline}
     }
   }
 
+  // ── HTML entity encoder (safe for output contexts) ──
+  function escHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // ── JSON string display: escape for visual display (backslash, quote, whitespace) ──
+  function escJsonString(s){
+    return s
+      .replace(/\\/g,'\\\\')
+      .replace(/"/g,'\\\"')
+      .replace(/\n/g,'\\n')
+      .replace(/\r/g,'\\r')
+      .replace(/\t/g,'\\t')
+      .replace(/\f/g,'\\f')
+      .replace(/\b/g,'\\b');
+  }
+
   // ── Syntax-highlighted JSON ──
   function highlightJSON(obj, indent=0){
     const sp = '  '.repeat(indent);
@@ -506,9 +523,7 @@ a:hover{text-decoration:underline}
     if(typeof obj==='boolean') return `<span class="syn-b">${obj}</span>`;
     if(typeof obj==='number') return `<span class="syn-n">${obj}</span>`;
     if(typeof obj==='string'){
-      const esc = obj.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-                     .replace(/"/g,'\\"').replace(/\n/g,'\\n');
-      return `<span class="syn-s">"${esc}"</span>`;
+      return `<span class="syn-s">"${escHtml(escJsonString(obj))}"</span>`;
     }
     if(Array.isArray(obj)){
       if(obj.length===0) return `<span class="syn-p">[ ]</span>`;
@@ -522,7 +537,7 @@ a:hover{text-decoration:underline}
       const keys = Object.keys(obj);
       if(keys.length===0) return `<span class="syn-p">{ }</span>`;
       let parts = keys.map((k,i)=>{
-        const escKey = k.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const escKey = escHtml(k);
         const comma = i<keys.length-1 ? `<span class="syn-p">,</span>` : '';
         return `\n${sp}  <span class="syn-k">"${escKey}"</span><span class="syn-p">:</span> ${highlightJSON(obj[k],indent+1)}${comma}`;
       }).join('');
@@ -535,6 +550,20 @@ a:hover{text-decoration:underline}
   function updateOutput(){
     const text = inputArea.value;
     const parsed = parseInput(text);
+
+    // Input size limit (warn at 500KB, error at 2MB)
+    const bytes = new TextEncoder().encode(text).length;
+    if(bytes > 2 * 1024 * 1024){
+      outputArea.innerHTML = '<div style="color:var(--red);padding:1rem"><strong>✗ Input too large</strong><br><br>Max 2MB supported. You have ' + (bytes / 1048576).toFixed(1) + 'MB.</div>';
+      setStatus('Input too large','err','');
+      updateMeta();
+      renderTree(null);
+      renderSchema(null);
+      return;
+    }
+    if(bytes > 500 * 1024){
+      toast('⚠ Large input (' + (bytes / 1024).toFixed(0) + 'KB) — may be slow','warning');
+    }
 
     if(!text.trim()){
       outputArea.innerHTML = '<div class="placeholder">Enter JSON to see formatted output →</div>';
@@ -655,7 +684,7 @@ a:hover{text-decoration:underline}
       }
       keys.forEach((k,i)=>{
         const v = obj[k];
-        const escKey = k.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const escKey = escHtml(k);
         const comma = i<keys.length-1 ? ` <span class="tree-punc">,</span>` : '';
         const collapsible = typeof v==='object'&&v!==null ? ' collapsible' : '';
         html += `<div class="tree-node${collapsible}">
