@@ -1,1 +1,6 @@
-IyEvdXNyL2Jpbi9lbnYgbm9kZQoidXNlIHN0cmljdCI7CgovLyBSZXNvbHZlIHBhdGggdG8gQ0xJIGVudHJ5IHBvaW50CmNvbnN0IHBhdGggPSByZXF1aXJlKCJwYXRoIik7CnJlcXVpcmUocGF0aC5yZXNvbHZlKF9fZGlybmFtZSwgIi4uL3NyYy9jbGkuanMiKSk7Cg==
+#!/usr/bin/env node
+"use strict";
+
+// Resolve path to CLI entry point
+const path = require("path");
+require(path.resolve(__dirname, "../src/cli.js"));

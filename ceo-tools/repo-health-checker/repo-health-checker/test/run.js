@@ -1,1 +1,218 @@
-LyoqCiAqIFNtb2tlIHRlc3RzIGZvciByZXBvLWhlYWx0aC1jaGVja2VyIG1ldHJpY3MgbW9kdWxlLgogKi8KCmNvbnN0IG1ldHJpY3MgPSByZXF1aXJlKCIuLi9zcmMvbWV0cmljcyIpOwoKLy8g4pSA4pSAIE1vY2sgZGF0YSDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAKY29uc3QgbW9ja1JlcG8gPSB7CiAgc3RhcmdhemVyc19jb3VudDogMTI1MDAsCiAgZm9ya3NfY291bnQ6IDM0MDAsCiAgb3Blbl9pc3N1ZXNfY291bnQ6IDQyLAogIGhhc193aWtpOiB0cnVlLAogIGhhc19yZWFkbWU6IHRydWUsCiAgaGFzX2Rvd25sb2FkczogdHJ1ZSwKICBoYXNfcHJvamVjdHM6IHRydWUsCiAgZGVzY3JpcHRpb246ICJBIGNvb2wgb3BlbiBzb3VyY2UgdG9vbCBmb3IgZGV2ZWxvcGVycyIsCiAgdG9waWNzOiBbImNsaSIsICJnaXRodWIiLCAiaGVhbHRoIl0sCiAgaG9tZXBhZ2U6ICJodHRwczovL2V4YW1wbGUuY29tIiwKICBsaWNlbnNlOiB7IHNwZHhfaWQ6ICJNSVQiIH0sCiAgc2l6ZTogMjUwMCwKICBoYXNfc2VjdXJpdHlfcG9saWN5OiB0cnVlLAp9OwoKY29uc3QgbW9ja0FjdGl2aXR5ID0gewogIHRvdGFsOiAxNTAsCiAgcmVjZW50OiA2MCwKICBsYXN0Q29tbWl0RGF0ZTogIjIwMjYtMDctMDFUMTI6MDA6MDBaIiwKICBtb250aGx5OiB7CiAgICAiMjAyNi0wMSI6IDIwLAogICAgIjIwMjYtMDIiOiAyNSwKICAgICIyMDI2LTAzIjogMzAsCiAgICAiMjAyNi0wNCI6IDM1LAogICAgIjIwMjYtMDUiOiAyOCwKICAgICIyMDI2LTA2IjogMTIsCiAgfSwKfTsKCmNvbnN0IG1vY2tJc3N1ZVN0YXRzID0gewogIHRvdGFsOiA1MDAsCiAgb3BlbjogNDIsCiAgY2xvc2VkOiA0NTgsCiAgbGFiZWxzOiB7IGJ1ZzogMTAsIGVuaGFuY2VtZW50OiAxNSwgImhlbHAgd2FudGVkIjogNSB9LAogIGF2Z0Nsb3NlRGF5czogMTQuNSwKfTsKCmNvbnN0IG1vY2tQclN0YXRzID0gewogIHRvdGFsOiAyMDAsCiAgb3BlbjogMTUsCiAgY2xvc2VkOiAxODUsCiAgbWVyZ2VkOiAxNzAsCn07Cgpjb25zdCBtb2NrUmVsZWFzZXMgPSBbCiAgeyB0YWdfbmFtZTogInYyLjAuMCIsIG5hbWU6ICJ2Mi4wLjAiLCBwdWJsaXNoZWRfYXQ6ICIyMDI2LTA2LTE1VDEwOjAwOjAwWiIgfSwKICB7IHRhZ19uYW1lOiAidjEuOS4wIiwgbmFtZTogInYxLjkuMCIsIHB1Ymxpc2hlZF9hdDogIjIwMjYtMDQtMDFUMTA6MDA6MDBaIiB9LAogIHsgdGFnX25hbWU6ICJ2MS44LjAiLCBuYW1lOiAidjEuOC4wIiwgcHVibGlzaGVkX2F0OiAiMjAyNi0wMS0xNVQxMDowMDowMFoiIH0sCiAgeyB0YWdfbmFtZTogInYxLjcuMCIsIG5hbWU6ICJ2MS43LjAiLCBwdWJsaXNoZWRfYXQ6ICIyMDI1LTEwLTAxVDEwOjAwOjAwWiIgfSwKICB7IHRhZ19uYW1lOiAidjEuNi4wIiwgbmFtZTogInYxLjYuMCIsIHB1Ymxpc2hlZF9hdDogIjIwMjUtMDctMDFUMTA6MDA6MDBaIiB9LAogIHsgdGFnX25hbWU6ICJ2MS41LjAiLCBuYW1lOiAidjEuNS4wIiwgcHVibGlzaGVkX2F0OiAiMjAyNS0wNC0wMVQxMDowMDowMFoiIH0sCiAgeyB0YWdfbmFtZTogInYxLjQuMCIsIG5hbWU6ICJ2MS40LjAiLCBwdWJsaXNoZWRfYXQ6ICIyMDI1LTAxLTAxVDEwOjAwOjAwWiIgfSwKXTsKCmNvbnN0IG1vY2tBZHZpc29yaWVzID0gWwogIHsKICAgIGN2ZV9pZDogIkNWRS0yMDI2LTAwMDEiLAogICAgc3VtbWFyeTogIkNyaXRpY2FsIHJlbW90ZSBjb2RlIGV4ZWN1dGlvbiIsCiAgICBzZXZlcml0eTogImNyaXRpY2FsIiwKICAgIHN0YXRlOiAib3BlbiIsCiAgICBwdWJsaXNoZWRfYXQ6ICIyMDI2LTA2LTAxVDAwOjAwOjAwWiIsCiAgfSwKXTsKCmNvbnN0IG1vY2tDb250cmlidXRvcnMgPSBbCiAgeyBsb2dpbjogInVzZXIxIiwgY29udHJpYnV0aW9uczogODAwIH0sCiAgeyBsb2dpbjogInVzZXIyIiwgY29udHJpYnV0aW9uczogMjAwIH0sCiAgeyBsb2dpbjogInVzZXIzIiwgY29udHJpYnV0aW9uczogMTAwIH0sCiAgeyBsb2dpbjogInVzZXI0IiwgY29udHJpYnV0aW9uczogNTAgfSwKICB7IGxvZ2luOiAidXNlcjUiLCBjb250cmlidXRpb25zOiAzMCB9LApdOwoKY29uc3QgbW9ja0xhbmd1YWdlcyA9IHsKICBKYXZhU2NyaXB0OiA1MDAwMDAsCiAgVHlwZVNjcmlwdDogMzAwMDAwLAogIFB5dGhvbjogMTAwMDAwLAp9OwoKLy8g4pSA4pSAIFRlc3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgApsZXQgcGFzc2VkID0gMDsKbGV0IGZhaWxlZCA9IDA7CgpmdW5jdGlvbiB0ZXN0KG5hbWUsIGZuKSB7CiAgdHJ5IHsKICAgIGZuKCk7CiAgICBwYXNzZWQrKzsKICAgIGNvbnNvbGUubG9nKGAgIOKchSAke25hbWV9YCk7CiAgfSBjYXRjaCAoZXJyKSB7CiAgICBmYWlsZWQrKzsKICAgIGNvbnNvbGUubG9nKGAgIOKdjCAke25hbWV9IOKAlCAke2Vyci5tZXNzYWdlfWApOwogIH0KfQoKZnVuY3Rpb24gYXNzZXJ0KGNvbmQsIG1zZykgewogIGlmICghY29uZCkgdGhyb3cgbmV3IEVycm9yKG1zZyB8fCAiYXNzZXJ0aW9uIGZhaWxlZCIpOwp9CgovLyBJbmRpdmlkdWFsIG1ldHJpYyB0ZXN0cwp0ZXN0KCJzdGFyc1Njb3JlOiBoaWdoIHN0YXIgY291bnQgZ2l2ZXMgaGlnaCBzY29yZSIsICgpID0+IHsKICBjb25zdCBzY29yZSA9IG1ldHJpY3Muc3RhcnNTY29yZShtb2NrUmVwbywgbW9ja0FjdGl2aXR5KTsKICBhc3NlcnQoc2NvcmUgPj0gNTAsIGBleHBlY3RlZCA+PSA1MCwgZ290ICR7c2NvcmV9YCk7CiAgYXNzZXJ0KHNjb3JlIDw9IDEwMCwgYHNob3VsZCBub3QgZXhjZWVkIDEwMCwgZ290ICR7c2NvcmV9YCk7Cn0pOwoKdGVzdCgic3RhcnNTY29yZTogemVybyBzdGFycyBnaXZlcyBsb3cgc2NvcmUiLCAoKSA9PiB7CiAgY29uc3QgcmVwbyA9IHsgLi4ubW9ja1JlcG8sIHN0YXJnYXplcnNfY291bnQ6IDAsIGZvcmtzX2NvdW50OiAwIH07CiAgY29uc3Qgc2NvcmUgPSBtZXRyaWNzLnN0YXJzU2NvcmUocmVwbywgeyByZWNlbnQ6IDAgfSk7CiAgYXNzZXJ0KHNjb3JlIDw9IDE1LCBgZXhwZWN0ZWQgPD0gMTUsIGdvdCAke3Njb3JlfWApOwp9KTsKCnRlc3QoImlzc3Vlc1Njb3JlOiBoaWdoIHJlc29sdXRpb24gcmF0ZSBnaXZlcyBoaWdoIHNjb3JlIiwgKCkgPT4gewogIGNvbnN0IHNjb3JlID0gbWV0cmljcy5pc3N1ZXNTY29yZSh7IHRvdGFsOiA1MDAsIG9wZW46IDIwLCBjbG9zZWQ6IDQ4MCwgYXZnQ2xvc2VEYXlzOiA1IH0pOwogIGFzc2VydChzY29yZSA+PSA2MCwgYGV4cGVjdGVkID49IDYwLCBnb3QgJHtzY29yZX1gKTsKfSk7Cgp0ZXN0KCJpc3N1ZXNTY29yZTogYWxsIGlzc3VlcyBvcGVuIGdpdmVzIGxvdyBzY29yZSIsICgpID0+IHsKICBjb25zdCBzY29yZSA9IG1ldHJpY3MuaXNzdWVzU2NvcmUoeyB0b3RhbDogMTAwLCBvcGVuOiAxMDAsIGNsb3NlZDogMCwgYXZnQ2xvc2VEYXlzOiBudWxsIH0pOwogIGFzc2VydChzY29yZSA8IDMwLCBgZXhwZWN0ZWQgPCAzMCwgZ290ICR7c2NvcmV9YCk7Cn0pOwoKdGVzdCgiY29tbWl0RnJlcXVlbmN5U2NvcmU6IGFjdGl2ZSByZXBvIHNjb3JlcyBoaWdoIiwgKCkgPT4gewogIGNvbnN0IHNjb3JlID0gbWV0cmljcy5jb21taXRGcmVxdWVuY3lTY29yZShtb2NrQWN0aXZpdHkpOwogIGFzc2VydChzY29yZSA+PSAzMCwgYGV4cGVjdGVkID49IDMwLCBnb3QgJHtzY29yZX1gKTsKICBhc3NlcnQoc2NvcmUgPD0gMTAwLCBgc2hvdWxkIG5vdCBleGNlZWQgMTAwLCBnb3QgJHtzY29yZX1gKTsKfSk7Cgp0ZXN0KCJjb21taXRGcmVxdWVuY3lTY29yZTogaW5hY3RpdmUgcmVwbyBzY29yZXMgbG93IiwgKCkgPT4gewogIGNvbnN0IHNjb3JlID0gbWV0cmljcy5jb21taXRGcmVxdWVuY3lTY29yZSh7IHRvdGFsOiAwLCByZWNlbnQ6IDAsIG1vbnRobHk6IHt9LCBsYXN0Q29tbWl0RGF0ZTogbnVsbCB9KTsKICBhc3NlcnQoc2NvcmUgPD0gMzAsIGBleHBlY3RlZCA8PSAzMCwgZ290ICR7c2NvcmV9YCk7Cn0pOwoKdGVzdCgicmVhZG1lU2NvcmU6IHdlbGwtZG9jdW1lbnRlZCByZXBvIHNjb3JlcyIsICgpID0+IHsKICBjb25zdCBzY29yZSA9IG1ldHJpY3MucmVhZG1lU2NvcmUobW9ja1JlcG8pOwogIGFzc2VydChzY29yZSA+PSA0MCwgYGV4cGVjdGVkID49IDQwLCBnb3QgJHtzY29yZX1gKTsKfSk7Cgp0ZXN0KCJkZXBlbmRlbmN5RnJlc2huZXNzU2NvcmU6IHJlY2VudCByZWxlYXNlcyBzY29yZSB3ZWxsIiwgKCkgPT4gewogIGNvbnN0IHNjb3JlID0gbWV0cmljcy5kZXBlbmRlbmN5RnJlc2huZXNzU2NvcmUobW9ja1JlcG8sIG1vY2tSZWxlYXNlcyk7CiAgYXNzZXJ0KHNjb3JlID49IDMwLCBgZXhwZWN0ZWQgPj0gMzAsIGdvdCAke3Njb3JlfWApOwp9KTsKCnRlc3QoInNlY3VyaXR5U2NvcmU6IG9wZW4gYWR2aXNvcmllcyByZWR1Y2Ugc2NvcmUiLCAoKSA9PiB7CiAgY29uc3Qgc2NvcmUgPSBtZXRyaWNzLnNlY3VyaXR5U2NvcmUobW9ja1JlcG8sIG1vY2tBZHZpc29yaWVzKTsKICAvLyBPcGVuLCBoYXMgbGljZW5zZSwgaGFzIHNlY3VyaXR5IHBvbGljeSA9IGdvb2QKICBhc3NlcnQoc2NvcmUgPj0gNTAsIGBleHBlY3RlZCA+PSA1MCwgZ290ICR7c2NvcmV9YCk7CiAgYXNzZXJ0KHNjb3JlIDw9IDEwMCwgYHNob3VsZCBub3QgZXhjZWVkIDEwMCwgZ290ICR7c2NvcmV9YCk7Cn0pOwoKdGVzdCgiY29udHJpYnV0b3JTY29yZTogZGl2ZXJzZSB0ZWFtIHNjb3JlcyB3ZWxsIiwgKCkgPT4gewogIGNvbnN0IHNjb3JlID0gbWV0cmljcy5jb250cmlidXRvclNjb3JlKG1vY2tDb250cmlidXRvcnMsIG1vY2tSZXBvKTsKICBhc3NlcnQoc2NvcmUgPj0gMjAsIGBleHBlY3RlZCA+PSAyMCwgZ290ICR7c2NvcmV9YCk7Cn0pOwoKdGVzdCgicHJIZWFsdGhTY29yZTogZ29vZCBtZXJnZSByYXRlIHNjb3JlcyB3ZWxsIiwgKCkgPT4gewogIGNvbnN0IHNjb3JlID0gbWV0cmljcy5wckhlYWx0aFNjb3JlKHsgdG90YWw6IDIwMCwgb3BlbjogMTAsIGNsb3NlZDogMTkwLCBtZXJnZWQ6IDE3NSB9KTsKICBhc3NlcnQoc2NvcmUgPj0gNTAsIGBleHBlY3RlZCA+PSA1MCwgZ290ICR7c2NvcmV9YCk7Cn0pOwoKdGVzdCgiY29tcHV0ZUhlYWx0aFNjb3JlOiBjb21wb3NpdGUgc2NvcmUgaW4gcmFuZ2UiLCAoKSA9PiB7CiAgY29uc3Qgc2NvcmUgPSBtZXRyaWNzLmNvbXB1dGVIZWFsdGhTY29yZSh7CiAgICBzdGFyczogODUsCiAgICBpc3N1ZXM6IDc1LAogICAgY29tbWl0czogOTAsCiAgICByZWFkbWU6IDgwLAogICAgZnJlc2huZXNzOiA3MCwKICAgIHNlY3VyaXR5OiA4NSwKICAgIGNvbnRyaWJ1dG9yczogNzUsCiAgICBwckhlYWx0aDogODAsCiAgfSk7CiAgYXNzZXJ0KHNjb3JlID49IDAgJiYgc2NvcmUgPD0gMTAwLCBgZXhwZWN0ZWQgMC0xMDAsIGdvdCAke3Njb3JlfWApOwp9KTsKCnRlc3QoImdldEdyYWRlOiB0b3Agc2NvcmVzIGdldCBBKyIsICgpID0+IHsKICBhc3NlcnQobWV0cmljcy5nZXRHcmFkZSg5NSkgPT09ICJBKyIsICI5NSBzaG91bGQgYmUgQSsiKTsKICBhc3NlcnQobWV0cmljcy5nZXRHcmFkZSgxMDApID09PSAiQSsiLCAiMTAwIHNob3VsZCBiZSBBKyIpOwp9KTsKCnRlc3QoImdldEdyYWRlOiBtaWQgc2NvcmVzIGdldCBCL0MiLCAoKSA9PiB7CiAgYXNzZXJ0KG1ldHJpY3MuZ2V0R3JhZGUoNzUpID09PSAiQiIsICI3NSBzaG91bGQgYmUgQiIpOwogIGFzc2VydChtZXRyaWNzLmdldEdyYWRlKDY1KSA9PT0gIkMiLCAiNjUgc2hvdWxkIGJlIEMiKTsKfSk7Cgp0ZXN0KCJnZXRHcmFkZTogbG93IHNjb3JlcyBnZXQgRiIsICgpID0+IHsKICBhc3NlcnQobWV0cmljcy5nZXRHcmFkZSgzMCkgPT09ICJGIiwgIjMwIHNob3VsZCBiZSBGIik7CiAgYXNzZXJ0KG1ldHJpY3MuZ2V0R3JhZGUoMCkgPT09ICJGIiwgIjAgc2hvdWxkIGJlIEYiKTsKfSk7Cgp0ZXN0KCJjb21wdXRlQWxsTWV0cmljczogZnVsbCBwaXBlbGluZSBwcm9kdWNlcyB2YWxpZCByZXN1bHRzIiwgKCkgPT4gewogIGNvbnN0IHJlc3VsdCA9IG1ldHJpY3MuY29tcHV0ZUFsbE1ldHJpY3MobW9ja1JlcG8sIG1vY2tBY3Rpdml0eSwgbW9ja0lzc3VlU3RhdHMsIG1vY2tQclN0YXRzLCBtb2NrUmVsZWFzZXMsIG1vY2tBZHZpc29yaWVzLCBtb2NrQ29udHJpYnV0b3JzLCBtb2NrTGFuZ3VhZ2VzKTsKICBhc3NlcnQodHlwZW9mIHJlc3VsdC5jb21wb3NpdGUgPT09ICJudW1iZXIiLCAiY29tcG9zaXRlIHNob3VsZCBiZSBhIG51bWJlciIpOwogIGFzc2VydChyZXN1bHQuY29tcG9zaXRlID49IDAgJiYgcmVzdWx0LmNvbXBvc2l0ZSA8PSAxMDAsIGBjb21wb3NpdGUgKCR7cmVzdWx0LmNvbXBvc2l0ZX0pIG91dCBvZiByYW5nZWApOwogIGFzc2VydCh0eXBlb2YgcmVzdWx0LmdyYWRlID09PSAic3RyaW5nIiwgImdyYWRlIHNob3VsZCBiZSBhIHN0cmluZyIpOwogIGFzc2VydChbIkErIiwgIkEiLCAiQiIsICJDIiwgIkQiLCAiRiJdLmluY2x1ZGVzKHJlc3VsdC5ncmFkZSksIGBpbnZhbGlkIGdyYWRlOiAke3Jlc3VsdC5ncmFkZX1gKTsKICBhc3NlcnQodHlwZW9mIHJlc3VsdC5zdGFycyA9PT0gIm51bWJlciIsICJzdGFycyBzaG91bGQgYmUgbnVtYmVyIik7CiAgYXNzZXJ0KHR5cGVvZiByZXN1bHQuaXNzdWVzID09PSAibnVtYmVyIiwgImlzc3VlcyBzaG91bGQgYmUgbnVtYmVyIik7CiAgYXNzZXJ0KHR5cGVvZiByZXN1bHQuY29tbWl0cyA9PT0gIm51bWJlciIsICJjb21taXRzIHNob3VsZCBiZSBudW1iZXIiKTsKICBhc3NlcnQodHlwZW9mIHJlc3VsdC5yZWFkbWUgPT09ICJudW1iZXIiLCAicmVhZG1lIHNob3VsZCBiZSBudW1iZXIiKTsKICBhc3NlcnQodHlwZW9mIHJlc3VsdC5mcmVzaG5lc3MgPT09ICJudW1iZXIiLCAiZnJlc2huZXNzIHNob3VsZCBiZSBudW1iZXIiKTsKICBhc3NlcnQodHlwZW9mIHJlc3VsdC5zZWN1cml0eSA9PT0gIm51bWJlciIsICJzZWN1cml0eSBzaG91bGQgYmUgbnVtYmVyIik7CiAgYXNzZXJ0KHR5cGVvZiByZXN1bHQuY29udHJpYnV0b3JzID09PSAibnVtYmVyIiwgImNvbnRyaWJ1dG9ycyBzaG91bGQgYmUgbnVtYmVyIik7CiAgYXNzZXJ0KHR5cGVvZiByZXN1bHQucHJIZWFsdGggPT09ICJudW1iZXIiLCAicHJIZWFsdGggc2hvdWxkIGJlIG51bWJlciIpOwp9KTsKCi8vIOKUgOKUgCBTdW1tYXJ5IOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgApjb25zb2xlLmxvZygiIik7CmNvbnNvbGUubG9nKGDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBgKTsKY29uc29sZS5sb2coYFRlc3RzOiAke3Bhc3NlZH0gcGFzc2VkLCAke2ZhaWxlZH0gZmFpbGVkYCk7CmNvbnNvbGUubG9nKGDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBgKTsKCnByb2Nlc3MuZXhpdChmYWlsZWQgPiAwID8gMSA6IDApOw==
+/**
+ * Smoke tests for repo-health-checker metrics module.
+ */
+
+const metrics = require("../src/metrics");
+
+// ── Mock data ───────────────────────────────────────────
+const mockRepo = {
+  stargazers_count: 12500,
+  forks_count: 3400,
+  open_issues_count: 42,
+  has_wiki: true,
+  has_readme: true,
+  has_downloads: true,
+  has_projects: true,
+  description: "A cool open source tool for developers",
+  topics: ["cli", "github", "health"],
+  homepage: "https://example.com",
+  license: { spdx_id: "MIT" },
+  size: 2500,
+  has_security_policy: true,
+};
+
+const mockActivity = {
+  total: 150,
+  recent: 60,
+  lastCommitDate: "2026-07-01T12:00:00Z",
+  monthly: {
+    "2026-01": 20,
+    "2026-02": 25,
+    "2026-03": 30,
+    "2026-04": 35,
+    "2026-05": 28,
+    "2026-06": 12,
+  },
+};
+
+const mockIssueStats = {
+  total: 500,
+  open: 42,
+  closed: 458,
+  labels: { bug: 10, enhancement: 15, "help wanted": 5 },
+  avgCloseDays: 14.5,
+};
+
+const mockPrStats = {
+  total: 200,
+  open: 15,
+  closed: 185,
+  merged: 170,
+};
+
+const mockReleases = [
+  { tag_name: "v2.0.0", name: "v2.0.0", published_at: "2026-06-15T10:00:00Z" },
+  { tag_name: "v1.9.0", name: "v1.9.0", published_at: "2026-04-01T10:00:00Z" },
+  { tag_name: "v1.8.0", name: "v1.8.0", published_at: "2026-01-15T10:00:00Z" },
+  { tag_name: "v1.7.0", name: "v1.7.0", published_at: "2025-10-01T10:00:00Z" },
+  { tag_name: "v1.6.0", name: "v1.6.0", published_at: "2025-07-01T10:00:00Z" },
+  { tag_name: "v1.5.0", name: "v1.5.0", published_at: "2025-04-01T10:00:00Z" },
+  { tag_name: "v1.4.0", name: "v1.4.0", published_at: "2025-01-01T10:00:00Z" },
+];
+
+const mockAdvisories = [
+  {
+    cve_id: "CVE-2026-0001",
+    summary: "Critical remote code execution",
+    severity: "critical",
+    state: "open",
+    published_at: "2026-06-01T00:00:00Z",
+  },
+];
+
+const mockContributors = [
+  { login: "user1", contributions: 800 },
+  { login: "user2", contributions: 200 },
+  { login: "user3", contributions: 100 },
+  { login: "user4", contributions: 50 },
+  { login: "user5", contributions: 30 },
+];
+
+const mockLanguages = {
+  JavaScript: 500000,
+  TypeScript: 300000,
+  Python: 100000,
+};
+
+// ── Tests ───────────────────────────────────────────────
+let passed = 0;
+let failed = 0;
+
+function test(name, fn) {
+  try {
+    fn();
+    passed++;
+    console.log(`  ✅ ${name}`);
+  } catch (err) {
+    failed++;
+    console.log(`  ❌ ${name} — ${err.message}`);
+  }
+}
+
+function assert(cond, msg) {
+  if (!cond) throw new Error(msg || "assertion failed");
+}
+
+// Individual metric tests
+test("starsScore: high star count gives high score", () => {
+  const score = metrics.starsScore(mockRepo, mockActivity);
+  assert(score >= 50, `expected >= 50, got ${score}`);
+  assert(score <= 100, `should not exceed 100, got ${score}`);
+});
+
+test("starsScore: zero stars gives low score", () => {
+  const repo = { ...mockRepo, stargazers_count: 0, forks_count: 0 };
+  const score = metrics.starsScore(repo, { recent: 0 });
+  assert(score <= 15, `expected <= 15, got ${score}`);
+});
+
+test("issuesScore: high resolution rate gives high score", () => {
+  const score = metrics.issuesScore({ total: 500, open: 20, closed: 480, avgCloseDays: 5 });
+  assert(score >= 60, `expected >= 60, got ${score}`);
+});
+
+test("issuesScore: all issues open gives low score", () => {
+  const score = metrics.issuesScore({ total: 100, open: 100, closed: 0, avgCloseDays: null });
+  assert(score < 30, `expected < 30, got ${score}`);
+});
+
+test("commitFrequencyScore: active repo scores high", () => {
+  const score = metrics.commitFrequencyScore(mockActivity);
+  assert(score >= 30, `expected >= 30, got ${score}`);
+  assert(score <= 100, `should not exceed 100, got ${score}`);
+});
+
+test("commitFrequencyScore: inactive repo scores low", () => {
+  const score = metrics.commitFrequencyScore({ total: 0, recent: 0, monthly: {}, lastCommitDate: null });
+  assert(score <= 30, `expected <= 30, got ${score}`);
+});
+
+test("readmeScore: well-documented repo scores", () => {
+  const score = metrics.readmeScore(mockRepo);
+  assert(score >= 40, `expected >= 40, got ${score}`);
+});
+
+test("dependencyFreshnessScore: recent releases score well", () => {
+  const score = metrics.dependencyFreshnessScore(mockRepo, mockReleases);
+  assert(score >= 30, `expected >= 30, got ${score}`);
+});
+
+test("securityScore: open advisories reduce score", () => {
+  const score = metrics.securityScore(mockRepo, mockAdvisories);
+  // Open, has license, has security policy = good
+  assert(score >= 50, `expected >= 50, got ${score}`);
+  assert(score <= 100, `should not exceed 100, got ${score}`);
+});
+
+test("contributorScore: diverse team scores well", () => {
+  const score = metrics.contributorScore(mockContributors, mockRepo);
+  assert(score >= 20, `expected >= 20, got ${score}`);
+});
+
+test("prHealthScore: good merge rate scores well", () => {
+  const score = metrics.prHealthScore({ total: 200, open: 10, closed: 190, merged: 175 });
+  assert(score >= 50, `expected >= 50, got ${score}`);
+});
+
+test("computeHealthScore: composite score in range", () => {
+  const score = metrics.computeHealthScore({
+    stars: 85,
+    issues: 75,
+    commits: 90,
+    readme: 80,
+    freshness: 70,
+    security: 85,
+    contributors: 75,
+    prHealth: 80,
+  });
+  assert(score >= 0 && score <= 100, `expected 0-100, got ${score}`);
+});
+
+test("getGrade: top scores get A+", () => {
+  assert(metrics.getGrade(95) === "A+", "95 should be A+");
+  assert(metrics.getGrade(100) === "A+", "100 should be A+");
+});
+
+test("getGrade: mid scores get B/C", () => {
+  assert(metrics.getGrade(75) === "B", "75 should be B");
+  assert(metrics.getGrade(65) === "C", "65 should be C");
+});
+
+test("getGrade: low scores get F", () => {
+  assert(metrics.getGrade(30) === "F", "30 should be F");
+  assert(metrics.getGrade(0) === "F", "0 should be F");
+});
+
+test("computeAllMetrics: full pipeline produces valid results", () => {
+  const result = metrics.computeAllMetrics(mockRepo, mockActivity, mockIssueStats, mockPrStats, mockReleases, mockAdvisories, mockContributors, mockLanguages);
+  assert(typeof result.composite === "number", "composite should be a number");
+  assert(result.composite >= 0 && result.composite <= 100, `composite (${result.composite}) out of range`);
+  assert(typeof result.grade === "string", "grade should be a string");
+  assert(["A+", "A", "B", "C", "D", "F"].includes(result.grade), `invalid grade: ${result.grade}`);
+  assert(typeof result.stars === "number", "stars should be number");
+  assert(typeof result.issues === "number", "issues should be number");
+  assert(typeof result.commits === "number", "commits should be number");
+  assert(typeof result.readme === "number", "readme should be number");
+  assert(typeof result.freshness === "number", "freshness should be number");
+  assert(typeof result.security === "number", "security should be number");
+  assert(typeof result.contributors === "number", "contributors should be number");
+  assert(typeof result.prHealth === "number", "prHealth should be number");
+});
+
+// ── Summary ─────────────────────────────────────────────
+console.log("");
+console.log(`───────────────────────`);
+console.log(`Tests: ${passed} passed, ${failed} failed`);
+console.log(`───────────────────────`);
+
+process.exit(failed > 0 ? 1 : 0);

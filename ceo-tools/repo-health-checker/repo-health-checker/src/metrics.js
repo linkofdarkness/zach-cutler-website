@@ -1,1 +1,339 @@
-LyoqCiAqIEhlYWx0aCBtZXRyaWNzIGNhbGN1bGF0b3Ig4oCUIHRha2VzIHJhdyBHaXRIdWIgZGF0YSBhbmQgY29tcHV0ZXMgc2NvcmVzLgogKi8KCi8qKgogKiBDb21wdXRlIHN0YXJzLXJlbGF0ZWQgaGVhbHRoIHNjb3JlICgwLTEwMCkuCiAqIEZhY3RvcnM6IHRvdGFsIHN0YXJzLCBzdGFyIGdyb3d0aCByYXRlLCBmb3JrcyByYXRpby4KICovCmZ1bmN0aW9uIHN0YXJzU2NvcmUocmVwbywgYWN0aXZpdHkpIHsKICBjb25zdCBzdGFycyA9IHJlcG8uc3RhcmdhemVyc19jb3VudCB8fCAwOwogIGNvbnN0IGZvcmtzID0gcmVwby5mb3Jrc19jb3VudCB8fCAwOwogIGNvbnN0IGZvcmtTdGFyUmF0aW8gPSBzdGFycyA+IDAgPyBmb3JrcyAvIHN0YXJzIDogMDsKCiAgbGV0IHNjb3JlID0gMDsKCiAgLy8gU3RhcnMgdGllcnMgKGxvZ2FyaXRobWljKQogIGlmIChzdGFycyA+PSAxMDAwMCkgc2NvcmUgKz0gMzU7CiAgZWxzZSBpZiAoc3RhcnMgPj0gNTAwMCkgc2NvcmUgKz0gMzA7CiAgZWxzZSBpZiAoc3RhcnMgPj0gMTAwMCkgc2NvcmUgKz0gMjU7CiAgZWxzZSBpZiAoc3RhcnMgPj0gNTAwKSBzY29yZSArPSAyMDsKICBlbHNlIGlmIChzdGFycyA+PSAxMDApIHNjb3JlICs9IDE1OwogIGVsc2UgaWYgKHN0YXJzID49IDUwKSBzY29yZSArPSAxMDsKICBlbHNlIGlmIChzdGFycyA+PSAxMCkgc2NvcmUgKz0gNTsKICBlbHNlIGlmIChzdGFycyA+IDApIHNjb3JlICs9IDI7CgogIC8vIEZvcmstdG8tc3RhciByYXRpbyAoaGVhbHRoeSByZXBvcyBoYXZlIDAuMS0wLjUgcmF0aW8pCiAgaWYgKGZvcmtTdGFyUmF0aW8gPj0gMC4xICYmIGZvcmtTdGFyUmF0aW8gPD0gMC41KSBzY29yZSArPSAxMDsKICBlbHNlIGlmIChmb3JrU3RhclJhdGlvID4gMC41KSBzY29yZSArPSA1OwoKICAvLyBSZWNlbnQgYWN0aXZpdHkgYm9udXMKICBpZiAoYWN0aXZpdHkucmVjZW50ID4gNTApIHNjb3JlICs9IDEwOwogIGVsc2UgaWYgKGFjdGl2aXR5LnJlY2VudCA+IDIwKSBzY29yZSArPSA3OwogIGVsc2UgaWYgKGFjdGl2aXR5LnJlY2VudCA+IDUpIHNjb3JlICs9IDU7CiAgZWxzZSBpZiAoYWN0aXZpdHkucmVjZW50ID4gMCkgc2NvcmUgKz0gMjsKCiAgcmV0dXJuIE1hdGgubWluKDEwMCwgc2NvcmUpOwp9CgovKioKICogQ29tcHV0ZSBpc3N1ZSBoZWFsdGggc2NvcmUgKDAtMTAwKS4KICogRmFjdG9yczogaXNzdWUgcmVzb2x1dGlvbiByYXRlLCBhdmcgY2xvc2UgdGltZSwgb3BlbiBiYWNrbG9nLgogKi8KZnVuY3Rpb24gaXNzdWVzU2NvcmUoaXNzdWVTdGF0cykgewogIGlmICghaXNzdWVTdGF0cykgcmV0dXJuIDA7CgogIGNvbnN0IHsgdG90YWwsIG9wZW4sIGNsb3NlZCwgYXZnQ2xvc2VEYXlzIH0gPSBpc3N1ZVN0YXRzOwoKICBpZiAodG90YWwgPT09IDApIHJldHVybiA1MDsgLy8gTm8gaXNzdWVzID0gbmV1dHJhbAoKICAvLyBSZXNvbHV0aW9uIHJhdGUgKGNsb3NlZCAvIHRvdGFsKQogIGNvbnN0IHJlc29sdXRpb25SYXRlID0gdG90YWwgPiAwID8gY2xvc2VkIC8gdG90YWwgOiAwOwogIGxldCBzY29yZSA9IHJlc29sdXRpb25SYXRlICogNDA7CgogIC8vIE9wZW4gYmFja2xvZyBwZW5hbHR5CiAgY29uc3Qgb3BlblJhdGlvID0gdG90YWwgPiAwID8gb3BlbiAvIHRvdGFsIDogMDsKICBpZiAob3BlblJhdGlvIDwgMC4xKSBzY29yZSArPSAyMDsKICBlbHNlIGlmIChvcGVuUmF0aW8gPCAwLjMpIHNjb3JlICs9IDE1OwogIGVsc2UgaWYgKG9wZW5SYXRpbyA8IDAuNSkgc2NvcmUgKz0gMTA7CiAgZWxzZSBzY29yZSArPSA1OwoKICAvLyBBdmcgY2xvc2UgdGltZQogIGlmIChhdmdDbG9zZURheXMgIT09IG51bGwpIHsKICAgIGlmIChhdmdDbG9zZURheXMgPCA3KSBzY29yZSArPSAyNTsKICAgIGVsc2UgaWYgKGF2Z0Nsb3NlRGF5cyA8IDMwKSBzY29yZSArPSAyMDsKICAgIGVsc2UgaWYgKGF2Z0Nsb3NlRGF5cyA8IDkwKSBzY29yZSArPSAxMDsKICAgIGVsc2Ugc2NvcmUgKz0gMzsKICB9CgogIHJldHVybiBNYXRoLm1pbigxMDAsIE1hdGgubWF4KDAsIHNjb3JlKSk7Cn0KCi8qKgogKiBDb21wdXRlIGNvbW1pdCBmcmVxdWVuY3kgc2NvcmUgKDAtMTAwKS4KICovCmZ1bmN0aW9uIGNvbW1pdEZyZXF1ZW5jeVNjb3JlKGFjdGl2aXR5KSB7CiAgaWYgKCFhY3Rpdml0eSB8fCBhY3Rpdml0eS5yZWNlbnQgPT09IDApIHJldHVybiAxMDsKCiAgY29uc3QgZGF5cyA9IDkwOwogIGNvbnN0IGNvbW1pdHNQZXJXZWVrID0gYWN0aXZpdHkucmVjZW50IC8gKGRheXMgLyA3KTsKCiAgbGV0IHNjb3JlOwogIGlmIChjb21taXRzUGVyV2VlayA+PSAxMCkgc2NvcmUgPSAzMDsKICBlbHNlIGlmIChjb21taXRzUGVyV2VlayA+PSA1KSBzY29yZSA9IDI1OwogIGVsc2UgaWYgKGNvbW1pdHNQZXJXZWVrID49IDIpIHNjb3JlID0gMjA7CiAgZWxzZSBpZiAoY29tbWl0c1BlcldlZWsgPj0gMSkgc2NvcmUgPSAxNTsKICBlbHNlIGlmIChjb21taXRzUGVyV2VlayA+PSAwLjI1KSBzY29yZSA9IDEwOwogIGVsc2Ugc2NvcmUgPSA1OwoKICAvLyBCb251cyBmb3IgY29uc2lzdGVudCBtb250aGx5IGFjdGl2aXR5CiAgY29uc3QgbW9udGhzID0gT2JqZWN0LmtleXMoYWN0aXZpdHkubW9udGhseSB8fCB7fSkubGVuZ3RoOwogIHNjb3JlICs9IE1hdGgubWluKDIwLCBtb250aHMgKiAzKTsKCiAgcmV0dXJuIE1hdGgubWluKDEwMCwgc2NvcmUpOwp9CgovKioKICogQ29tcHV0ZSBSRUFETUUgcXVhbGl0eSBzY29yZSAoMC0xMDApLgogKi8KZnVuY3Rpb24gcmVhZG1lU2NvcmUocmVwbykgewogIGlmICghcmVwby5oYXNfd2lraSkgcmV0dXJuIDA7CgogIGxldCBzY29yZSA9IDA7CgogIC8vIEhhcyBSRUFETUUKICBpZiAocmVwby5oYXNfcmVhZG1lKSBzY29yZSArPSAyNTsKICBpZiAocmVwby5oYXNfZG93bmxvYWRzKSBzY29yZSArPSA1OwogIGlmIChyZXBvLmhhc19wcm9qZWN0cykgc2NvcmUgKz0gNTsKCiAgLy8gUkVBRE1FIGNvbnRlbnQgcXVhbGl0eQogIGlmIChyZXBvLmRlc2NyaXB0aW9uICYmIHJlcG8uZGVzY3JpcHRpb24ubGVuZ3RoID4gMjApIHNjb3JlICs9IDE1OwogIGlmIChyZXBvLnRvcGljcyAmJiByZXBvLnRvcGljcy5sZW5ndGggPiAwKSBzY29yZSArPSAxMDsKICBpZiAocmVwby5ob21lcGFnZSkgc2NvcmUgKz0gMTA7CiAgaWYgKHJlcG8ubGljZW5zZSkgc2NvcmUgKz0gMTA7CgogIC8vIFNpemUgYm9udXMgKHN1YnN0YW50aWFsIHByb2plY3QpCiAgaWYgKHJlcG8uc2l6ZSA+IDEwMDApIHNjb3JlICs9IDU7CiAgZWxzZSBpZiAocmVwby5zaXplID4gMTAwKSBzY29yZSArPSAzOwoKICAvLyBIYXMgaXNzdWVzIC8gUFJzIChzaG93cyBlbmdhZ2VtZW50KQogIGlmIChyZXBvLm9wZW5faXNzdWVzX2NvdW50ID4gMCkgc2NvcmUgKz0gNTsKCiAgcmV0dXJuIE1hdGgubWluKDEwMCwgc2NvcmUpOwp9CgovKioKICogQ29tcHV0ZSBkZXBlbmRlbmN5IGZyZXNobmVzcyBzY29yZSAoMC0xMDApLgogKiBCYXNlZCBvbiBsYXN0IHJlbGVhc2UgZGF0ZSB2cyBjdXJyZW50IGRhdGUuCiAqLwpmdW5jdGlvbiBkZXBlbmRlbmN5RnJlc2huZXNzU2NvcmUocmVwbywgcmVsZWFzZXMpIHsKICBpZiAoIXJlcG8gfHwgIXJlbGVhc2VzIHx8IHJlbGVhc2VzLmxlbmd0aCA9PT0gMCkgcmV0dXJuIDMwOwoKICBjb25zdCBsYXRlc3RSZWxlYXNlID0gcmVsZWFzZXNbMF07IC8vIE1vc3QgcmVjZW50IGZpcnN0CiAgY29uc3QgbGFzdFJlbGVhc2VEYXRlID0gbmV3IERhdGUobGF0ZXN0UmVsZWFzZS5wdWJsaXNoZWRfYXQpOwogIGNvbnN0IG5vdyA9IG5ldyBEYXRlKCk7CiAgY29uc3QgZGF5c1NpbmNlUmVsZWFzZSA9IChub3cgLSBsYXN0UmVsZWFzZURhdGUpIC8gKDEwMDAgKiA2MCAqIDYwICogMjQpOwoKICBsZXQgc2NvcmU7CiAgaWYgKGRheXNTaW5jZVJlbGVhc2UgPD0gMzApIHNjb3JlID0gNDA7CiAgZWxzZSBpZiAoZGF5c1NpbmNlUmVsZWFzZSA8PSA5MCkgc2NvcmUgPSAzNTsKICBlbHNlIGlmIChkYXlzU2luY2VSZWxlYXNlIDw9IDE4MCkgc2NvcmUgPSAyNTsKICBlbHNlIGlmIChkYXlzU2luY2VSZWxlYXNlIDw9IDM2NSkgc2NvcmUgPSAxNTsKICBlbHNlIHNjb3JlID0gNTsKCiAgLy8gQm9udXMgZm9yIHJlbGVhc2UgZnJlcXVlbmN5CiAgaWYgKHJlbGVhc2VzLmxlbmd0aCA+PSAxMCkgc2NvcmUgKz0gMTU7CiAgZWxzZSBpZiAocmVsZWFzZXMubGVuZ3RoID49IDUpIHNjb3JlICs9IDEwOwogIGVsc2UgaWYgKHJlbGVhc2VzLmxlbmd0aCA+PSAyKSBzY29yZSArPSA1OwoKICAvLyBIYXMgdGFncyAodmVyc2lvbmluZykKICBzY29yZSArPSAxMDsKCiAgcmV0dXJuIE1hdGgubWluKDEwMCwgc2NvcmUpOwp9CgovKioKICogQ29tcHV0ZSBzZWN1cml0eSBzY29yZSAoMC0xMDApLgogKiBGYWN0b3JzOiBvcGVuIHNlY3VyaXR5IGFkdmlzb3JpZXMsIGxpY2Vuc2UsIGRlcGVuZGFib3Qgc3RhdHVzLgogKi8KZnVuY3Rpb24gc2VjdXJpdHlTY29yZShyZXBvLCBhZHZpc29yaWVzKSB7CiAgbGV0IHNjb3JlID0gMTAwOwoKICAvLyBEZWR1Y3QgZm9yIG9wZW4gYWR2aXNvcmllcwogIGNvbnN0IG9wZW5BZHZpc29yaWVzID0gKGFkdmlzb3JpZXMgfHwgW10pLmZpbHRlcigoYSkgPT4gYS5zdGF0ZSA9PT0gImRyYWZ0IiB8fCBhLnN0YXRlID09PSAib3BlbiIpOwogIHNjb3JlIC09IG9wZW5BZHZpc29yaWVzLmxlbmd0aCAqIDIwOwoKICAvLyBCb251cyBmb3IgaGF2aW5nIGEgbGljZW5zZQogIGlmIChyZXBvLmxpY2Vuc2UpIHNjb3JlICs9IDEwOwoKICAvLyBCb251cyBmb3IgaGFzIGlzc3VlcyAoc2hvd3MgYWN0aXZlIG1haW50ZW5hbmNlKQogIGlmIChyZXBvLm9wZW5faXNzdWVzX2NvdW50ID4gMCkgc2NvcmUgKz0gNTsKCiAgLy8gUGVuYWx0eSBmb3Igbm8gbGljZW5zZQogIGlmICghcmVwby5saWNlbnNlKSBzY29yZSAtPSAxNTsKCiAgLy8gSGFzIHNlY3VyaXR5IHBvbGljeQogIGlmIChyZXBvLmhhc19zZWN1cml0eV9wb2xpY3kpIHNjb3JlICs9IDEwOwoKICByZXR1cm4gTWF0aC5tYXgoMCwgTWF0aC5taW4oMTAwLCBzY29yZSkpOwp9CgovKioKICogQ29tcHV0ZSBjb250cmlidXRvciBkaXZlcnNpdHkgc2NvcmUgKDAtMTAwKS4KICovCmZ1bmN0aW9uIGNvbnRyaWJ1dG9yU2NvcmUoY29udHJpYnV0b3JzLCByZXBvKSB7CiAgaWYgKCFjb250cmlidXRvcnMgfHwgY29udHJpYnV0b3JzLmxlbmd0aCA9PT0gMCkgcmV0dXJuIDIwOwoKICBjb25zdCBjb3VudCA9IGNvbnRyaWJ1dG9ycy5sZW5ndGg7CiAgbGV0IHNjb3JlOwoKICBpZiAoY291bnQgPj0gMjApIHNjb3JlID0gMzA7CiAgZWxzZSBpZiAoY291bnQgPj0gMTApIHNjb3JlID0gMjU7CiAgZWxzZSBpZiAoY291bnQgPj0gNSkgc2NvcmUgPSAyMDsKICBlbHNlIGlmIChjb3VudCA+PSAyKSBzY29yZSA9IDE1OwogIGVsc2Ugc2NvcmUgPSAxMDsKCiAgLy8gVG9wIGNvbnRyaWJ1dG9yIGRvbWluYW5jZSAoaWYgdG9wIGNvbnRyaWJ1dG9yIGhhcyA+ODAlIG9mIGNvbW1pdHMsIGxlc3MgaGVhbHRoeSkKICBpZiAoY29udHJpYnV0b3JzLmxlbmd0aCA+IDEpIHsKICAgIGNvbnN0IHRvdGFsQ29tbWl0cyA9IGNvbnRyaWJ1dG9ycy5yZWR1Y2UoKHMsIGMpID0+IHMgKyBjLmNvbnRyaWJ1dGlvbnMsIDApOwogICAgY29uc3QgdG9wQ29tbWl0cyA9IGNvbnRyaWJ1dG9yc1swXT8uY29udHJpYnV0aW9ucyB8fCAwOwogICAgY29uc3QgZG9taW5hbmNlID0gdG9wQ29tbWl0cyAvIHRvdGFsQ29tbWl0czsKICAgIGlmIChkb21pbmFuY2UgPiAwLjkpIHNjb3JlIC09IDEwOwogICAgZWxzZSBpZiAoZG9taW5hbmNlID4gMC43KSBzY29yZSAtPSA1OwogIH0KCiAgcmV0dXJuIE1hdGgubWF4KDAsIHNjb3JlKTsKfQoKLyoqCiAqIENvbXB1dGUgUFIgaGVhbHRoIHNjb3JlICgwLTEwMCkuCiAqLwpmdW5jdGlvbiBwckhlYWx0aFNjb3JlKHByU3RhdHMpIHsKICBpZiAoIXByU3RhdHMgfHwgcHJTdGF0cy50b3RhbCA9PT0gMCkgcmV0dXJuIDMwOwoKICBjb25zdCB7IG9wZW4sIG1lcmdlZCwgY2xvc2VkLCB0b3RhbCB9ID0gcHJTdGF0czsKICBjb25zdCBtZXJnZVJhdGUgPSB0b3RhbCA+IDAgPyBtZXJnZWQgLyB0b3RhbCA6IDA7CiAgY29uc3Qgb3BlblJhdGlvID0gdG90YWwgPiAwID8gb3BlbiAvIHRvdGFsIDogMDsKCiAgbGV0IHNjb3JlID0gbWVyZ2VSYXRlICogNDA7CgogIC8vIExvdyBvcGVuIGJhY2tsb2cgaXMgZ29vZAogIGlmIChvcGVuUmF0aW8gPCAwLjEpIHNjb3JlICs9IDMwOwogIGVsc2UgaWYgKG9wZW5SYXRpbyA8IDAuMykgc2NvcmUgKz0gMjA7CiAgZWxzZSBpZiAob3BlblJhdGlvIDwgMC41KSBzY29yZSArPSAxMDsKICBlbHNlIHNjb3JlICs9IDU7CgogIC8vIEFjdGl2ZSBQUnMKICBpZiAob3BlbiA+IDApIHNjb3JlICs9IDEwOwoKICAvLyBUb3RhbCBQUnMgKHNob3dzIGNvbGxhYm9yYXRpb24pCiAgaWYgKHRvdGFsID49IDUwKSBzY29yZSArPSAxNTsKICBlbHNlIGlmICh0b3RhbCA+PSAyMCkgc2NvcmUgKz0gMTA7CiAgZWxzZSBpZiAodG90YWwgPj0gNSkgc2NvcmUgKz0gNTsKCiAgcmV0dXJuIE1hdGgubWluKDEwMCwgc2NvcmUpOwp9CgovKioKICogQ29tcHV0ZSBjb21wb3NpdGUgaGVhbHRoIHNjb3JlICgwLTEwMCkgd2l0aCB3ZWlnaHRlZCBmYWN0b3JzLgogKi8KZnVuY3Rpb24gY29tcHV0ZUhlYWx0aFNjb3JlKG1ldHJpY3MpIHsKICBjb25zdCB3ZWlnaHRzID0gewogICAgc3RhcnM6IDAuMjAsCiAgICBpc3N1ZXM6IDAuMjAsCiAgICBjb21taXRzOiAwLjE1LAogICAgcmVhZG1lOiAwLjEwLAogICAgZnJlc2huZXNzOiAwLjEwLAogICAgc2VjdXJpdHk6IDAuMTAsCiAgICBjb250cmlidXRvcnM6IDAuMDUsCiAgICBwckhlYWx0aDogMC4xMCwKICB9OwoKICBsZXQgdG90YWwgPSAwOwogIGxldCB3ZWlnaHRlZFRvdGFsID0gMDsKCiAgZm9yIChjb25zdCBba2V5LCB3ZWlnaHRdIG9mIE9iamVjdC5lbnRyaWVzKHdlaWdodHMpKSB7CiAgICBjb25zdCBzY29yZSA9IG1ldHJpY3Nba2V5XSB8fCAwOwogICAgd2VpZ2h0ZWRUb3RhbCArPSBzY29yZSAqIHdlaWdodDsKICAgIHRvdGFsICs9IHdlaWdodDsKICB9CgogIHJldHVybiBNYXRoLnJvdW5kKHdlaWdodGVkVG90YWwgLyB0b3RhbCk7Cn0KCi8qKgogKiBHZXQgaGVhbHRoIGdyYWRlIChBKyB0aHJvdWdoIEYpLgogKi8KZnVuY3Rpb24gZ2V0R3JhZGUoc2NvcmUpIHsKICBpZiAoc2NvcmUgPj0gOTApIHJldHVybiAiQSsiOwogIGlmIChzY29yZSA+PSA4MCkgcmV0dXJuICJBIjsKICBpZiAoc2NvcmUgPj0gNzApIHJldHVybiAiQiI7CiAgaWYgKHNjb3JlID49IDYwKSByZXR1cm4gIkMiOwogIGlmIChzY29yZSA+PSA1MCkgcmV0dXJuICJEIjsKICByZXR1cm4gIkYiOwp9CgovKioKICogR2V0IGNvbG9yIGZvciBncmFkZS4KICovCmZ1bmN0aW9uIGdldEdyYWRlQ29sb3IoZ3JhZGUpIHsKICBzd2l0Y2ggKGdyYWRlKSB7CiAgICBjYXNlICJBKyI6CiAgICBjYXNlICJBIjoKICAgICAgcmV0dXJuICJncmVlbiI7CiAgICBjYXNlICJCIjoKICAgICAgcmV0dXJuICJ5ZWxsb3ciOwogICAgY2FzZSAiQyI6CiAgICAgIHJldHVybiAib3JhbmdlIjsKICAgIGNhc2UgIkQiOgogICAgICByZXR1cm4gInJlZCI7CiAgICBjYXNlICJGIjoKICAgICAgcmV0dXJuICJyZWQiOwogICAgZGVmYXVsdDoKICAgICAgcmV0dXJuICJncmF5IjsKICB9Cn0KCi8qKgogKiBNYWluIG1ldHJpY3MgY29tcHV0YXRpb24uCiAqLwpmdW5jdGlvbiBjb21wdXRlQWxsTWV0cmljcyhyZXBvLCBhY3Rpdml0eSwgaXNzdWVTdGF0cywgcHJTdGF0cywgcmVsZWFzZXMsIGFkdmlzb3JpZXMsIGNvbnRyaWJ1dG9ycywgbGFuZ3VhZ2VzKSB7CiAgY29uc3Qgc3RhcnMgPSBzdGFyc1Njb3JlKHJlcG8sIGFjdGl2aXR5KTsKICBjb25zdCBpc3N1ZXMgPSBpc3N1ZXNTY29yZShpc3N1ZVN0YXRzKTsKICBjb25zdCBjb21taXRzID0gY29tbWl0RnJlcXVlbmN5U2NvcmUoYWN0aXZpdHkpOwogIGNvbnN0IHJlYWRtZSA9IHJlYWRtZVNjb3JlKHJlcG8pOwogIGNvbnN0IGZyZXNobmVzcyA9IGRlcGVuZGVuY3lGcmVzaG5lc3NTY29yZShyZXBvLCByZWxlYXNlcyk7CiAgY29uc3Qgc2VjdXJpdHkgPSBzZWN1cml0eVNjb3JlKHJlcG8sIGFkdmlzb3JpZXMpOwogIGNvbnN0IGNvbnRyaWJ1dG9yc1Njb3JlID0gY29udHJpYnV0b3JTY29yZShjb250cmlidXRvcnMsIHJlcG8pOwogIGNvbnN0IHBySGVhbHRoID0gcHJIZWFsdGhTY29yZShwclN0YXRzKTsKICBjb25zdCBjb21wb3NpdGUgPSBjb21wdXRlSGVhbHRoU2NvcmUoeyBzdGFycywgaXNzdWVzLCBjb21taXRzLCByZWFkbWUsIGZyZXNobmVzcywgc2VjdXJpdHksIGNvbnRyaWJ1dG9yczogY29udHJpYnV0b3JzU2NvcmUsIHBySGVhbHRoIH0pOwogIGNvbnN0IGdyYWRlID0gZ2V0R3JhZGUoY29tcG9zaXRlKTsKCiAgcmV0dXJuIHsKICAgIHN0YXJzLAogICAgaXNzdWVzLAogICAgY29tbWl0cywKICAgIHJlYWRtZSwKICAgIGZyZXNobmVzcywKICAgIHNlY3VyaXR5LAogICAgY29udHJpYnV0b3JzOiBjb250cmlidXRvcnNTY29yZSwKICAgIHBySGVhbHRoLAogICAgY29tcG9zaXRlLAogICAgZ3JhZGUsCiAgfTsKfQoKbW9kdWxlLmV4cG9ydHMgPSB7CiAgc3RhcnNTY29yZSwKICBpc3N1ZXNTY29yZSwKICBjb21taXRGcmVxdWVuY3lTY29yZSwKICByZWFkbWVTY29yZSwKICBkZXBlbmRlbmN5RnJlc2huZXNzU2NvcmUsCiAgc2VjdXJpdHlTY29yZSwKICBjb250cmlidXRvclNjb3JlLAogIHBySGVhbHRoU2NvcmUsCiAgY29tcHV0ZUhlYWx0aFNjb3JlLAogIGdldEdyYWRlLAogIGdldEdyYWRlQ29sb3IsCiAgY29tcHV0ZUFsbE1ldHJpY3MsCn07Cg==
+/**
+ * Health metrics calculator — takes raw GitHub data and computes scores.
+ */
+
+/**
+ * Compute stars-related health score (0-100).
+ * Factors: total stars, star growth rate, forks ratio.
+ */
+function starsScore(repo, activity) {
+  const stars = repo.stargazers_count || 0;
+  const forks = repo.forks_count || 0;
+  const forkStarRatio = stars > 0 ? forks / stars : 0;
+
+  let score = 0;
+
+  // Stars tiers (logarithmic)
+  if (stars >= 10000) score += 35;
+  else if (stars >= 5000) score += 30;
+  else if (stars >= 1000) score += 25;
+  else if (stars >= 500) score += 20;
+  else if (stars >= 100) score += 15;
+  else if (stars >= 50) score += 10;
+  else if (stars >= 10) score += 5;
+  else if (stars > 0) score += 2;
+
+  // Fork-to-star ratio (healthy repos have 0.1-0.5 ratio)
+  if (forkStarRatio >= 0.1 && forkStarRatio <= 0.5) score += 10;
+  else if (forkStarRatio > 0.5) score += 5;
+
+  // Recent activity bonus
+  if (activity.recent > 50) score += 10;
+  else if (activity.recent > 20) score += 7;
+  else if (activity.recent > 5) score += 5;
+  else if (activity.recent > 0) score += 2;
+
+  return Math.min(100, score);
+}
+
+/**
+ * Compute issue health score (0-100).
+ * Factors: issue resolution rate, avg close time, open backlog.
+ */
+function issuesScore(issueStats) {
+  if (!issueStats) return 0;
+
+  const { total, open, closed, avgCloseDays } = issueStats;
+
+  if (total === 0) return 50; // No issues = neutral
+
+  // Resolution rate (closed / total)
+  const resolutionRate = total > 0 ? closed / total : 0;
+  let score = resolutionRate * 40;
+
+  // Open backlog penalty
+  const openRatio = total > 0 ? open / total : 0;
+  if (openRatio < 0.1) score += 20;
+  else if (openRatio < 0.3) score += 15;
+  else if (openRatio < 0.5) score += 10;
+  else score += 5;
+
+  // Avg close time
+  if (avgCloseDays !== null) {
+    if (avgCloseDays < 7) score += 25;
+    else if (avgCloseDays < 30) score += 20;
+    else if (avgCloseDays < 90) score += 10;
+    else score += 3;
+  }
+
+  return Math.min(100, Math.max(0, score));
+}
+
+/**
+ * Compute commit frequency score (0-100).
+ */
+function commitFrequencyScore(activity) {
+  if (!activity || activity.recent === 0) return 10;
+
+  const days = 90;
+  const commitsPerWeek = activity.recent / (days / 7);
+
+  let score;
+  if (commitsPerWeek >= 10) score = 30;
+  else if (commitsPerWeek >= 5) score = 25;
+  else if (commitsPerWeek >= 2) score = 20;
+  else if (commitsPerWeek >= 1) score = 15;
+  else if (commitsPerWeek >= 0.25) score = 10;
+  else score = 5;
+
+  // Bonus for consistent monthly activity
+  const months = Object.keys(activity.monthly || {}).length;
+  score += Math.min(20, months * 3);
+
+  return Math.min(100, score);
+}
+
+/**
+ * Compute README quality score (0-100).
+ */
+function readmeScore(repo) {
+  if (!repo.has_wiki) return 0;
+
+  let score = 0;
+
+  // Has README
+  if (repo.has_readme) score += 25;
+  if (repo.has_downloads) score += 5;
+  if (repo.has_projects) score += 5;
+
+  // README content quality
+  if (repo.description && repo.description.length > 20) score += 15;
+  if (repo.topics && repo.topics.length > 0) score += 10;
+  if (repo.homepage) score += 10;
+  if (repo.license) score += 10;
+
+  // Size bonus (substantial project)
+  if (repo.size > 1000) score += 5;
+  else if (repo.size > 100) score += 3;
+
+  // Has issues / PRs (shows engagement)
+  if (repo.open_issues_count > 0) score += 5;
+
+  return Math.min(100, score);
+}
+
+/**
+ * Compute dependency freshness score (0-100).
+ * Based on last release date vs current date.
+ */
+function dependencyFreshnessScore(repo, releases) {
+  if (!repo || !releases || releases.length === 0) return 30;
+
+  const latestRelease = releases[0]; // Most recent first
+  const lastReleaseDate = new Date(latestRelease.published_at);
+  const now = new Date();
+  const daysSinceRelease = (now - lastReleaseDate) / (1000 * 60 * 60 * 24);
+
+  let score;
+  if (daysSinceRelease <= 30) score = 40;
+  else if (daysSinceRelease <= 90) score = 35;
+  else if (daysSinceRelease <= 180) score = 25;
+  else if (daysSinceRelease <= 365) score = 15;
+  else score = 5;
+
+  // Bonus for release frequency
+  if (releases.length >= 10) score += 15;
+  else if (releases.length >= 5) score += 10;
+  else if (releases.length >= 2) score += 5;
+
+  // Has tags (versioning)
+  score += 10;
+
+  return Math.min(100, score);
+}
+
+/**
+ * Compute security score (0-100).
+ * Factors: open security advisories, license, dependabot status.
+ */
+function securityScore(repo, advisories) {
+  let score = 100;
+
+  // Deduct for open advisories
+  const openAdvisories = (advisories || []).filter((a) => a.state === "draft" || a.state === "open");
+  score -= openAdvisories.length * 20;
+
+  // Bonus for having a license
+  if (repo.license) score += 10;
+
+  // Bonus for has issues (shows active maintenance)
+  if (repo.open_issues_count > 0) score += 5;
+
+  // Penalty for no license
+  if (!repo.license) score -= 15;
+
+  // Has security policy
+  if (repo.has_security_policy) score += 10;
+
+  return Math.max(0, Math.min(100, score));
+}
+
+/**
+ * Compute contributor diversity score (0-100).
+ */
+function contributorScore(contributors, repo) {
+  if (!contributors || contributors.length === 0) return 20;
+
+  const count = contributors.length;
+  let score;
+
+  if (count >= 20) score = 30;
+  else if (count >= 10) score = 25;
+  else if (count >= 5) score = 20;
+  else if (count >= 2) score = 15;
+  else score = 10;
+
+  // Top contributor dominance (if top contributor has >80% of commits, less healthy)
+  if (contributors.length > 1) {
+    const totalCommits = contributors.reduce((s, c) => s + c.contributions, 0);
+    const topCommits = contributors[0]?.contributions || 0;
+    const dominance = topCommits / totalCommits;
+    if (dominance > 0.9) score -= 10;
+    else if (dominance > 0.7) score -= 5;
+  }
+
+  return Math.max(0, score);
+}
+
+/**
+ * Compute PR health score (0-100).
+ */
+function prHealthScore(prStats) {
+  if (!prStats || prStats.total === 0) return 30;
+
+  const { open, merged, closed, total } = prStats;
+  const mergeRate = total > 0 ? merged / total : 0;
+  const openRatio = total > 0 ? open / total : 0;
+
+  let score = mergeRate * 40;
+
+  // Low open backlog is good
+  if (openRatio < 0.1) score += 30;
+  else if (openRatio < 0.3) score += 20;
+  else if (openRatio < 0.5) score += 10;
+  else score += 5;
+
+  // Active PRs
+  if (open > 0) score += 10;
+
+  // Total PRs (shows collaboration)
+  if (total >= 50) score += 15;
+  else if (total >= 20) score += 10;
+  else if (total >= 5) score += 5;
+
+  return Math.min(100, score);
+}
+
+/**
+ * Compute composite health score (0-100) with weighted factors.
+ */
+function computeHealthScore(metrics) {
+  const weights = {
+    stars: 0.20,
+    issues: 0.20,
+    commits: 0.15,
+    readme: 0.10,
+    freshness: 0.10,
+    security: 0.10,
+    contributors: 0.05,
+    prHealth: 0.10,
+  };
+
+  let total = 0;
+  let weightedTotal = 0;
+
+  for (const [key, weight] of Object.entries(weights)) {
+    const score = metrics[key] || 0;
+    weightedTotal += score * weight;
+    total += weight;
+  }
+
+  return Math.round(weightedTotal / total);
+}
+
+/**
+ * Get health grade (A+ through F).
+ */
+function getGrade(score) {
+  if (score >= 90) return "A+";
+  if (score >= 80) return "A";
+  if (score >= 70) return "B";
+  if (score >= 60) return "C";
+  if (score >= 50) return "D";
+  return "F";
+}
+
+/**
+ * Get color for grade.
+ */
+function getGradeColor(grade) {
+  switch (grade) {
+    case "A+":
+    case "A":
+      return "green";
+    case "B":
+      return "yellow";
+    case "C":
+      return "orange";
+    case "D":
+      return "red";
+    case "F":
+      return "red";
+    default:
+      return "gray";
+  }
+}
+
+/**
+ * Main metrics computation.
+ */
+function computeAllMetrics(repo, activity, issueStats, prStats, releases, advisories, contributors, languages) {
+  const stars = starsScore(repo, activity);
+  const issues = issuesScore(issueStats);
+  const commits = commitFrequencyScore(activity);
+  const readme = readmeScore(repo);
+  const freshness = dependencyFreshnessScore(repo, releases);
+  const security = securityScore(repo, advisories);
+  const contributorsScore = contributorScore(contributors, repo);
+  const prHealth = prHealthScore(prStats);
+  const composite = computeHealthScore({ stars, issues, commits, readme, freshness, security, contributors: contributorsScore, prHealth });
+  const grade = getGrade(composite);
+
+  return {
+    stars,
+    issues,
+    commits,
+    readme,
+    freshness,
+    security,
+    contributors: contributorsScore,
+    prHealth,
+    composite,
+    grade,
+  };
+}
+
+module.exports = {
+  starsScore,
+  issuesScore,
+  commitFrequencyScore,
+  readmeScore,
+  dependencyFreshnessScore,
+  securityScore,
+  contributorScore,
+  prHealthScore,
+  computeHealthScore,
+  getGrade,
+  getGradeColor,
+  computeAllMetrics,
+};

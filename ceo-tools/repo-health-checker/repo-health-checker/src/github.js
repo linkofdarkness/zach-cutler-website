@@ -1,1 +1,354 @@
-LyoqCiAqIEdpdEh1YiBSRVNUIEFQSSBjbGllbnQg4oCUIHB1YmxpYyBlbmRwb2ludHMsIG5vIGF1dGggcmVxdWlyZWQgZm9yIGJhc2ljIGluZm8uCiAqIFJhdGUgbGltaXQ6IDYwIHJlcS9ob3VyIHVuYXV0aGVudGljYXRlZCwgNTAwMCByZXEvaG91ciBhdXRoZW50aWNhdGVkLgogKi8KCmNvbnN0IEJBU0UgPSAiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbSI7CgovKioKICogR2V0IGF1dGggaGVhZGVycyBmcm9tIGVudmlyb25tZW50LgogKi8KZnVuY3Rpb24gZ2V0QXV0aEhlYWRlcnMoKSB7CiAgY29uc3QgdG9rZW4gPSBwcm9jZXNzLmVudi5HSVRIVUJfVE9LRU4gfHwgcHJvY2Vzcy5lbnYuR0hfVE9LRU47CiAgaWYgKHRva2VuKSB7CiAgICByZXR1cm4geyBBdXRob3JpemF0aW9uOiBgQmVhcmVyICR7dG9rZW59YCB9OwogIH0KICByZXR1cm4ge307Cn0KCi8qKgogKiBGZXRjaCB3aXRoIHJldHJ5IGFuZCByYXRlLWxpbWl0IGF3YXJlbmVzcy4KICogUmV0dXJucyBwYXJzZWQgSlNPTiBvciB0aHJvd3MuCiAqLwphc3luYyBmdW5jdGlvbiBmZXRjaEpTT04odXJsLCBvcHRzID0ge30pIHsKICBjb25zdCBoZWFkZXJzID0gewogICAgQWNjZXB0OiAiYXBwbGljYXRpb24vdm5kLmdpdGh1Yitqc29uIiwKICAgICJYLUdpdEh1Yi1BcGktVmVyc2lvbiI6ICIyMDIyLTExLTI4IiwKICAgIC4uLmdldEF1dGhIZWFkZXJzKCksCiAgICAuLi5vcHRzLmhlYWRlcnMsCiAgfTsKCiAgbGV0IHJldHJpZXMgPSAzOwogIHdoaWxlIChyZXRyaWVzID4gMCkgewogICAgY29uc3QgcmVzID0gYXdhaXQgZmV0Y2godXJsLCB7IGhlYWRlcnMgfSk7CgogICAgaWYgKHJlcy5zdGF0dXMgPT09IDQwMyAmJiByZXMuaGVhZGVycy5nZXQoIngtcmF0ZWxpbWl0LXJlbWFpbmluZyIpID09PSAiMCIpIHsKICAgICAgY29uc3QgcmV0cnlBZnRlciA9IHJlcy5oZWFkZXJzLmdldCgicmV0cnktYWZ0ZXIiKTsKICAgICAgY29uc3Qgd2FpdCA9IChwYXJzZUludChyZXRyeUFmdGVyLCAxMCkgfHwgNjApICogMTAwMDsKICAgICAgY29uc29sZS5lcnJvcihg4pqg77iPICBSYXRlIGxpbWl0ZWQuIFdhaXRpbmcgJHt3YWl0IC8gMTAwMH1zIGJlZm9yZSByZXRyeS4uLmApOwogICAgICBhd2FpdCBuZXcgUHJvbWlzZSgocikgPT4gc2V0VGltZW91dChyLCB3YWl0KSk7CiAgICAgIHJldHJpZXMtLTsKICAgICAgY29udGludWU7CiAgICB9CgogICAgaWYgKCFyZXMub2spIHsKICAgICAgdGhyb3cgbmV3IEVycm9yKGBHaXRIdWIgQVBJIGVycm9yOiAke3Jlcy5zdGF0dXN9ICR7cmVzLnN0YXR1c1RleHR9IGZvciAke3VybH1gKTsKICAgIH0KCiAgICByZXR1cm4gcmVzLmpzb24oKTsKICB9CgogIHRocm93IG5ldyBFcnJvcigiR2l0SHViIEFQSSByYXRlIGxpbWl0IGV4Y2VlZGVkIGFmdGVyIHJldHJpZXMuIik7Cn0KCi8qKgogKiBQYWdpbmF0ZSDigJQgZmV0Y2ggYWxsIHBhZ2VzIG9mIGEgcGFnaW5hdGVkIGVuZHBvaW50LgogKi8KYXN5bmMgZnVuY3Rpb24qIHBhZ2luYXRlKHVybCwgaGVhZGVycyA9IHt9KSB7CiAgbGV0IG5leHRVcmwgPSB1cmw7CiAgd2hpbGUgKG5leHRVcmwpIHsKICAgIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKG5leHRVcmwsIHsKICAgICAgaGVhZGVyczogewogICAgICAgIEFjY2VwdDogImFwcGxpY2F0aW9uL3ZuZC5naXRodWIranNvbiIsCiAgICAgICAgIlgtR2l0SHViLUFwaS1WZXJzaW9uIjogIjIwMjItMTEtMjgiLAogICAgICAgIC4uLmdldEF1dGhIZWFkZXJzKCksCiAgICAgICAgLi4uaGVhZGVycywKICAgICAgfSwKICAgIH0pOwoKICAgIGlmICghcmVzLm9rKSB7CiAgICAgIHRocm93IG5ldyBFcnJvcihgR2l0SHViIEFQSSBlcnJvcjogJHtyZXMuc3RhdHVzfSAke3Jlcy5zdGF0dXNUZXh0fSBmb3IgJHt1cmx9YCk7CiAgICB9CgogICAgY29uc3QgaXRlbXMgPSBhd2FpdCByZXMuanNvbigpOwogICAgeWllbGQqIChBcnJheS5pc0FycmF5KGl0ZW1zKSA/IGl0ZW1zIDogW2l0ZW1zXSk7CgogICAgY29uc3QgbGluayA9IHJlcy5oZWFkZXJzLmdldCgibGluayIpOwogICAgbmV4dFVybCA9IG51bGw7CiAgICBpZiAobGluaykgewogICAgICBjb25zdCBtYXRjaCA9IGxpbmsubWF0Y2goLzwoW14+XSspPjtccypyZWw9Im5leHQiLyk7CiAgICAgIGlmIChtYXRjaCkgbmV4dFVybCA9IG1hdGNoWzFdOwogICAgfQogIH0KfQoKLyoqCiAqIEZldGNoIGFsbCByZXBvcyBmb3IgYSB1c2VyL29yZy4KICovCmFzeW5jIGZ1bmN0aW9uIGdldFJlcG9zKG93bmVyLCB0eXBlID0gIm93bmVyIiwgcGVyUGFnZSA9IDEwMCkgewogIGNvbnN0IHJlcG9zID0gW107CiAgZm9yIGF3YWl0IChjb25zdCByZXBvIG9mIHBhZ2luYXRlKAogICAgYCR7QkFTRX0vdXNlcnMvJHtvd25lcn0vcmVwb3M/cGVyX3BhZ2U9JHtwZXJQYWdlfSZzb3J0PXVwZGF0ZWQmdHlwZT0ke3R5cGV9YAogICkpIHsKICAgIHJlcG9zLnB1c2gocmVwbyk7CiAgfQogIHJldHVybiByZXBvczsKfQoKLyoqCiAqIEZldGNoIGEgc2luZ2xlIHJlcG8uCiAqLwphc3luYyBmdW5jdGlvbiBnZXRSZXBvKG93bmVyLCByZXBvKSB7CiAgcmV0dXJuIGZldGNoSlNPTihgJHtCQVNFfS9yZXBvcy8ke293bmVyfS8ke3JlcG99YCk7Cn0KCi8qKgogKiBGZXRjaCBpc3N1ZXMgd2l0aCBvcHRpb25hbCBmaWx0ZXJzLgogKiBSZXR1cm5zIGFsbCBpc3N1ZXMgKHBhZ2luYXRlZCkuCiAqLwphc3luYyBmdW5jdGlvbiBnZXRJc3N1ZXMob3duZXIsIHJlcG8sIHN0YXRlID0gImFsbCIsIHBlclBhZ2UgPSAxMDApIHsKICBjb25zdCBpc3N1ZXMgPSBbXTsKICBmb3IgYXdhaXQgKGNvbnN0IGlzc3VlIG9mIHBhZ2luYXRlKAogICAgYCR7QkFTRX0vcmVwb3MvJHtvd25lcn0vJHtyZXBvfS9pc3N1ZXM/cGVyX3BhZ2U9JHtwZXJQYWdlfSZzdGF0ZT0ke3N0YXRlfSZzb3J0PWNyZWF0ZWQmZGlyZWN0aW9uPWRlc2NgCiAgKSkgewogICAgaXNzdWVzLnB1c2goaXNzdWUpOwogIH0KICByZXR1cm4gaXNzdWVzOwp9CgovKioKICogRmV0Y2ggY29tbWl0cyAocGFnaW5hdGVkKS4KICovCmFzeW5jIGZ1bmN0aW9uIGdldENvbW1pdHMob3duZXIsIHJlcG8sIHBlclBhZ2UgPSAxMDApIHsKICBjb25zdCBjb21taXRzID0gW107CiAgZm9yIGF3YWl0IChjb25zdCBjb21taXQgb2YgcGFnaW5hdGUoCiAgICBgJHtCQVNFfS9yZXBvcy8ke293bmVyfS8ke3JlcG99L2NvbW1pdHM/cGVyX3BhZ2U9JHtwZXJQYWdlfSZzaW5jZT0yMDI0LTAxLTAxVDAwOjAwOjAwWmAKICApKSB7CiAgICBjb21taXRzLnB1c2goY29tbWl0KTsKICB9CiAgcmV0dXJuIGNvbW1pdHM7Cn0KCi8qKgogKiBGZXRjaCBicmFuY2hlcyBmb3IgZGVmYXVsdCBicmFuY2ggZGV0ZWN0aW9uLgogKi8KYXN5bmMgZnVuY3Rpb24gZ2V0RGVmYXVsdEJyYW5jaChvd25lciwgcmVwbykgewogIGNvbnN0IHJlcG9EYXRhID0gYXdhaXQgZ2V0UmVwbyhvd25lciwgcmVwbyk7CiAgcmV0dXJuIHJlcG9EYXRhLmRlZmF1bHRfYnJhbmNoIHx8ICJtYWluIjsKfQoKLyoqCiAqIEZldGNoIHB1bGwgcmVxdWVzdHMuCiAqLwphc3luYyBmdW5jdGlvbiBnZXRQdWxsUmVxdWVzdHMob3duZXIsIHJlcG8sIHN0YXRlID0gImFsbCIsIHBlclBhZ2UgPSAxMDApIHsKICBjb25zdCBwcnMgPSBbXTsKICBmb3IgYXdhaXQgKGNvbnN0IHByIG9mIHBhZ2luYXRlKAogICAgYCR7QkFTRX0vcmVwb3MvJHtvd25lcn0vJHtyZXBvfS9wdWxscz9wZXJfcGFnZT0ke3BlclBhZ2V9JnN0YXRlPSR7c3RhdGV9JnNvcnQ9Y3JlYXRlZCZkaXJlY3Rpb249ZGVzY2AKICApKSB7CiAgICBwcnMucHVzaChwcik7CiAgfQogIHJldHVybiBwcnM7Cn0KCi8qKgogKiBGZXRjaCB0YWdzIGZvciB2ZXJzaW9uIGluZm8uCiAqLwphc3luYyBmdW5jdGlvbiBnZXRUYWdzKG93bmVyLCByZXBvLCBwZXJQYWdlID0gMTAwKSB7CiAgY29uc3QgdGFncyA9IFtdOwogIGZvciBhd2FpdCAoY29uc3QgdGFnIG9mIHBhZ2luYXRlKAogICAgYCR7QkFTRX0vcmVwb3MvJHtvd25lcn0vJHtyZXBvfS90YWdzP3Blcl9wYWdlPSR7cGVyUGFnZX1gCiAgKSkgewogICAgdGFncy5wdXNoKHRhZyk7CiAgfQogIHJldHVybiB0YWdzOwp9CgovKioKICogRmV0Y2ggcmVsZWFzZXMuCiAqLwphc3luYyBmdW5jdGlvbiBnZXRSZWxlYXNlcyhvd25lciwgcmVwbywgcGVyUGFnZSA9IDEwMCkgewogIGNvbnN0IHJlbGVhc2VzID0gW107CiAgZm9yIGF3YWl0IChjb25zdCByZWxlYXNlIG9mIHBhZ2luYXRlKAogICAgYCR7QkFTRX0vcmVwb3MvJHtvd25lcn0vJHtyZXBvfS9yZWxlYXNlcz9wZXJfcGFnZT0ke3BlclBhZ2V9YAogICkpIHsKICAgIHJlbGVhc2VzLnB1c2gocmVsZWFzZSk7CiAgfQogIHJldHVybiByZWxlYXNlczsKfQoKLyoqCiAqIEZldGNoIHNlY3VyaXR5IGFkdmlzb3JpZXMgZm9yIGEgcmVwby4KICovCmFzeW5jIGZ1bmN0aW9uIGdldFNlY3VyaXR5QWR2aXNvcmllcyhvd25lciwgcmVwbywgcGVyUGFnZSA9IDEwMCkgewogIGNvbnN0IGFkdmlzb3JpZXMgPSBbXTsKICBmb3IgYXdhaXQgKGNvbnN0IGFkdmlzb3J5IG9mIHBhZ2luYXRlKAogICAgYCR7QkFTRX0vcmVwb3MvJHtvd25lcn0vJHtyZXBvfS9zZWN1cml0eS1hZHZpc29yaWVzP3Blcl9wYWdlPSR7cGVyUGFnZX1gCiAgKSkgewogICAgYWR2aXNvcmllcy5wdXNoKGFkdmlzb3J5KTsKICB9CiAgcmV0dXJuIGFkdmlzb3JpZXM7Cn0KCi8qKgogKiBGZXRjaCBkZXBlbmRlbmN5IGdyYXBoIG1hbmlmZXN0IChwYWNrYWdlLWxvY2suanNvbiBvciBzaW1pbGFyKS4KICogV2UgY2hlY2sgY29tbW9uIG1hbmlmZXN0cyBmb3IgZGVwZW5kZW5jeSBpbmZvLgogKi8KYXN5bmMgZnVuY3Rpb24gZ2V0RGVwZW5kZW5jaWVzKG93bmVyLCByZXBvKSB7CiAgY29uc3QgbWFuaWZlc3RzID0gWwogICAgeyBuYW1lOiAicGFja2FnZS5qc29uIiwgcGF0aDogInBhY2thZ2UuanNvbiIsIGxhbmc6ICJqYXZhc2NyaXB0IiB9LAogICAgeyBuYW1lOiAicmVxdWlyZW1lbnRzLnR4dCIsIHBhdGg6ICJyZXF1aXJlbWVudHMudHh0IiwgbGFuZzogInB5dGhvbiIgfSwKICAgIHsgbmFtZTogIkNhcmdvLnRvbWwiLCBwYXRoOiAiQ2FyZ28udG9tbCIsIGxhbmc6ICJydXN0IiB9LAogICAgeyBuYW1lOiAiZ28ubW9kIiwgcGF0aDogImdvLm1vZCIsIGxhbmc6ICJnbyIgfSwKICAgIHsgbmFtZTogInBvbS54bWwiLCBwYXRoOiAicG9tLnhtbCIsIGxhbmc6ICJqYXZhIiB9LAogIF07CgogIGNvbnN0IGRlcHMgPSBbXTsKICBmb3IgKGNvbnN0IG0gb2YgbWFuaWZlc3RzKSB7CiAgICB0cnkgewogICAgICBjb25zdCByZXMgPSBhd2FpdCBmZXRjaCgKICAgICAgICBgJHtCQVNFfS9yZXBvcy8ke293bmVyfS8ke3JlcG99L2NvbnRlbnRzLyR7bS5wYXRofWAsCiAgICAgICAgewogICAgICAgICAgaGVhZGVyczogewogICAgICAgICAgICBBY2NlcHQ6ICJhcHBsaWNhdGlvbi92bmQuZ2l0aHViK2pzb24iLAogICAgICAgICAgICAiWC1HaXRIdWItQXBpLVZlcnNpb24iOiAiMjAyMi0xMS0yOCIsCiAgICAgICAgICAgIC4uLmdldEF1dGhIZWFkZXJzKCksCiAgICAgICAgICB9LAogICAgICAgIH0KICAgICAgKTsKICAgICAgaWYgKHJlcy5vaykgewogICAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXMuanNvbigpOwogICAgICAgIGNvbnN0IGNvbnRlbnQgPSBCdWZmZXIuZnJvbShkYXRhLmNvbnRlbnQsICJiYXNlNjQiKS50b1N0cmluZygidXRmLTgiKTsKICAgICAgICBkZXBzLnB1c2goeyAuLi5tLCBjb250ZW50LCBwYXRoOiBkYXRhLnBhdGgsIHNpemU6IGRhdGEuc2l6ZSB9KTsKICAgICAgfQogICAgfSBjYXRjaCB7CiAgICAgIC8vIG1hbmlmZXN0IG5vdCBmb3VuZCDigJQgc2tpcAogICAgfQogIH0KICByZXR1cm4gZGVwczsKfQoKLyoqCiAqIEZldGNoIGxhbmd1YWdlcyBmb3IgdGhlIHJlcG8uCiAqLwphc3luYyBmdW5jdGlvbiBnZXRMYW5ndWFnZXMob3duZXIsIHJlcG8pIHsKICByZXR1cm4gZmV0Y2hKU09OKGAke0JBU0V9L3JlcG9zLyR7b3duZXJ9LyR7cmVwb30vbGFuZ3VhZ2VzYCk7Cn0KCi8qKgogKiBHZXQgcmVjZW50IGFjdGl2aXR5IChsYXN0IDkwIGRheXMgb2YgY29tbWl0cykuCiAqLwphc3luYyBmdW5jdGlvbiBnZXRBY3Rpdml0eShvd25lciwgcmVwbykgewogIGNvbnN0IGNvbW1pdHMgPSBhd2FpdCBnZXRDb21taXRzKG93bmVyLCByZXBvKTsKICBjb25zdCBub3cgPSBuZXcgRGF0ZSgpOwogIGNvbnN0IG5pbmV0eURheXNBZ28gPSBuZXcgRGF0ZShub3cgLSA5MCAqIDI0ICogNjAgKiA2MCAqIDEwMDApOwoKICAvLyBHcm91cCBjb21taXRzIGJ5IG1vbnRoCiAgY29uc3QgbW9udGhseSA9IHt9OwogIGZvciAoY29uc3QgY29tbWl0IG9mIGNvbW1pdHMpIHsKICAgIGNvbnN0IGRhdGUgPSBuZXcgRGF0ZShjb21taXQuY29tbWl0LmF1dGhvci5kYXRlKTsKICAgIGNvbnN0IGtleSA9IGAke2RhdGUuZ2V0RnVsbFllYXIoKX0tJHtTdHJpbmcoZGF0ZS5nZXRNb250aCgpICsgMSkucGFkU3RhcnQoMiwgIjAiKX1gOwogICAgbW9udGhseVtrZXldID0gKG1vbnRobHlba2V5XSB8fCAwKSArIDE7CiAgfQoKICAvLyBDb3VudCByZWNlbnQgY29tbWl0cyAobGFzdCA5MCBkYXlzKQogIGNvbnN0IHJlY2VudENvbW1pdHMgPSBjb21taXRzLmZpbHRlcigoYykgPT4gbmV3IERhdGUoYy5jb21taXQuYXV0aG9yLmRhdGUpID49IG5pbmV0eURheXNBZ28pOwoKICByZXR1cm4gewogICAgdG90YWw6IGNvbW1pdHMubGVuZ3RoLAogICAgcmVjZW50OiByZWNlbnRDb21taXRzLmxlbmd0aCwKICAgIG1vbnRobHksCiAgICBsYXN0Q29tbWl0RGF0ZTogY29tbWl0cy5sZW5ndGggPiAwID8gY29tbWl0c1swXS5jb21taXQuYXV0aG9yLmRhdGUgOiBudWxsLAogIH07Cn0KCi8qKgogKiBHZXQgY29udHJpYnV0b3IgY291bnQuCiAqLwphc3luYyBmdW5jdGlvbiBnZXRDb250cmlidXRvcnMob3duZXIsIHJlcG8pIHsKICBjb25zdCBjb250cmlidXRvcnMgPSBbXTsKICBmb3IgYXdhaXQgKGNvbnN0IGMgb2YgcGFnaW5hdGUoCiAgICBgJHtCQVNFfS9yZXBvcy8ke293bmVyfS8ke3JlcG99L2NvbnRyaWJ1dG9ycz9wZXJfcGFnZT0xMDAmYW5vbj0xYAogICkpIHsKICAgIGNvbnRyaWJ1dG9ycy5wdXNoKGMpOwogIH0KICByZXR1cm4gY29udHJpYnV0b3JzOwp9CgovKioKICogR2V0IG9wZW4gaXNzdWVzIGNvdW50IGJ5IGxhYmVsL3R5cGUuCiAqLwphc3luYyBmdW5jdGlvbiBnZXRJc3N1ZVN0YXRzKG93bmVyLCByZXBvKSB7CiAgY29uc3QgW2FsbElzc3Vlcywgb3Blbklzc3VlcywgY2xvc2VkSXNzdWVzXSA9IGF3YWl0IFByb21pc2UuYWxsKFsKICAgIGdldElzc3Vlcyhvd25lciwgcmVwbywgImFsbCIpLAogICAgZ2V0SXNzdWVzKG93bmVyLCByZXBvLCAib3BlbiIpLAogICAgZ2V0SXNzdWVzKG93bmVyLCByZXBvLCAiY2xvc2VkIiksCiAgXSk7CgogIC8vIENhdGVnb3JpemUgb3BlbiBpc3N1ZXMgYnkgbGFiZWwKICBjb25zdCBsYWJlbHMgPSB7fTsKICBmb3IgKGNvbnN0IGlzc3VlIG9mIG9wZW5Jc3N1ZXMpIHsKICAgIGZvciAoY29uc3QgbGFiZWwgb2YgaXNzdWUubGFiZWxzIHx8IFtdKSB7CiAgICAgIGxhYmVsc1tsYWJlbC5uYW1lXSA9IChsYWJlbHNbbGFiZWwubmFtZV0gfHwgMCkgKyAxOwogICAgfQogIH0KCiAgLy8gQ2FsY3VsYXRlIGF2ZXJhZ2UgdGltZSB0byBjbG9zZQogIGxldCBhdmdDbG9zZVRpbWUgPSBudWxsOwogIGlmIChjbG9zZWRJc3N1ZXMubGVuZ3RoID4gMCkgewogICAgY29uc3QgY2xvc2VUaW1lcyA9IFtdOwogICAgZm9yIChjb25zdCBpc3N1ZSBvZiBjbG9zZWRJc3N1ZXMpIHsKICAgICAgaWYgKGlzc3VlLmNsb3NlZF9hdCAmJiBpc3N1ZS5jcmVhdGVkX2F0KSB7CiAgICAgICAgY2xvc2VUaW1lcy5wdXNoKG5ldyBEYXRlKGlzc3VlLmNsb3NlZF9hdCkgLSBuZXcgRGF0ZShpc3N1ZS5jcmVhdGVkX2F0KSk7CiAgICAgIH0KICAgIH0KICAgIGlmIChjbG9zZVRpbWVzLmxlbmd0aCA+IDApIHsKICAgICAgYXZnQ2xvc2VUaW1lID0gY2xvc2VUaW1lcy5yZWR1Y2UoKGEsIGIpID0+IGEgKyBiLCAwKSAvIGNsb3NlVGltZXMubGVuZ3RoOwogICAgfQogIH0KCiAgcmV0dXJuIHsKICAgIHRvdGFsOiBhbGxJc3N1ZXMubGVuZ3RoLAogICAgb3Blbjogb3Blbklzc3Vlcy5sZW5ndGgsCiAgICBjbG9zZWQ6IGNsb3NlZElzc3Vlcy5sZW5ndGgsCiAgICBsYWJlbHMsCiAgICBhdmdDbG9zZURheXM6IGF2Z0Nsb3NlVGltZSA/IChhdmdDbG9zZVRpbWUgLyAoMTAwMCAqIDYwICogNjAgKiAyNCkpLnRvRml4ZWQoMSkgOiBudWxsLAogIH07Cn0KCi8qKgogKiBHZXQgcHVsbCByZXF1ZXN0IHN0YXRzLgogKi8KYXN5bmMgZnVuY3Rpb24gZ2V0UFJTdGF0cyhvd25lciwgcmVwbykgewogIGNvbnN0IFthbGxQUnMsIG9wZW5QUnMsIG1lcmdlZFBScywgY2xvc2VkUFJzXSA9IGF3YWl0IFByb21pc2UuYWxsKFsKICAgIGdldFB1bGxSZXF1ZXN0cyhvd25lciwgcmVwbywgImFsbCIpLAogICAgZ2V0UHVsbFJlcXVlc3RzKG93bmVyLCByZXBvLCAib3BlbiIpLAogICAgZ2V0UHVsbFJlcXVlc3RzKG93bmVyLCByZXBvLCAiY2xvc2VkIiksCiAgICBnZXRQdWxsUmVxdWVzdHMob3duZXIsIHJlcG8sICJtZXJnZWQiKSwKICBdKTsKCiAgcmV0dXJuIHsKICAgIHRvdGFsOiBhbGxQUnMubGVuZ3RoLAogICAgb3Blbjogb3BlblBScy5sZW5ndGgsCiAgICBjbG9zZWQ6IGNsb3NlZFBScy5sZW5ndGgsCiAgICBtZXJnZWQ6IG1lcmdlZFBScy5sZW5ndGgsCiAgfTsKfQoKbW9kdWxlLmV4cG9ydHMgPSB7CiAgZmV0Y2hKU09OLAogIGdldFJlcG8sCiAgZ2V0UmVwb3MsCiAgZ2V0SXNzdWVzLAogIGdldENvbW1pdHMsCiAgZ2V0RGVmYXVsdEJyYW5jaCwKICBnZXRQdWxsUmVxdWVzdHMsCiAgZ2V0VGFncywKICBnZXRSZWxlYXNlcywKICBnZXRTZWN1cml0eUFkdmlzb3JpZXMsCiAgZ2V0RGVwZW5kZW5jaWVzLAogIGdldExhbmd1YWdlcywKICBnZXRBY3Rpdml0eSwKICBnZXRDb250cmlidXRvcnMsCiAgZ2V0SXNzdWVTdGF0cywKICBnZXRQUlN0YXRzLAp9Owo=
+/**
+ * GitHub REST API client — public endpoints, no auth required for basic info.
+ * Rate limit: 60 req/hour unauthenticated, 5000 req/hour authenticated.
+ */
+
+const BASE = "https://api.github.com";
+
+/**
+ * Get auth headers from environment.
+ */
+function getAuthHeaders() {
+  const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
+  if (token) {
+    return { Authorization: `Bearer ${token}` };
+  }
+  return {};
+}
+
+/**
+ * Fetch with retry and rate-limit awareness.
+ * Returns parsed JSON or throws.
+ */
+async function fetchJSON(url, opts = {}) {
+  const headers = {
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+    ...getAuthHeaders(),
+    ...opts.headers,
+  };
+
+  let retries = 3;
+  while (retries > 0) {
+    const res = await fetch(url, { headers });
+
+    if (res.status === 403 && res.headers.get("x-ratelimit-remaining") === "0") {
+      const retryAfter = res.headers.get("retry-after");
+      const wait = (parseInt(retryAfter, 10) || 60) * 1000;
+      console.error(`⚠️  Rate limited. Waiting ${wait / 1000}s before retry...`);
+      await new Promise((r) => setTimeout(r, wait));
+      retries--;
+      continue;
+    }
+
+    if (!res.ok) {
+      throw new Error(`GitHub API error: ${res.status} ${res.statusText} for ${url}`);
+    }
+
+    return res.json();
+  }
+
+  throw new Error("GitHub API rate limit exceeded after retries.");
+}
+
+/**
+ * Paginate — fetch all pages of a paginated endpoint.
+ */
+async function* paginate(url, headers = {}) {
+  let nextUrl = url;
+  while (nextUrl) {
+    const res = await fetch(nextUrl, {
+      headers: {
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        ...getAuthHeaders(),
+        ...headers,
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error(`GitHub API error: ${res.status} ${res.statusText} for ${url}`);
+    }
+
+    const items = await res.json();
+    yield* (Array.isArray(items) ? items : [items]);
+
+    const link = res.headers.get("link");
+    nextUrl = null;
+    if (link) {
+      const match = link.match(/<([^>]+)>;\s*rel="next"/);
+      if (match) nextUrl = match[1];
+    }
+  }
+}
+
+/**
+ * Fetch all repos for a user/org.
+ */
+async function getRepos(owner, type = "owner", perPage = 100) {
+  const repos = [];
+  for await (const repo of paginate(
+    `${BASE}/users/${owner}/repos?per_page=${perPage}&sort=updated&type=${type}`
+  )) {
+    repos.push(repo);
+  }
+  return repos;
+}
+
+/**
+ * Fetch a single repo.
+ */
+async function getRepo(owner, repo) {
+  return fetchJSON(`${BASE}/repos/${owner}/${repo}`);
+}
+
+/**
+ * Fetch issues with optional filters.
+ * Returns all issues (paginated).
+ */
+async function getIssues(owner, repo, state = "all", perPage = 100) {
+  const issues = [];
+  for await (const issue of paginate(
+    `${BASE}/repos/${owner}/${repo}/issues?per_page=${perPage}&state=${state}&sort=created&direction=desc`
+  )) {
+    issues.push(issue);
+  }
+  return issues;
+}
+
+/**
+ * Fetch commits (paginated).
+ */
+async function getCommits(owner, repo, perPage = 100) {
+  const commits = [];
+  for await (const commit of paginate(
+    `${BASE}/repos/${owner}/${repo}/commits?per_page=${perPage}&since=2024-01-01T00:00:00Z`
+  )) {
+    commits.push(commit);
+  }
+  return commits;
+}
+
+/**
+ * Fetch branches for default branch detection.
+ */
+async function getDefaultBranch(owner, repo) {
+  const repoData = await getRepo(owner, repo);
+  return repoData.default_branch || "main";
+}
+
+/**
+ * Fetch pull requests.
+ */
+async function getPullRequests(owner, repo, state = "all", perPage = 100) {
+  const prs = [];
+  for await (const pr of paginate(
+    `${BASE}/repos/${owner}/${repo}/pulls?per_page=${perPage}&state=${state}&sort=created&direction=desc`
+  )) {
+    prs.push(pr);
+  }
+  return prs;
+}
+
+/**
+ * Fetch tags for version info.
+ */
+async function getTags(owner, repo, perPage = 100) {
+  const tags = [];
+  for await (const tag of paginate(
+    `${BASE}/repos/${owner}/${repo}/tags?per_page=${perPage}`
+  )) {
+    tags.push(tag);
+  }
+  return tags;
+}
+
+/**
+ * Fetch releases.
+ */
+async function getReleases(owner, repo, perPage = 100) {
+  const releases = [];
+  for await (const release of paginate(
+    `${BASE}/repos/${owner}/${repo}/releases?per_page=${perPage}`
+  )) {
+    releases.push(release);
+  }
+  return releases;
+}
+
+/**
+ * Fetch security advisories for a repo.
+ */
+async function getSecurityAdvisories(owner, repo, perPage = 100) {
+  const advisories = [];
+  for await (const advisory of paginate(
+    `${BASE}/repos/${owner}/${repo}/security-advisories?per_page=${perPage}`
+  )) {
+    advisories.push(advisory);
+  }
+  return advisories;
+}
+
+/**
+ * Fetch dependency graph manifest (package-lock.json or similar).
+ * We check common manifests for dependency info.
+ */
+async function getDependencies(owner, repo) {
+  const manifests = [
+    { name: "package.json", path: "package.json", lang: "javascript" },
+    { name: "requirements.txt", path: "requirements.txt", lang: "python" },
+    { name: "Cargo.toml", path: "Cargo.toml", lang: "rust" },
+    { name: "go.mod", path: "go.mod", lang: "go" },
+    { name: "pom.xml", path: "pom.xml", lang: "java" },
+  ];
+
+  const deps = [];
+  for (const m of manifests) {
+    try {
+      const res = await fetch(
+        `${BASE}/repos/${owner}/${repo}/contents/${m.path}`,
+        {
+          headers: {
+            Accept: "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+            ...getAuthHeaders(),
+          },
+        }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        const content = Buffer.from(data.content, "base64").toString("utf-8");
+        deps.push({ ...m, content, path: data.path, size: data.size });
+      }
+    } catch {
+      // manifest not found — skip
+    }
+  }
+  return deps;
+}
+
+/**
+ * Fetch languages for the repo.
+ */
+async function getLanguages(owner, repo) {
+  return fetchJSON(`${BASE}/repos/${owner}/${repo}/languages`);
+}
+
+/**
+ * Get recent activity (last 90 days of commits).
+ */
+async function getActivity(owner, repo) {
+  const commits = await getCommits(owner, repo);
+  const now = new Date();
+  const ninetyDaysAgo = new Date(now - 90 * 24 * 60 * 60 * 1000);
+
+  // Group commits by month
+  const monthly = {};
+  for (const commit of commits) {
+    const date = new Date(commit.commit.author.date);
+    const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+    monthly[key] = (monthly[key] || 0) + 1;
+  }
+
+  // Count recent commits (last 90 days)
+  const recentCommits = commits.filter((c) => new Date(c.commit.author.date) >= ninetyDaysAgo);
+
+  return {
+    total: commits.length,
+    recent: recentCommits.length,
+    monthly,
+    lastCommitDate: commits.length > 0 ? commits[0].commit.author.date : null,
+  };
+}
+
+/**
+ * Get contributor count.
+ */
+async function getContributors(owner, repo) {
+  const contributors = [];
+  for await (const c of paginate(
+    `${BASE}/repos/${owner}/${repo}/contributors?per_page=100&anon=1`
+  )) {
+    contributors.push(c);
+  }
+  return contributors;
+}
+
+/**
+ * Get open issues count by label/type.
+ */
+async function getIssueStats(owner, repo) {
+  const [allIssues, openIssues, closedIssues] = await Promise.all([
+    getIssues(owner, repo, "all"),
+    getIssues(owner, repo, "open"),
+    getIssues(owner, repo, "closed"),
+  ]);
+
+  // Categorize open issues by label
+  const labels = {};
+  for (const issue of openIssues) {
+    for (const label of issue.labels || []) {
+      labels[label.name] = (labels[label.name] || 0) + 1;
+    }
+  }
+
+  // Calculate average time to close
+  let avgCloseTime = null;
+  if (closedIssues.length > 0) {
+    const closeTimes = [];
+    for (const issue of closedIssues) {
+      if (issue.closed_at && issue.created_at) {
+        closeTimes.push(new Date(issue.closed_at) - new Date(issue.created_at));
+      }
+    }
+    if (closeTimes.length > 0) {
+      avgCloseTime = closeTimes.reduce((a, b) => a + b, 0) / closeTimes.length;
+    }
+  }
+
+  return {
+    total: allIssues.length,
+    open: openIssues.length,
+    closed: closedIssues.length,
+    labels,
+    avgCloseDays: avgCloseTime ? (avgCloseTime / (1000 * 60 * 60 * 24)).toFixed(1) : null,
+  };
+}
+
+/**
+ * Get pull request stats.
+ */
+async function getPRStats(owner, repo) {
+  const [allPRs, openPRs, mergedPRs, closedPRs] = await Promise.all([
+    getPullRequests(owner, repo, "all"),
+    getPullRequests(owner, repo, "open"),
+    getPullRequests(owner, repo, "closed"),
+    getPullRequests(owner, repo, "merged"),
+  ]);
+
+  return {
+    total: allPRs.length,
+    open: openPRs.length,
+    closed: closedPRs.length,
+    merged: mergedPRs.length,
+  };
+}
+
+module.exports = {
+  fetchJSON,
+  getRepo,
+  getRepos,
+  getIssues,
+  getCommits,
+  getDefaultBranch,
+  getPullRequests,
+  getTags,
+  getReleases,
+  getSecurityAdvisories,
+  getDependencies,
+  getLanguages,
+  getActivity,
+  getContributors,
+  getIssueStats,
+  getPRStats,
+};

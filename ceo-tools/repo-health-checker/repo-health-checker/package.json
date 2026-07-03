@@ -1,1 +1,36 @@
-ewogICJuYW1lIjogInJlcG8taGVhbHRoLWNoZWNrZXIiLAogICJ2ZXJzaW9uIjogIjEuMC4wIiwKICAiZGVzY3JpcHRpb24iOiAiQW5hbHl6ZSBHaXRIdWIgcmVwb3NpdG9yaWVzIGZvciBoZWFsdGggbWV0cmljcyDigJQgc3RhcnMsIGlzc3VlcywgY29tbWl0cywgZGVwZW5kZW5jaWVzLCBzZWN1cml0eSwgYW5kIGEgY29tcG9zaXRlIGhlYWx0aCBzY29yZS4iLAogICJtYWluIjogInNyYy9jbGkuanMiLAogICJiaW4iOiB7CiAgICAicmVwby1oZWFsdGgtY2hlY2tlciI6ICIuL2Jpbi9yZXBvLWhlYWx0aC1jaGVja2VyIgogIH0sCiAgInNjcmlwdHMiOiB7CiAgICAic3RhcnQiOiAibm9kZSBiaW4vcmVwby1oZWFsdGgtY2hlY2tlciIsCiAgICAidGVzdCI6ICJub2RlIHRlc3QvcnVuLmpzIgogIH0sCiAgImtleXdvcmRzIjogWwogICAgImdpdGh1YiIsCiAgICAiaGVhbHRoIiwKICAgICJtZXRyaWNzIiwKICAgICJjbGkiLAogICAgInJlcG9zaXRvcnkiLAogICAgImF1ZGl0IiwKICAgICJkZXZvcHMiCiAgXSwKICAiYXV0aG9yIjogIiIsCiAgImxpY2Vuc2UiOiAiTUlUIiwKICAicmVwb3NpdG9yeSI6IHsKICAgICJ0eXBlIjogImdpdCIsCiAgICAidXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9saW5rb2ZkYXJrbmVzcy9yZXBvLWhlYWx0aC1jaGVja2VyIgogIH0sCiAgImVuZ2luZXMiOiB7CiAgICAibm9kZSI6ICI+PTE4LjAuMCIKICB9LAogICJkZXBlbmRlbmNpZXMiOiB7CiAgICAiY2hhbGsiOiAiXjUuMy4wIiwKICAgICJjb21tYW5kZXIiOiAiXjEyLjAuMCIKICB9LAogICJkZXZEZXBlbmRlbmNpZXMiOiB7fQp9Cg==
+{
+  "name": "repo-health-checker",
+  "version": "1.0.0",
+  "description": "Analyze GitHub repositories for health metrics — stars, issues, commits, dependencies, security, and a composite health score.",
+  "main": "src/cli.js",
+  "bin": {
+    "repo-health-checker": "./bin/repo-health-checker"
+  },
+  "scripts": {
+    "start": "node bin/repo-health-checker",
+    "test": "node test/run.js"
+  },
+  "keywords": [
+    "github",
+    "health",
+    "metrics",
+    "cli",
+    "repository",
+    "audit",
+    "devops"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linkofdarkness/repo-health-checker"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {}
+}

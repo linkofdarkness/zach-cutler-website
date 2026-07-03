@@ -1,1 +1,135 @@
-IyEvdXNyL2Jpbi9lbnYgbm9kZQovKioKICogQ0xJIGVudHJ5IHBvaW50IOKAlCBwYXJzZXMgYXJncywgb3JjaGVzdHJhdGVzIHRoZSBoZWFsdGggY2hlY2suCiAqLwoKY29uc3QgeyBDb21tYW5kIH0gPSByZXF1aXJlKCJjb21tYW5kZXIiKTsKY29uc3QgeyBnZXRSZXBvLCBnZXRBY3Rpdml0eSwgZ2V0SXNzdWVTdGF0cywgZ2V0UFJTdGF0cywgZ2V0UmVsZWFzZXMsIGdldFNlY3VyaXR5QWR2aXNvcmllcywgZ2V0Q29udHJpYnV0b3JzLCBnZXRMYW5ndWFnZXMgfSA9IHJlcXVpcmUoIi4vZ2l0aHViIik7CmNvbnN0IHsgY29tcHV0ZUFsbE1ldHJpY3MsIGdldEdyYWRlLCBnZXRHcmFkZUNvbG9yIH0gPSByZXF1aXJlKCIuL21ldHJpY3MiKTsKY29uc3QgeyBmb3JtYXRSZXN1bHQsIGJ1aWxkUmVzdWx0IH0gPSByZXF1aXJlKCIuL2Zvcm1hdHRlciIpOwoKY29uc3QgcHJvZ3JhbSA9IG5ldyBDb21tYW5kKCk7Cgpwcm9ncmFtCiAgLm5hbWUoInJlcG8taGVhbHRoLWNoZWNrZXIiKQogIC5kZXNjcmlwdGlvbigiQW5hbHl6ZSBHaXRIdWIgcmVwb3NpdG9yaWVzIGZvciBoZWFsdGggbWV0cmljcyBhbmQgY29tcG9zaXRlIHNjb3JlcyIpCiAgLnZlcnNpb24oIjEuMC4wIikKICAuYXJndW1lbnRzKCI8b3duZXIvcmVwbz4iKQogIC5vcHRpb24oIi1mLCAtLWZvcm1hdCA8dHlwZT4iLCAiT3V0cHV0IGZvcm1hdCAodGFibGV8anNvbikiLCAidGFibGUiKQogIC5vcHRpb24oIi1vLCAtLW91dHB1dCA8ZmlsZT4iLCAiV3JpdGUgb3V0cHV0IHRvIGZpbGUgaW5zdGVhZCBvZiBzdGRvdXQiKQogIC5vcHRpb24oIi12LCAtLXZlcmJvc2UiLCAiU2hvdyBkZXRhaWxlZCBicmVha2Rvd24iKQogIC5vcHRpb24oIi0tanNvbiIsICJBbGlhcyBmb3IgLS1mb3JtYXQganNvbiIpCiAgLm9wdGlvbigiLS1uby1jb2xvciIsICJEaXNhYmxlIGNvbG9yIG91dHB1dCIpCiAgLm9wdGlvbigiLXQsIC0tdG9rZW4gPHRva2VuPiIsICJHaXRIdWIgcGVyc29uYWwgYWNjZXNzIHRva2VuIChvciB1c2UgR0lUSFVCX1RPS0VOIGVudikiKQogIC5hY3Rpb24oYXN5bmMgKG93bmVyUmVwbywgY21kKSA9PiB7CiAgICBjb25zdCBmb3JtYXQgPSBjbWQuanNvbiA/ICJqc29uIiA6IChjbWQuZm9ybWF0IHx8ICJ0YWJsZSIpOwogICAgY29uc3QgY29sb3JpemUgPSBjbWQuY29sb3IgIT09IGZhbHNlOwoKICAgIC8vIFNldCB0b2tlbiBpZiBwcm92aWRlZAogICAgaWYgKGNtZC50b2tlbikgewogICAgICBwcm9jZXNzLmVudi5HSVRIVUJfVE9LRU4gPSBjbWQudG9rZW47CiAgICB9CgogICAgLy8gUGFyc2Ugb3duZXIvcmVwbwogICAgY29uc3QgcGFydHMgPSBvd25lclJlcG8uc3BsaXQoIi8iKTsKICAgIGlmIChwYXJ0cy5sZW5ndGggIT09IDIpIHsKICAgICAgY29uc29sZS5lcnJvcigiRXJyb3I6IFBsZWFzZSBwcm92aWRlIG93bmVyL3JlcG8gKGUuZy4sIG5vZGVqcy9ub2RlKSIpOwogICAgICBwcm9jZXNzLmV4aXQoMSk7CiAgICB9CiAgICBjb25zdCBbb3duZXIsIHJlcG9dID0gcGFydHM7CgogICAgY29uc29sZS5lcnJvcihg8J+UjSBBbmFseXppbmcgJHtvd25lcn0vJHtyZXBvfS4uLlxuYCk7CgogICAgdHJ5IHsKICAgICAgLy8gRmV0Y2ggYWxsIGRhdGEgaW4gcGFyYWxsZWwgd2hlcmUgcG9zc2libGUKICAgICAgY29uc3QgWwogICAgICAgIHJlcG9EYXRhLAogICAgICAgIGFjdGl2aXR5LAogICAgICAgIGlzc3VlU3RhdHMsCiAgICAgICAgcHJTdGF0cywKICAgICAgICByZWxlYXNlcywKICAgICAgICBhZHZpc29yaWVzLAogICAgICAgIGNvbnRyaWJ1dG9ycywKICAgICAgICBsYW5ndWFnZXMsCiAgICAgIF0gPSBhd2FpdCBQcm9taXNlLmFsbChbCiAgICAgICAgZ2V0UmVwbyhvd25lciwgcmVwbyksCiAgICAgICAgZ2V0QWN0aXZpdHkob3duZXIsIHJlcG8pLAogICAgICAgIGdldElzc3VlU3RhdHMob3duZXIsIHJlcG8pLAogICAgICAgIGdldFBSU3RhdHMob3duZXIsIHJlcG8pLAogICAgICAgIGdldFJlbGVhc2VzKG93bmVyLCByZXBvKSwKICAgICAgICBnZXRTZWN1cml0eUFkdmlzb3JpZXMob3duZXIsIHJlcG8pLAogICAgICAgIGdldENvbnRyaWJ1dG9ycyhvd25lciwgcmVwbyksCiAgICAgICAgZ2V0TGFuZ3VhZ2VzKG93bmVyLCByZXBvKSwKICAgICAgXSk7CgogICAgICAvLyBDb21wdXRlIG1ldHJpY3MKICAgICAgY29uc3QgbWV0cmljcyA9IGNvbXB1dGVBbGxNZXRyaWNzKAogICAgICAgIHJlcG9EYXRhLAogICAgICAgIGFjdGl2aXR5LAogICAgICAgIGlzc3VlU3RhdHMsCiAgICAgICAgcHJTdGF0cywKICAgICAgICByZWxlYXNlcywKICAgICAgICBhZHZpc29yaWVzLAogICAgICAgIGNvbnRyaWJ1dG9ycywKICAgICAgICBsYW5ndWFnZXMKICAgICAgKTsKCiAgICAgIC8vIEJ1aWxkIHJlc3VsdAogICAgICBjb25zdCByZXN1bHQgPSBidWlsZFJlc3VsdCgKICAgICAgICByZXBvRGF0YSwKICAgICAgICBhY3Rpdml0eSwKICAgICAgICBpc3N1ZVN0YXRzLAogICAgICAgIHByU3RhdHMsCiAgICAgICAgcmVsZWFzZXMsCiAgICAgICAgYWR2aXNvcmllcywKICAgICAgICBjb250cmlidXRvcnMsCiAgICAgICAgbGFuZ3VhZ2VzLAogICAgICAgIG1ldHJpY3MKICAgICAgKTsKCiAgICAgIC8vIEZvcm1hdCBvdXRwdXQKICAgICAgbGV0IG91dHB1dDsKICAgICAgaWYgKGZvcm1hdCA9PT0gImpzb24iKSB7CiAgICAgICAgb3V0cHV0ID0gZm9ybWF0UmVzdWx0KHJlc3VsdCwgImpzb24iLCB7IHByZXR0eTogY21kLnZlcmJvc2UgfSk7CiAgICAgIH0gZWxzZSB7CiAgICAgICAgb3V0cHV0ID0gZm9ybWF0UmVzdWx0KHJlc3VsdCwgInRhYmxlIiwgeyBjb2xvcml6ZSB9KTsKICAgICAgfQoKICAgICAgLy8gT3V0cHV0CiAgICAgIGlmIChjbWQub3V0cHV0KSB7CiAgICAgICAgY29uc3QgZnMgPSByZXF1aXJlKCJmcyIpOwogICAgICAgIGZzLndyaXRlRmlsZVN5bmMoY21kLm91dHB1dCwgb3V0cHV0KTsKICAgICAgICBjb25zb2xlLmVycm9yKGDinIUgT3V0cHV0IHdyaXR0ZW4gdG8gJHtjbWQub3V0cHV0fWApOwogICAgICB9IGVsc2UgewogICAgICAgIGNvbnNvbGUubG9nKG91dHB1dCk7CiAgICAgIH0KCiAgICAgIC8vIEV4aXQgd2l0aCBjb2RlIGJhc2VkIG9uIHNjb3JlCiAgICAgIGlmIChtZXRyaWNzLmNvbXBvc2l0ZSA8IDQwKSB7CiAgICAgICAgcHJvY2Vzcy5leGl0KDIpOwogICAgICB9IGVsc2UgaWYgKG1ldHJpY3MuY29tcG9zaXRlIDwgNjApIHsKICAgICAgICBwcm9jZXNzLmV4aXQoMSk7CiAgICAgIH0KICAgICAgcHJvY2Vzcy5leGl0KDApOwoKICAgIH0gY2F0Y2ggKGVycikgewogICAgICBjb25zb2xlLmVycm9yKGBcbuKdjCBFcnJvcjogJHtlcnIubWVzc2FnZX1gKTsKICAgICAgaWYgKGVyci5tZXNzYWdlLmluY2x1ZGVzKCI0MDQiKSkgewogICAgICAgIGNvbnNvbGUuZXJyb3IoIlxu8J+SoSBUaGUgcmVwb3NpdG9yeSBtYXkgbm90IGV4aXN0IG9yIGJlIHByaXZhdGUuIik7CiAgICAgIH0KICAgICAgcHJvY2Vzcy5leGl0KDEpOwogICAgfQogIH0pOwoKLy8gSGFuZGxlIC0taGVscCBmb3Igc3ViY29tbWFuZHMKcHJvZ3JhbS5hZGRIZWxwVGV4dCgiYmVmb3JlIiwgYAogICR7cHJvZ3JhbS5uYW1lKCl9IHYke3Byb2dyYW0udmVyc2lvbigpfQogIEFuYWx5emUgR2l0SHViIHJlcG9zaXRvcmllcyBmb3IgaGVhbHRoIG1ldHJpY3MgYW5kIGNvbXBvc2l0ZSBzY29yZXMuCgogIFVzYWdlOgogICAgcmVwby1oZWFsdGgtY2hlY2tlciBvd25lci9yZXBvICAgICAgICAgICAjIFRhYmxlIG91dHB1dCAoZGVmYXVsdCkKICAgIHJlcG8taGVhbHRoLWNoZWNrZXIgb3duZXIvcmVwbyAtLWpzb24gICAgIyBKU09OIG91dHB1dAogICAgcmVwby1oZWFsdGgtY2hlY2tlciBub2RlanMvbm9kZSAtLWpzb24gICAjIERldGFpbGVkIEpTT04KYCk7Cgpwcm9ncmFtLnBhcnNlKHByb2Nlc3MuYXJndik7Cg==
+#!/usr/bin/env node
+/**
+ * CLI entry point — parses args, orchestrates the health check.
+ */
+
+const { Command } = require("commander");
+const { getRepo, getActivity, getIssueStats, getPRStats, getReleases, getSecurityAdvisories, getContributors, getLanguages } = require("./github");
+const { computeAllMetrics, getGrade, getGradeColor } = require("./metrics");
+const { formatResult, buildResult } = require("./formatter");
+
+const program = new Command();
+
+program
+  .name("repo-health-checker")
+  .description("Analyze GitHub repositories for health metrics and composite scores")
+  .version("1.0.0")
+  .arguments("<owner/repo>")
+  .option("-f, --format <type>", "Output format (table|json)", "table")
+  .option("-o, --output <file>", "Write output to file instead of stdout")
+  .option("-v, --verbose", "Show detailed breakdown")
+  .option("--json", "Alias for --format json")
+  .option("--no-color", "Disable color output")
+  .option("-t, --token <token>", "GitHub personal access token (or use GITHUB_TOKEN env)")
+  .action(async (ownerRepo, cmd) => {
+    const format = cmd.json ? "json" : (cmd.format || "table");
+    const colorize = cmd.color !== false;
+
+    // Set token if provided
+    if (cmd.token) {
+      process.env.GITHUB_TOKEN = cmd.token;
+    }
+
+    // Parse owner/repo
+    const parts = ownerRepo.split("/");
+    if (parts.length !== 2) {
+      console.error("Error: Please provide owner/repo (e.g., nodejs/node)");
+      process.exit(1);
+    }
+    const [owner, repo] = parts;
+
+    console.error(`🔍 Analyzing ${owner}/${repo}...\n`);
+
+    try {
+      // Fetch all data in parallel where possible
+      const [
+        repoData,
+        activity,
+        issueStats,
+        prStats,
+        releases,
+        advisories,
+        contributors,
+        languages,
+      ] = await Promise.all([
+        getRepo(owner, repo),
+        getActivity(owner, repo),
+        getIssueStats(owner, repo),
+        getPRStats(owner, repo),
+        getReleases(owner, repo),
+        getSecurityAdvisories(owner, repo),
+        getContributors(owner, repo),
+        getLanguages(owner, repo),
+      ]);
+
+      // Compute metrics
+      const metrics = computeAllMetrics(
+        repoData,
+        activity,
+        issueStats,
+        prStats,
+        releases,
+        advisories,
+        contributors,
+        languages
+      );
+
+      // Build result
+      const result = buildResult(
+        repoData,
+        activity,
+        issueStats,
+        prStats,
+        releases,
+        advisories,
+        contributors,
+        languages,
+        metrics
+      );
+
+      // Format output
+      let output;
+      if (format === "json") {
+        output = formatResult(result, "json", { pretty: cmd.verbose });
+      } else {
+        output = formatResult(result, "table", { colorize });
+      }
+
+      // Output
+      if (cmd.output) {
+        const fs = require("fs");
+        fs.writeFileSync(cmd.output, output);
+        console.error(`✅ Output written to ${cmd.output}`);
+      } else {
+        console.log(output);
+      }
+
+      // Exit with code based on score
+      if (metrics.composite < 40) {
+        process.exit(2);
+      } else if (metrics.composite < 60) {
+        process.exit(1);
+      }
+      process.exit(0);
+
+    } catch (err) {
+      console.error(`\n❌ Error: ${err.message}`);
+      if (err.message.includes("404")) {
+        console.error("\n💡 The repository may not exist or be private.");
+      }
+      process.exit(1);
+    }
+  });
+
+// Handle --help for subcommands
+program.addHelpText("before", `
+  ${program.name()} v${program.version()}
+  Analyze GitHub repositories for health metrics and composite scores.
+
+  Usage:
+    repo-health-checker owner/repo           # Table output (default)
+    repo-health-checker owner/repo --json    # JSON output
+    repo-health-checker nodejs/node --json   # Detailed JSON
+`);
+
+program.parse(process.argv);
