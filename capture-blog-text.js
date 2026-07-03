@@ -1,8 +1,9 @@
 const { JSDOM } = require('jsdom');
 const fs = require('fs');
+const path = require('path');
 
-async function generateScreenshot(url, outputPath) {
-    console.log(`📸 Generating screenshot for: ${url}`);
+async function generateContentReport(url, outputPath) {
+    console.log(`📊 Generating content report for: ${url}`);
     
     try {
         const dom = await JSDOM.fromURL(url, {
@@ -52,12 +53,12 @@ ${posts.length > 0 ? `   Recent Blog Posts:${'\n'.padStart(posts.slice(0, 5).map
         `;
         
         fs.writeFileSync(outputPath, screenshotText);
-        console.log(`✅ Saved screenshot: ${outputPath}`);
+        console.log(`✅ Saved content report: ${outputPath}`);
         
     } catch (error) {
         const errorText = `
 ╔══════════════════════════════════════════════════════════╗
-║                    ERROR SCREENSHOT                     ║
+║                    ERROR REPORT                         ║
 ╠══════════════════════════════════════════════════════════╣
 ║ URL: ${url}                                              ║
 ║                                                          ║
@@ -70,4 +71,6 @@ ${posts.length > 0 ? `   Recent Blog Posts:${'\n'.padStart(posts.slice(0, 5).map
     }
 }
 
-generateScreenshot('https://zachcutler.me/blog/', '/home/node/.openclaw/workspace/static/screenshot-reviews/blog-capture.txt');
+// Use relative path from repo root
+const defaultOutput = path.resolve(__dirname, 'site', 'static', 'screenshot-reviews', 'blog-capture.txt');
+generateContentReport('https://zachcutler.me/blog/', defaultOutput);
