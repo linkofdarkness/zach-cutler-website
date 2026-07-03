@@ -1,0 +1,5 @@
+name: 'Web Utility Hub'
+description: 'Zero-dependency developer utility hub — JSON formatter, color converter, base64, UUID generator, password strength, country data, HTTP status codes, and random data generator.'
+version: '1.0.0'
+author: 'byte-ai'
+license: 'MIT'
