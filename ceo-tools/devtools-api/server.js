@@ -109,6 +109,7 @@ const STATUS_CODES = {
   413: 'Payload Too Large — Request entity too large',
   414: 'URI Too Long — URI exceeded length limit',
   415: 'Unsupported Media Type — Content type not supported',
+  418: "I'm a Teapot — HTCPCP compliant teapot (RFC 2324)",
   429: 'Too Many Requests — Rate limit exceeded',
   500: 'Internal Server Error — Unexpected server error',
   502: 'Bad Gateway — Invalid response from upstream',
