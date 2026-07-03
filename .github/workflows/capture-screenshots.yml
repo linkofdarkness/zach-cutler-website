@@ -49,7 +49,7 @@ jobs:
           pages="${PAGES_INPUT:-home,about,blog}"
           dark_flag=""
           if [ "${{ github.event.inputs.capture_dark_mode }}" = "true" ]; then
-            dark_flag="--no-dark"  # Invert logic: --no-dark means skip dark mode
+            dark_flag="--dark"  # Enable dark mode screenshots
           fi
           
           echo "📸 Capturing screenshots for: $pages"

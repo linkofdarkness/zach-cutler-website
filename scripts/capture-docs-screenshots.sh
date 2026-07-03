@@ -32,7 +32,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 echo "📸 Capturing screenshots for pages: $PAGES"
-echo "   Dark mode: $(if [ -z "$DARK_MODE" ]; then "Disabled"; else "Enabled"; fi)"
+echo "   Dark mode: $(if [ -z "$DARK_MODE" ]; then echo "Disabled"; else echo "Enabled"; fi)"
 
 # Run the capture script with arguments
 npm run capture-screenshots -- --pages "$PAGES" $DARK_MODE

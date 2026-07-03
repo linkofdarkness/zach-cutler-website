@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 async function captureScreenshot() {
-    const outputDir = '/home/node/.openclaw/workspace/static/screenshot-reviews';
+    // Use relative path from repo root
+    const outputDir = path.resolve(__dirname, 'site', 'static', 'screenshot-reviews');
     if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
     }
@@ -35,7 +36,7 @@ async function captureScreenshot() {
         type: 'png'
     });
 
-    // Toggle to dark mode if available (Docusaurus uses data-theme attribute)
+    // Toggle to dark mode and capture dark mode screenshot
     console.log('🌙 Capturing dark mode...');
     await page.evaluate(() => {
         document.documentElement.setAttribute('data-theme', 'dark');
@@ -45,6 +46,13 @@ async function captureScreenshot() {
     // Wait for theme transition
     await new Promise(resolve => setTimeout(resolve, 1000));
     
+    // Save dark mode screenshot (was missing!)
+    await page.screenshot({
+        path: `${outputDir}/blog-dark-mode.png`,
+        fullPage: true,
+        type: 'png'
+    });
+
     await browser.close();
 
     console.log('✅ Screenshots saved!');
