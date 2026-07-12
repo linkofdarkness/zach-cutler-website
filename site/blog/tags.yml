@@ -43,6 +43,26 @@ devops:
   permalink: /devops
   description: Posts about CI/CD, deployment, and developer tooling.
 
+github:
+  label: GitHub
+  permalink: /github
+  description: Posts about GitHub, GitHub Apps, GitHub Actions, and repository automation.
+
+github-actions:
+  label: GitHub Actions
+  permalink: /github-actions
+  description: Posts about GitHub Actions workflows, runners, and CI/CD automation.
+
+macos:
+  label: macOS
+  permalink: /macos
+  description: Posts about macOS development machines, services, and automation.
+
+automation:
+  label: Automation
+  permalink: /automation
+  description: Posts about automation workflows, scripts, and infrastructure.
+
 tips:
   label: Tips & Tricks
   permalink: /tips
