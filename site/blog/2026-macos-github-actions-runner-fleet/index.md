@@ -119,6 +119,10 @@ jobs:
 
 The specific labels are up to your registration strategy, but the goal is simple: make the queueing model visible in workflow code.
 
+In GitHub organization settings, the runner groups page is where those pools become visible and where repository access can be scoped:
+
+![GitHub Actions runner groups showing a Self-Hosted group with five runners](./runner-groups.png)
+
 ## LaunchDaemons
 
 Each runner is managed by a LaunchDaemon in `/Library/LaunchDaemons`.
@@ -137,15 +141,15 @@ Each LaunchDaemon points directly at that runner instance's `run.sh`:
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>actions.runner.&lt;runner-group&gt;.&lt;runner-number&gt;</string>
+  <string>actions.runner.<runner-group>.<runner-number></string>
 
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/&lt;runner-user&gt;/GitHub/&lt;runner-group&gt;/&lt;runner-number&gt;/runner/run.sh</string>
+    <string>/Users/<runner-user/GitHub/<runner-group>/<runner-number>/runner/run.sh</string>
   </array>
 
   <key>WorkingDirectory</key>
-  <string>/Users/&lt;runner-user&gt;/GitHub/&lt;runner-group&gt;/&lt;runner-number&gt;/runner</string>
+  <string>/Users/<runner-user>/GitHub/<runner-group>/<runner-number>/runner</string>
 
   <key>RunAtLoad</key>
   <true/>
@@ -153,7 +157,7 @@ Each LaunchDaemon points directly at that runner instance's `run.sh`:
   <true/>
 
   <key>UserName</key>
-  <string>&lt;runner-user&gt;</string>
+  <string><runner-user></string>
 
   <key>EnvironmentVariables</key>
   <dict>
@@ -162,14 +166,14 @@ Each LaunchDaemon points directly at that runner instance's `run.sh`:
   </dict>
 
   <key>StandardOutPath</key>
-  <string>/Users/&lt;runner-user&gt;/GitHub/&lt;runner-group&gt;/&lt;runner-number&gt;/log/actions.runner.out.log</string>
+  <string>/Users/<runner-user>/GitHub/<runner-group>/<runner-number>/log/actions.runner.out.log</string>
   <key>StandardErrorPath</key>
-  <string>/Users/&lt;runner-user&gt;/GitHub/&lt;runner-group&gt;/&lt;runner-number&gt;/log/actions.runner.err.log</string>
+  <string>/Users/<runner-user>/GitHub/<runner-group>/<runner-number>/log/actions.runner.err.log</string>
 </dict>
 </plist>
 ```
 
-There are a few nice properties here:
+Here are a few of the key properties:
 
 - `RunAtLoad` starts the runner when the daemon is loaded or the machine boots.
 - `KeepAlive` restarts the runner process if it exits.
@@ -256,6 +260,10 @@ sudo launchctl print system/actions.runner.<runner-group>.<runner-number>
 ```
 
 Repeat that flow for each numbered runner instance. The runner package can be downloaded once and copied into each instance, but each instance still needs its own registration because GitHub treats each worker as a distinct runner.
+
+After the runners are registered and online, GitHub shows each numbered worker under the organization runners page:
+
+![GitHub Actions runners page showing five idle self-hosted macOS runners](./runners-after-setup.png)
 
 ## Operating the Fleet
 
