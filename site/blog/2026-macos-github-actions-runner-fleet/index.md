@@ -1,6 +1,10 @@
 ---
 slug: 2026-macos-github-actions-runner-fleet
 title: "Running a Small GitHub Actions Runner Fleet on macOS"
+date: 2026-07-11
+last_update:
+  date: 2026-07-11
+  author: Zach Cutler
 authors:
   - name: Zach Cutler
 tags: [github, github-actions, macos, automation, devops]

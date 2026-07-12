@@ -1,6 +1,10 @@
 ---
 slug: welcome
 title: "Welcome to My Blog"
+date: 2026-02-22
+last_update:
+  date: 2026-03-18
+  author: Zach Cutler
 authors:
   - name: Zach Cutler
 tags: [discovery]

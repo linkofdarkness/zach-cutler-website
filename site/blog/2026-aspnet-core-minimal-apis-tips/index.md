@@ -1,6 +1,10 @@
 ---
 slug: aspnet-core-minimal-apis-tips
 title: "5 Things I Wish I Knew Sooner About ASP.NET Core Minimal APIs"
+date: 2026-02-22
+last_update:
+  date: 2026-03-18
+  author: Zach Cutler
 authors:
   - name: Zach Cutler
 tags: [aspnet, dotnet, csharp, tips]

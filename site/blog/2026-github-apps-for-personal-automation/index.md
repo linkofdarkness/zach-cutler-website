@@ -1,6 +1,10 @@
 ---
 slug: 2026-github-apps-for-personal-automation
 title: "GitHub Apps for Personal Automation: Secure, Granular Access Control"
+date: 2026-06-08
+last_update:
+  date: 2026-06-08
+  author: Zach Cutler
 authors:
   - name: Zach Cutler
 tags: [github, github-apps, automation, security, devops, open-claw, vps]
