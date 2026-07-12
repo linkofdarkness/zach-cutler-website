@@ -1,6 +1,10 @@
 ---
 slug: 2026-hosting-multiple-openclaw-agents-with-docker
 title: "Hosting Multiple OpenClaw Agents with Docker"
+date: 2026-03-14
+last_update:
+  date: 2026-03-18
+  author: Zach Cutler
 authors:
   - name: Zach Cutler
 tags: [open-claw, docker, ai, agentic-ai, nginx, compose, ubuntu, vps, digital-ocean]

@@ -14,7 +14,7 @@ The site will be available at `http://localhost:3000`.
 
 ## Writing a Blog Post
 
-Create a new Markdown file in the `blog/` directory. The filename should follow the format `YYYY-MM-DD-slug.md`.
+Create a new directory in the `blog/` folder. The directory name should follow the format `YYYY-slug` (e.g., `2026-my-post`), and the main file should be named `index.md`. This folder-based layout allows you to co-locate images and other assets with your posts. For simple, asset-free posts, you can also write a standalone file named `YYYY-slug.md`.
 
 ### Minimal post template
 
@@ -22,6 +22,10 @@ Create a new Markdown file in the `blog/` directory. The filename should follow 
 ---
 slug: my-post-slug
 title: "Post Title Here"
+date: 2026-07-12
+last_update:
+  date: 2026-07-12
+  author: Zach Cutler
 authors:
   - name: Zach Cutler
 tags: [dotnet, tips]
@@ -42,6 +46,8 @@ Rest of the post content goes here. Use standard Markdown.
 | ------------- | -------- | ------------------------------------------ |
 | `slug`        | Yes      | URL path for the post (`/blog/{slug}`)     |
 | `title`       | Yes      | Post title                                 |
+| `date`        | Yes      | Original publication date (`YYYY-MM-DD`)    |
+| `last_update` | No       | Last edit date and author override block   |
 | `authors`     | Yes      | Inline author metadata for SEO tags        |
 | `tags`        | Yes      | Tag key(s) from `blog/tags.yml`            |
 | `description` | Yes      | SEO meta description / social card summary |
