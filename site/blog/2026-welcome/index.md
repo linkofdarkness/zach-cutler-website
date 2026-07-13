@@ -12,6 +12,8 @@ description: "Introducing my new tech blog — what to expect and why I'm writin
 keywords: [tech blog, software development, web development, introduction]
 ---
 
+![Developer workspace at sunrise](welcome-hero.png)
+
 Welcome! I'm Zach Cutler, and this is my new tech blog.
 
 After 10+ years of building software professionally, I've decided it's time to start writing about the things I discover, the projects I work on, and the knowledge I think is worth sharing with other developers.
