@@ -129,11 +129,11 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/zachcutler',
+              href: 'https://github.com/linkofdarkness',
             },
             {
               label: 'LinkedIn',
-              href: 'https://linkedin.com/in/zachcutler',
+              href: 'https://linkedin.com/in/zacharytcutler',
             },
           ],
         },
