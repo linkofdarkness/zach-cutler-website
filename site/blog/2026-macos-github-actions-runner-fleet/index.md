@@ -12,6 +12,8 @@ description: "How this machine hosts multiple self-hosted GitHub Actions runners
 keywords: [GitHub Actions, self-hosted runners, macOS, LaunchDaemons, launchd, CI, automation, DevOps]
 ---
 
+![Mac mini running multiple GitHub Actions pipeline flows](./runner-fleet-hero.png)
+
 GitHub Actions are awesome. They make it easy to run compilation and tests on pull requests, automate release pipelines, publish packages, and keep project automation close to the code it supports.
 
 For public repositories, that can all be free. For private repositories and heavier usage, the hosted runner minutes can start to add up. Instead of paying for more usage, I wanted to put an existing Mac mini to work and let it handle a meaningful chunk of my CI load. Cost was the starting point, but self-hosted runners also provide larger local caches, access to Apple tooling, a persistent environment, private network reachability, and more control over how CI capacity is carved up.
