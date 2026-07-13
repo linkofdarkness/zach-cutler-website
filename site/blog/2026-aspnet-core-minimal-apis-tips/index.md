@@ -12,6 +12,8 @@ description: "Practical tips for working with ASP.NET Core Minimal APIs — from
 keywords: [ASP.NET Core, Minimal APIs, C#, .NET, web API, tips]
 ---
 
+![ASP.NET Core Minimal APIs architecture](minimal-apis-hero.png)
+
 Minimal APIs in ASP.NET Core have come a long way since their introduction in .NET 6. After using them in several projects, here are five things I wish I'd known from the start.
 
 <!-- truncate -->
