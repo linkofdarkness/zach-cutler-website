@@ -3,7 +3,7 @@ slug: 2026-macos-github-actions-runner-fleet
 title: "Running a Small GitHub Actions Runner Fleet on macOS"
 date: 2026-07-11
 last_update:
-  date: 2026-07-11
+  date: 2026-11-07
   author: Zach Cutler
 authors:
   - name: Zach Cutler
@@ -11,6 +11,8 @@ tags: [github, github-actions, macos, automation, devops]
 description: "How this machine hosts multiple self-hosted GitHub Actions runners with a dedicated macOS account, isolated runner directories, and LaunchDaemons."
 keywords: [GitHub Actions, self-hosted runners, macOS, LaunchDaemons, launchd, CI, automation, DevOps]
 ---
+
+> **Edit — November 7, 2026:** I am moving toward disposable Linux and macOS VMs instead of reused runner environments. See [From Persistent Runners to Disposable Linux and macOS VMs on a Mac mini](/blog/2026-ephemeral-github-actions-runners-with-tart) for the Tart-based approach, explicit workflow dependencies, and the .NET manager being built around it.
 
 ![Mac mini running multiple GitHub Actions pipeline flows](./runner-fleet-hero.png)
 
